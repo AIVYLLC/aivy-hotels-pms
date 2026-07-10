@@ -220,6 +220,54 @@ footer{background:#080E07;color:rgba(255,255,255,.65);padding:4rem 2.5rem 2.5rem
 .foot-links a{font-size:.8rem;color:rgba(255,255,255,.35);transition:color .15s}
 .foot-links a:hover{color:rgba(255,255,255,.8)}
 
+/* ── MODALS ──────────────────────────────────────────────── */
+.modal-overlay{position:fixed;inset:0;background:rgba(0,0,0,.6);backdrop-filter:blur(5px);z-index:1000;display:flex;align-items:center;justify-content:center;padding:1.25rem;opacity:0;pointer-events:none;transition:opacity .2s}
+.modal-overlay.open{opacity:1;pointer-events:all}
+.modal{background:var(--surface);border:1px solid var(--border);border-radius:16px;max-width:580px;width:100%;max-height:92vh;overflow-y:auto;position:relative;box-shadow:0 32px 80px rgba(0,0,0,.3);scrollbar-width:thin}
+.modal-x{position:sticky;top:0;z-index:2;display:flex;justify-content:flex-end;padding:.8rem .8rem 0;background:var(--surface)}
+.modal-x button{background:var(--bg-alt);border:1px solid var(--border);border-radius:50%;width:30px;height:30px;cursor:pointer;font-size:.85rem;color:var(--t2);display:flex;align-items:center;justify-content:center;font-family:inherit;transition:background .15s}
+.modal-x button:hover{background:var(--border)}
+.modal-body{padding:0 2rem 2.25rem}
+.modal-body h2{font-size:1.45rem;font-weight:900;letter-spacing:-.03em;color:var(--text);line-height:1.2;margin-bottom:.6rem}
+.modal-body .m-sub{font-size:.9rem;color:var(--t2);line-height:1.6;margin-bottom:1.75rem}
+.modal-body .m-sub strong{color:var(--accent)}
+
+/* Form */
+.form-q{margin-bottom:1.5rem}
+.form-q-label{font-size:.78rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--t3);margin-bottom:.65rem;display:block}
+.radio-grid{display:grid;grid-template-columns:1fr 1fr;gap:.5rem}
+.radio-grid.single{grid-template-columns:1fr}
+.radio-opt{display:flex;align-items:center;gap:.6rem;padding:.6rem .85rem;border:1px solid var(--border);border-radius:8px;cursor:pointer;transition:border-color .15s,background .15s;font-size:.875rem;color:var(--t2)}
+.radio-opt:hover{border-color:var(--accent);color:var(--text)}
+.radio-opt input{accent-color:var(--accent);width:14px;height:14px;flex-shrink:0}
+.radio-opt.checked{border-color:var(--accent);background:var(--ac-d);color:var(--text)}
+.form-input{width:100%;padding:.7rem 1rem;background:var(--bg-alt);border:1px solid var(--border);border-radius:8px;font-family:inherit;font-size:.9375rem;color:var(--text);outline:none;transition:border-color .15s}
+.form-input:focus{border-color:var(--accent)}
+.form-input::placeholder{color:var(--t3)}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:.75rem;margin-bottom:1.5rem}
+.form-field{display:flex;flex-direction:column;gap:.4rem}
+.form-field label{font-size:.78rem;font-weight:700;letter-spacing:.05em;text-transform:uppercase;color:var(--t3)}
+.form-divider{border:none;border-top:1px solid var(--border);margin:1.75rem 0}
+.form-submit{width:100%;background:var(--accent);color:#fff;font-size:1rem;font-weight:800;padding:.85rem;border-radius:10px;border:none;cursor:pointer;font-family:inherit;letter-spacing:.01em;transition:opacity .15s;margin-top:.25rem}
+.form-submit:hover{opacity:.88}
+.form-note{font-size:.75rem;color:var(--t3);text-align:center;margin-top:.75rem;line-height:1.5}
+.form-success{text-align:center;padding:1.5rem 0}
+.form-success-icon{font-size:2.5rem;margin-bottom:.75rem}
+.form-success h3{font-size:1.2rem;font-weight:800;color:var(--text);margin-bottom:.5rem}
+.form-success p{font-size:.9rem;color:var(--t2);line-height:1.6;margin-bottom:1.25rem}
+.form-success .wa-btn{display:inline-flex;align-items:center;gap:.5rem;background:#25D366;color:#fff;font-weight:700;font-size:.9375rem;padding:.7rem 1.5rem;border-radius:8px;text-decoration:none;transition:opacity .15s}
+.form-success .wa-btn:hover{opacity:.88}
+
+/* Legal modals */
+.legal-body{padding:0 2rem 2.25rem;color:var(--t2);font-size:.9rem;line-height:1.75}
+.legal-body h2{font-size:1.3rem;font-weight:900;color:var(--text);margin-bottom:.35rem}
+.legal-body .legal-date{font-size:.75rem;color:var(--t3);margin-bottom:1.75rem;display:block}
+.legal-body h3{font-size:.875rem;font-weight:700;color:var(--text);margin:1.5rem 0 .4rem;letter-spacing:.01em}
+.legal-body p{margin-bottom:.85rem}
+.legal-body ul{padding-left:1.25rem;margin-bottom:.85rem}
+.legal-body ul li{margin-bottom:.35rem}
+.legal-body a{color:var(--accent)}
+
 /* ── RESPONSIVE ──────────────────────────────────────────── */
 @media(max-width:960px){
   .hero-outer{grid-template-columns:1fr;min-height:auto}
@@ -263,7 +311,7 @@ footer{background:#080E07;color:rgba(255,255,255,.65);padding:4rem 2.5rem 2.5rem
     <button class="theme-toggle" id="themeToggle" aria-label="Cambia tema">
       <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>
     </button>
-    <a href="#" class="nav-cta">Prenota demo →</a>
+    <a href="#" onclick="openModal('modal-demo');return false" class="nav-cta">Prenota demo →</a>
   </div>
 </nav>
 
@@ -283,8 +331,8 @@ footer{background:#080E07;color:rgba(255,255,255,.65);padding:4rem 2.5rem 2.5rem
       AutoReception centralizza ogni canale di comunicazione degli ospiti in un unico sistema AI — risponde in secondi, 24 ore su 24, senza personale notturno e senza un messaggio perso.
     </p>
     <div class="hero-actions">
-      <a href="#" class="btn-p">Scopri AutoReception →</a>
-      <a href="#" class="btn-g">Come funziona</a>
+      <a href="#canali" class="btn-p">Scopri AutoReception →</a>
+      <a href="#come-funziona" class="btn-g">Come funziona</a>
     </div>
   </div>
 
@@ -582,8 +630,8 @@ footer{background:#080E07;color:rgba(255,255,255,.65);padding:4rem 2.5rem 2.5rem
   <h2 class="cta-h">Il vostro hotel, sempre raggiungibile.</h2>
   <p class="cta-sub">Pilota AutoReception su una struttura — misuriamo insieme tempi di risposta, soddisfazione ospiti e risparmio operativo. Setup in meno di una settimana.</p>
   <div class="cta-row">
-    <a href="#" class="btn-white">Prenota una demo →</a>
-    <a href="#" class="btn-outline-white">Contatta Aivy Solutions</a>
+    <a href="#" onclick="openModal('modal-demo');return false" class="btn-white">Prenota una demo →</a>
+    <a href="https://wa.me/12676321250" target="_blank" rel="noopener" class="btn-outline-white">Contatta Aivy Solutions</a>
   </div>
   <p class="cta-note">Nessun costo di attivazione · Pilot su una proprietà · Risultati misurabili in 30 giorni</p>
 </section>
@@ -614,28 +662,252 @@ footer{background:#080E07;color:rgba(255,255,255,.65);padding:4rem 2.5rem 2.5rem
       </div>
       <div class="foot-col">
         <h4>Aivy Solutions</h4>
-        <a href="#">Chi siamo</a>
-        <a href="#">Vision</a>
-        <a href="#">Contatti</a>
-        <a href="#">getaivy.info</a>
+        <a href="https://www.getaivy.info" target="_blank" rel="noopener">getaivy.info</a>
+        <a href="https://wa.me/12676321250" target="_blank" rel="noopener">Contatti WhatsApp</a>
+        <a href="#" onclick="openModal('modal-demo');return false">Prenota demo</a>
       </div>
       <div class="foot-col">
-        <h4>Supporto</h4>
-        <a href="#">Documentazione</a>
-        <a href="#">Stato servizi</a>
-        <a href="#">Sicurezza e privacy</a>
+        <h4>Legale</h4>
+        <a href="#" onclick="openModal('modal-privacy');return false">Privacy Policy</a>
+        <a href="#" onclick="openModal('modal-termini');return false">Termini di servizio</a>
+        <a href="#" onclick="openModal('modal-cookie');return false">Cookie Policy</a>
       </div>
     </div>
   </div>
   <div class="foot-bottom">
     <p>© 2025 Aivy Solutions. AutoReception è un prodotto Aivy Solutions LLC.</p>
     <div class="foot-links">
-      <a href="#">Privacy</a>
-      <a href="#">Termini</a>
-      <a href="#">Cookie</a>
+      <a href="#" onclick="openModal('modal-privacy');return false">Privacy</a>
+      <a href="#" onclick="openModal('modal-termini');return false">Termini</a>
+      <a href="#" onclick="openModal('modal-cookie');return false">Cookie</a>
     </div>
   </div>
 </footer>
+
+<!-- ═══════════════════════════════════════════════════════
+     MODALS
+══════════════════════════════════════════════════════════ -->
+
+<!-- DEMO FORM MODAL -->
+<div class="modal-overlay" id="modal-demo" onclick="handleOverlayClick(event,'modal-demo')">
+  <div class="modal">
+    <div class="modal-x"><button onclick="closeModal('modal-demo')" aria-label="Chiudi">✕</button></div>
+    <div class="modal-body">
+      <h2>Candidati al Pilot Program</h2>
+      <p class="m-sub">Selezioniamo <strong>5 strutture al mese</strong>. Rispondiamo entro 24 ore a chi è il fit giusto. Ci vogliono 2 minuti.</p>
+
+      <div id="demoForm">
+        <!-- Q1 -->
+        <div class="form-q">
+          <span class="form-q-label">Tipo di struttura</span>
+          <div class="radio-grid">
+            <label class="radio-opt"><input type="radio" name="tipo" value="Hotel / Albergo"> Hotel / Albergo</label>
+            <label class="radio-opt"><input type="radio" name="tipo" value="B&B o Agriturismo"> B&B o Agriturismo</label>
+            <label class="radio-opt"><input type="radio" name="tipo" value="Appartamenti / Case vacanza"> Appartamenti / Case vacanza</label>
+            <label class="radio-opt"><input type="radio" name="tipo" value="Altra struttura ricettiva"> Altra struttura ricettiva</label>
+          </div>
+        </div>
+
+        <!-- Q2 -->
+        <div class="form-q">
+          <span class="form-q-label">Numero di camere / unità</span>
+          <div class="radio-grid">
+            <label class="radio-opt"><input type="radio" name="camere" value="Meno di 10"> Meno di 10</label>
+            <label class="radio-opt"><input type="radio" name="camere" value="10–30 camere"> 10–30 camere</label>
+            <label class="radio-opt"><input type="radio" name="camere" value="31–80 camere"> 31–80 camere</label>
+            <label class="radio-opt"><input type="radio" name="camere" value="Più di 80 camere"> Più di 80 camere</label>
+          </div>
+        </div>
+
+        <!-- Q3 -->
+        <div class="form-q">
+          <span class="form-q-label">Qual è il tuo problema più urgente oggi?</span>
+          <div class="radio-grid single">
+            <label class="radio-opt"><input type="radio" name="problema" value="Non riusciamo a rispondere agli ospiti di notte"> Non riusciamo a rispondere agli ospiti di notte</label>
+            <label class="radio-opt"><input type="radio" name="problema" value="Perdiamo prenotazioni per mancanza di risposta rapida"> Perdiamo prenotazioni per risposta lenta</label>
+            <label class="radio-opt"><input type="radio" name="problema" value="Il personale è sopraffatto da richieste ripetitive"> Il personale è sopraffatto da richieste ripetitive</label>
+            <label class="radio-opt"><input type="radio" name="problema" value="I costi di reception notturna sono troppo alti"> I costi di reception notturna sono troppo alti</label>
+            <label class="radio-opt"><input type="radio" name="problema" value="Voglio offrire un servizio migliore senza assumere"> Voglio scalare il servizio senza assumere</label>
+          </div>
+        </div>
+
+        <!-- Q4 -->
+        <div class="form-q">
+          <span class="form-q-label">Hai già provato soluzioni simili?</span>
+          <div class="radio-grid single">
+            <label class="radio-opt"><input type="radio" name="esperienza" value="No, mai provato"> No, mai provato</label>
+            <label class="radio-opt"><input type="radio" name="esperienza" value="Sì, ma non ha funzionato come speravo"> Sì, ma non ha funzionato come speravo</label>
+            <label class="radio-opt"><input type="radio" name="esperienza" value="Sì, ho ancora una soluzione attiva"> Sì, ho ancora una soluzione attiva</label>
+          </div>
+        </div>
+
+        <!-- Q5 -->
+        <div class="form-q">
+          <span class="form-q-label">Quando vuoi iniziare?</span>
+          <div class="radio-grid single">
+            <label class="radio-opt"><input type="radio" name="timing" value="Subito (entro 2 settimane)"> Subito — entro 2 settimane</label>
+            <label class="radio-opt"><input type="radio" name="timing" value="Entro 30 giorni"> Entro 30 giorni</label>
+            <label class="radio-opt"><input type="radio" name="timing" value="Sto solo esplorando per ora"> Sto ancora esplorando</label>
+          </div>
+        </div>
+
+        <hr class="form-divider">
+
+        <!-- Contact -->
+        <div class="form-row">
+          <div class="form-field">
+            <label for="f-nome">Nome e cognome *</label>
+            <input type="text" id="f-nome" class="form-input" placeholder="Mario Rossi" required>
+          </div>
+          <div class="form-field">
+            <label for="f-struttura">Nome struttura</label>
+            <input type="text" id="f-struttura" class="form-input" placeholder="Hotel Bellavista">
+          </div>
+        </div>
+        <div class="form-field" style="margin-bottom:1.5rem">
+          <label for="f-wa">WhatsApp / Telefono *</label>
+          <input type="tel" id="f-wa" class="form-input" placeholder="+39 333 1234567" required>
+        </div>
+
+        <button class="form-submit" onclick="submitDemo()">Invia candidatura →</button>
+        <p class="form-note">Nessuno spam. Ti contatteremo solo su WhatsApp entro 24 ore se sei il fit giusto.</p>
+      </div>
+
+      <div id="demoSuccess" class="form-success" style="display:none">
+        <div class="form-success-icon">✅</div>
+        <h3>Candidatura ricevuta!</h3>
+        <p>Ti contatteremo su WhatsApp entro 24 ore per capire se AutoReception è il fit giusto per la tua struttura.</p>
+        <a id="waDirectLink" href="https://wa.me/12676321250" target="_blank" rel="noopener" class="wa-btn">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          Scrivici su WhatsApp ora
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- PRIVACY MODAL -->
+<div class="modal-overlay" id="modal-privacy" onclick="handleOverlayClick(event,'modal-privacy')">
+  <div class="modal">
+    <div class="modal-x"><button onclick="closeModal('modal-privacy')" aria-label="Chiudi">✕</button></div>
+    <div class="legal-body">
+      <h2>Privacy Policy</h2>
+      <span class="legal-date">Ultimo aggiornamento: 1 luglio 2025</span>
+
+      <h3>1. Titolare del trattamento</h3>
+      <p>Aivy Solutions LLC, con sede legale negli Stati Uniti d'America (di seguito "Aivy", "noi" o "ci"). Per qualsiasi questione relativa al trattamento dei tuoi dati puoi contattarci via WhatsApp al +1 267 632 1250 oppure all'indirizzo email <a href="mailto:info@getaivy.info">info@getaivy.info</a>.</p>
+
+      <h3>2. Dati raccolti e finalità</h3>
+      <p>Raccogliamo esclusivamente i dati che ci fornisci volontariamente attraverso il modulo di candidatura presente su questo sito:</p>
+      <ul>
+        <li><strong>Dati identificativi:</strong> nome, cognome, nome della struttura ricettiva.</li>
+        <li><strong>Dati di contatto:</strong> numero di telefono / WhatsApp.</li>
+        <li><strong>Dati informativi:</strong> tipo di struttura, numero di camere, problematica principale, intenzione di acquisto.</li>
+      </ul>
+      <p>Questi dati vengono trattati per le seguenti finalità:</p>
+      <ul>
+        <li>Rispondere alla tua richiesta di informazioni su AutoReception (base giuridica: esecuzione di misure precontrattuali, art. 6(1)(b) GDPR).</li>
+        <li>Inviarti comunicazioni commerciali relative ai servizi Aivy Solutions, previo consenso (art. 6(1)(a) GDPR).</li>
+      </ul>
+
+      <h3>3. Modalità di trattamento e conservazione</h3>
+      <p>I dati vengono trasmessi in modo sicuro tramite il servizio WhatsApp di Meta Inc. e conservati per un periodo non superiore a <strong>24 mesi</strong> dalla raccolta, salvo obblighi di legge. Non utilizziamo sistemi di profilazione automatizzata né prendiamo decisioni automatizzate che producano effetti giuridici.</p>
+
+      <h3>4. Comunicazione a terzi</h3>
+      <p>I tuoi dati non vengono venduti né ceduti a terzi a fini commerciali. Possono essere condivisi esclusivamente con fornitori di servizi tecnici strettamente necessari all'erogazione del servizio (es. servizi di messaggistica), vincolati da accordi di riservatezza conformi al GDPR.</p>
+
+      <h3>5. Trasferimento internazionale dei dati</h3>
+      <p>In quanto società statunitense, i dati potrebbero essere trattati al di fuori dello Spazio Economico Europeo. In tal caso, ci impegniamo ad adottare garanzie adeguate (es. Clausole Contrattuali Standard della Commissione Europea) per assicurare un livello di protezione equivalente a quello garantito dal GDPR.</p>
+
+      <h3>6. I tuoi diritti</h3>
+      <p>In qualità di interessato, hai diritto di:</p>
+      <ul>
+        <li>Accedere ai tuoi dati personali (art. 15 GDPR)</li>
+        <li>Rettificare i dati inesatti (art. 16 GDPR)</li>
+        <li>Richiedere la cancellazione (art. 17 GDPR)</li>
+        <li>Limitare il trattamento (art. 18 GDPR)</li>
+        <li>Ricevere i tuoi dati in formato portabile (art. 20 GDPR)</li>
+        <li>Opporti al trattamento (art. 21 GDPR)</li>
+        <li>Revocare il consenso in qualsiasi momento, senza pregiudicare la liceità del trattamento precedente</li>
+      </ul>
+      <p>Per esercitare i tuoi diritti, scrivici a <a href="mailto:info@getaivy.info">info@getaivy.info</a>. Hai inoltre diritto di proporre reclamo al Garante per la protezione dei dati personali (<a href="https://www.garanteprivacy.it" target="_blank" rel="noopener">www.garanteprivacy.it</a>).</p>
+
+      <h3>7. Cookie</h3>
+      <p>Questo sito utilizza esclusivamente cookie tecnici necessari al funzionamento della pagina. Non vengono installati cookie di profilazione o di marketing senza il tuo esplicito consenso. Per maggiori informazioni consulta la nostra <a href="#" onclick="closeModal('modal-privacy');openModal('modal-cookie');return false">Cookie Policy</a>.</p>
+    </div>
+  </div>
+</div>
+
+<!-- TERMINI MODAL -->
+<div class="modal-overlay" id="modal-termini" onclick="handleOverlayClick(event,'modal-termini')">
+  <div class="modal">
+    <div class="modal-x"><button onclick="closeModal('modal-termini')" aria-label="Chiudi">✕</button></div>
+    <div class="legal-body">
+      <h2>Termini di Servizio</h2>
+      <span class="legal-date">Ultimo aggiornamento: 1 luglio 2025</span>
+
+      <h3>1. Accettazione dei termini</h3>
+      <p>L'utilizzo del sito web autoreception.getaivy.info e la richiesta di informazioni sui servizi AutoReception implicano l'accettazione dei presenti Termini di Servizio. Se non accetti questi termini, ti preghiamo di non utilizzare il sito.</p>
+
+      <h3>2. Descrizione del servizio</h3>
+      <p>AutoReception è un servizio di receptionist virtuale basato su intelligenza artificiale sviluppato da Aivy Solutions LLC, progettato per strutture ricettive italiane. Il servizio gestisce comunicazioni multicanale con gli ospiti (voce, WhatsApp, SMS, email, OTA, recensioni) 24 ore su 24, 7 giorni su 7.</p>
+      <p>Il presente sito ha finalità esclusivamente informative e di acquisizione contatti. Il contratto di servizio vero e proprio viene stipulato separatamente tra Aivy Solutions LLC e il cliente.</p>
+
+      <h3>3. Proprietà intellettuale</h3>
+      <p>Tutti i contenuti presenti su questo sito (testi, grafica, loghi, software, denominazioni) sono di proprietà esclusiva di Aivy Solutions LLC e sono protetti dalle leggi sul diritto d'autore e sulla proprietà intellettuale applicabili. È vietata qualsiasi riproduzione, distribuzione o utilizzo non autorizzato.</p>
+
+      <h3>4. Limitazione di responsabilità</h3>
+      <p>Le informazioni contenute in questo sito sono fornite a scopo illustrativo. Aivy Solutions LLC non garantisce che il sito sia privo di errori o interruzioni. In nessun caso Aivy Solutions LLC sarà responsabile per danni diretti, indiretti, incidentali o consequenziali derivanti dall'uso o dall'impossibilità di utilizzare il sito.</p>
+      <p>Il simulatore di risposta AI presente nel sito è uno strumento dimostrativo con risposte predefinite e non rappresenta il comportamento effettivo del sistema AutoReception in produzione.</p>
+
+      <h3>5. Modifiche ai termini</h3>
+      <p>Aivy Solutions LLC si riserva il diritto di modificare i presenti Termini in qualsiasi momento. Le modifiche saranno efficaci dalla data di pubblicazione sul sito. L'utilizzo continuato del sito dopo la pubblicazione delle modifiche costituisce accettazione dei nuovi Termini.</p>
+
+      <h3>6. Legge applicabile e foro competente</h3>
+      <p>I presenti Termini sono regolati dalle leggi dello Stato del Delaware, USA. Per i consumatori residenti nell'Unione Europea, rimangono applicabili le disposizioni inderogabili di protezione previste dalla legislazione del paese di residenza dell'utente.</p>
+
+      <h3>7. Contatti</h3>
+      <p>Per qualsiasi questione relativa ai presenti Termini: <a href="mailto:info@getaivy.info">info@getaivy.info</a> oppure WhatsApp +1 267 632 1250.</p>
+    </div>
+  </div>
+</div>
+
+<!-- COOKIE MODAL -->
+<div class="modal-overlay" id="modal-cookie" onclick="handleOverlayClick(event,'modal-cookie')">
+  <div class="modal">
+    <div class="modal-x"><button onclick="closeModal('modal-cookie')" aria-label="Chiudi">✕</button></div>
+    <div class="legal-body">
+      <h2>Cookie Policy</h2>
+      <span class="legal-date">Ultimo aggiornamento: 1 luglio 2025</span>
+
+      <h3>Cosa sono i cookie</h3>
+      <p>I cookie sono piccoli file di testo che i siti web salvano sul tuo dispositivo durante la navigazione. Vengono utilizzati per far funzionare correttamente il sito e per raccogliere informazioni anonime sull'utilizzo.</p>
+
+      <h3>Cookie utilizzati da questo sito</h3>
+      <p>Questo sito utilizza esclusivamente <strong>cookie tecnici essenziali</strong>, necessari per il corretto funzionamento della pagina:</p>
+      <ul>
+        <li><strong>Preferenza tema</strong> (chiave: <code>theme</code>, durata: sessione / localStorage): salva la tua scelta tra modalità chiara e scura per non doverla reimpostare ad ogni visita. Non contiene dati personali.</li>
+      </ul>
+      <p>Non utilizziamo cookie di profilazione, cookie di tracciamento pubblicitario, né cookie di terze parti (Google Analytics, Facebook Pixel o simili).</p>
+
+      <h3>Come gestire i cookie</h3>
+      <p>Puoi controllare e cancellare i cookie attraverso le impostazioni del tuo browser. Di seguito i link alle istruzioni per i browser più comuni:</p>
+      <ul>
+        <li><a href="https://support.google.com/chrome/answer/95647" target="_blank" rel="noopener">Google Chrome</a></li>
+        <li><a href="https://support.mozilla.org/it/kb/protezione-antitracciamento-avanzata-firefox" target="_blank" rel="noopener">Mozilla Firefox</a></li>
+        <li><a href="https://support.apple.com/it-it/guide/safari/sfri11471/mac" target="_blank" rel="noopener">Safari</a></li>
+        <li><a href="https://support.microsoft.com/it-it/microsoft-edge/eliminare-i-cookie-in-microsoft-edge-63947406-40ac-c3b8-57b9-2a946a29ae09" target="_blank" rel="noopener">Microsoft Edge</a></li>
+      </ul>
+      <p>La disabilitazione del cookie di preferenza tema non pregiudica la fruibilità del sito: la pagina utilizzerà semplicemente la preferenza di sistema del tuo dispositivo.</p>
+
+      <h3>Aggiornamenti alla Cookie Policy</h3>
+      <p>Ci riserviamo il diritto di aggiornare questa Cookie Policy in caso di modifiche tecniche al sito o cambiamenti normativi. La data in cima a questa pagina indica l'ultimo aggiornamento.</p>
+
+      <h3>Contatti</h3>
+      <p>Per domande sui cookie o sul trattamento dei dati: <a href="mailto:info@getaivy.info">info@getaivy.info</a>.</p>
+    </div>
+  </div>
+</div>
 
 <script>
 /* THEME */
@@ -902,4 +1174,64 @@ function runSim(){
 document.getElementById('simInput').addEventListener('keydown',e=>{
   if((e.ctrlKey||e.metaKey)&&e.key==='Enter')runSim();
 });
+
+/* ── MODALS ──────────────────────────────────────────────── */
+function openModal(id){
+  document.getElementById(id).classList.add('open');
+  document.body.style.overflow='hidden';
+}
+function closeModal(id){
+  document.getElementById(id).classList.remove('open');
+  document.body.style.overflow='';
+}
+function handleOverlayClick(e,id){
+  if(e.target===e.currentTarget)closeModal(id);
+}
+document.addEventListener('keydown',e=>{
+  if(e.key==='Escape'){
+    document.querySelectorAll('.modal-overlay.open').forEach(m=>m.classList.remove('open'));
+    document.body.style.overflow='';
+  }
+});
+
+/* Radio opt highlight */
+document.querySelectorAll('.radio-opt input').forEach(input=>{
+  input.addEventListener('change',()=>{
+    const name=input.name;
+    document.querySelectorAll(`.radio-opt input[name="${name}"]`).forEach(r=>{
+      r.closest('.radio-opt').classList.toggle('checked',r.checked);
+    });
+  });
+});
+
+/* Demo form submit → WhatsApp */
+function submitDemo(){
+  const nome=document.getElementById('f-nome').value.trim();
+  const wa=document.getElementById('f-wa').value.trim();
+  if(!nome){alert('Inserisci il tuo nome.');return;}
+  if(!wa){alert('Inserisci il tuo numero WhatsApp.');return;}
+
+  const get=name=>{const r=document.querySelector(`input[name="${name}"]:checked`);return r?r.value:'Non specificato'};
+  const struttura=document.getElementById('f-struttura').value.trim()||'Non specificata';
+
+  const msg=[
+    '🏨 *NUOVA CANDIDATURA AUTORECEPTION*',
+    '',
+    `👤 Nome: ${nome}`,
+    `🏠 Struttura: ${struttura}`,
+    `📱 WhatsApp: ${wa}`,
+    '',
+    `📋 Tipo: ${get('tipo')}`,
+    `🛏️ Camere: ${get('camere')}`,
+    `⚡ Problema principale: ${get('problema')}`,
+    `🔍 Esperienza precedente: ${get('esperienza')}`,
+    `🗓️ Timing: ${get('timing')}`,
+  ].join('\n');
+
+  const url='https://wa.me/12676321250?text='+encodeURIComponent(msg);
+  document.getElementById('waDirectLink').href=url;
+  document.getElementById('demoForm').style.display='none';
+  document.getElementById('demoSuccess').style.display='block';
+  window.open(url,'_blank');
+}
 </script>
