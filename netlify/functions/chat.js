@@ -42,7 +42,7 @@ exports.handler = async (event) => {
     return { statusCode: 405, headers, body: JSON.stringify({ error: 'Method not allowed' }) };
   }
 
-  if (!process.env.ANTHROPIC_API_KEY) {
+  if (!process.env.OPENAI_API_KEY) {
     return { statusCode: 500, headers, body: JSON.stringify({ error: 'API key not configured' }) };
   }
 
@@ -55,21 +55,22 @@ exports.handler = async (event) => {
   }
 
   const payload = JSON.stringify({
-    model: 'claude-haiku-4-5-20251001',
+    model: 'gpt-4o-mini',
     max_tokens: 350,
-    system: SYSTEM,
-    messages: messages.slice(-12),
+    messages: [
+      { role: 'system', content: SYSTEM },
+      ...messages.slice(-12),
+    ],
   });
 
   return new Promise((resolve) => {
     const req = https.request({
-      hostname: 'api.anthropic.com',
-      path: '/v1/messages',
+      hostname: 'api.openai.com',
+      path: '/v1/chat/completions',
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
-        'x-api-key': process.env.ANTHROPIC_API_KEY,
-        'anthropic-version': '2023-06-01',
+        'Authorization': `Bearer ${process.env.OPENAI_API_KEY}`,
         'Content-Length': Buffer.byteLength(payload),
       },
     }, (res) => {
@@ -78,8 +79,9 @@ exports.handler = async (event) => {
       res.on('end', () => {
         try {
           const parsed = JSON.parse(data);
-          if (parsed.content?.[0]?.text) {
-            resolve({ statusCode: 200, headers, body: JSON.stringify({ text: parsed.content[0].text }) });
+          const text = parsed.choices?.[0]?.message?.content;
+          if (text) {
+            resolve({ statusCode: 200, headers, body: JSON.stringify({ text }) });
           } else {
             resolve({ statusCode: 502, headers, body: JSON.stringify({ error: 'Upstream error' }) });
           }
