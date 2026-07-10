@@ -1,232 +1,229 @@
-<title>IV Priority Management — IV Package, Receptionist AI 24/7</title>
+<title>AutoReception — Receptionist AI 24/7 | Aivy Solutions</title>
 <style>
 /* ── TOKENS ─────────────────────────────────────────────── */
 :root {
-  --bg:      #ECEAE3;
-  --bg-alt:  #F5F4EF;
+  --bg:      #F0F8EE;
+  --bg-alt:  #E8F4E6;
   --surface: #FFFFFF;
-  --sf2:     #F8F7F3;
-  --text:    #121820;
-  --t2:      #485060;
-  --t3:      #8A90A0;
-  --accent:  #B8881E;
-  --ac-d:    rgba(184,136,30,.10);
-  --ac-b:    rgba(184,136,30,.28);
-  --blue:    #2A5F8C;
-  --bl-d:    rgba(42,95,140,.10);
-  --green:   #226B3F;
-  --gr-d:    rgba(34,107,63,.10);
-  --border:  rgba(18,24,32,.09);
-  --bdr-s:   rgba(18,24,32,.16);
-  --nav-bg:  rgba(236,234,227,.93);
-  --shadow:  0 1px 3px rgba(0,0,0,.04),0 4px 14px rgba(0,0,0,.05);
+  --sf2:     #F6FBF5;
+  --text:    #0C1A0A;
+  --t2:      #3A4D38;
+  --t3:      #7A9278;
+  --accent:  #2EC92A;
+  --ac-d:    rgba(46,201,42,.10);
+  --ac-b:    rgba(46,201,42,.25);
+  --ac-text: #1A7A18;
+  --border:  rgba(12,26,10,.08);
+  --bdr-s:   rgba(12,26,10,.16);
+  --nav-bg:  rgba(240,248,238,.94);
+  --shadow:  0 2px 8px rgba(12,26,10,.07),0 8px 24px rgba(12,26,10,.05);
+  --hero-r:  #2EC92A;
 }
 @media (prefers-color-scheme:dark){:root{
-  --bg:#07101C;--bg-alt:#0C1628;--surface:#0F1E30;--sf2:#142235;
-  --text:#E2E6F0;--t2:#94A0B8;--t3:#4E5870;
-  --accent:#CCA030;--ac-d:rgba(204,160,48,.12);--ac-b:rgba(204,160,48,.30);
-  --blue:#4888CC;--bl-d:rgba(72,136,204,.12);
-  --green:#38A860;--gr-d:rgba(56,168,96,.12);
-  --border:rgba(226,230,240,.07);--bdr-s:rgba(226,230,240,.14);
-  --nav-bg:rgba(7,16,28,.93);
-  --shadow:0 1px 3px rgba(0,0,0,.25),0 4px 18px rgba(0,0,0,.22);
+  --bg:#08140A;--bg-alt:#0C1A0C;--surface:#102010;--sf2:#132413;
+  --text:#E0F0DE;--t2:#90A88E;--t3:#4C644A;
+  --accent:#3DD639;--ac-d:rgba(61,214,57,.12);--ac-b:rgba(61,214,57,.28);
+  --ac-text:#3DD639;
+  --border:rgba(224,240,222,.07);--bdr-s:rgba(224,240,222,.14);
+  --nav-bg:rgba(8,20,10,.94);
+  --shadow:0 2px 8px rgba(0,0,0,.3),0 8px 24px rgba(0,0,0,.22);
+  --hero-r:#132A11;
 }}
-:root[data-theme="light"]{--bg:#ECEAE3;--bg-alt:#F5F4EF;--surface:#FFFFFF;--sf2:#F8F7F3;--text:#121820;--t2:#485060;--t3:#8A90A0;--accent:#B8881E;--ac-d:rgba(184,136,30,.10);--ac-b:rgba(184,136,30,.28);--blue:#2A5F8C;--bl-d:rgba(42,95,140,.10);--green:#226B3F;--gr-d:rgba(34,107,63,.10);--border:rgba(18,24,32,.09);--bdr-s:rgba(18,24,32,.16);--nav-bg:rgba(236,234,227,.93);--shadow:0 1px 3px rgba(0,0,0,.04),0 4px 14px rgba(0,0,0,.05)}
-:root[data-theme="dark"]{--bg:#07101C;--bg-alt:#0C1628;--surface:#0F1E30;--sf2:#142235;--text:#E2E6F0;--t2:#94A0B8;--t3:#4E5870;--accent:#CCA030;--ac-d:rgba(204,160,48,.12);--ac-b:rgba(204,160,48,.30);--blue:#4888CC;--bl-d:rgba(72,136,204,.12);--green:#38A860;--gr-d:rgba(56,168,96,.12);--border:rgba(226,230,240,.07);--bdr-s:rgba(226,230,240,.14);--nav-bg:rgba(7,16,28,.93);--shadow:0 1px 3px rgba(0,0,0,.25),0 4px 18px rgba(0,0,0,.22)}
+:root[data-theme="light"]{--bg:#F0F8EE;--bg-alt:#E8F4E6;--surface:#FFFFFF;--sf2:#F6FBF5;--text:#0C1A0A;--t2:#3A4D38;--t3:#7A9278;--accent:#2EC92A;--ac-d:rgba(46,201,42,.10);--ac-b:rgba(46,201,42,.25);--ac-text:#1A7A18;--border:rgba(12,26,10,.08);--bdr-s:rgba(12,26,10,.16);--nav-bg:rgba(240,248,238,.94);--shadow:0 2px 8px rgba(12,26,10,.07),0 8px 24px rgba(12,26,10,.05);--hero-r:#2EC92A}
+:root[data-theme="dark"]{--bg:#08140A;--bg-alt:#0C1A0C;--surface:#102010;--sf2:#132413;--text:#E0F0DE;--t2:#90A88E;--t3:#4C644A;--accent:#3DD639;--ac-d:rgba(61,214,57,.12);--ac-b:rgba(61,214,57,.28);--ac-text:#3DD639;--border:rgba(224,240,222,.07);--bdr-s:rgba(224,240,222,.14);--nav-bg:rgba(8,20,10,.94);--shadow:0 2px 8px rgba(0,0,0,.3),0 8px 24px rgba(0,0,0,.22);--hero-r:#132A11}
 
 /* ── RESET ──────────────────────────────────────────────── */
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
-body{font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;background:var(--bg);color:var(--text);font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+body{font-family:-apple-system,BlinkMacSystemFont,"Helvetica Neue",system-ui,sans-serif;background:var(--bg);color:var(--text);font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
 a{color:inherit;text-decoration:none}
 button{font-family:inherit;cursor:pointer;border:none;background:none}
 
 /* ── NAV ────────────────────────────────────────────────── */
 nav{position:sticky;top:0;z-index:100;background:var(--nav-bg);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border-bottom:1px solid var(--border)}
-.nav-inner{max-width:1200px;margin:0 auto;padding:0 2rem;height:58px;display:flex;align-items:center;gap:1.5rem}
-.logo{color:var(--text);display:flex;align-items:center;gap:.6rem}
-.logo-iv{font-family:Georgia,"Times New Roman",serif;font-weight:700;font-size:1.6rem;letter-spacing:-0.03em;color:var(--accent);line-height:1}
-.logo-name{font-family:ui-monospace,"SF Mono",Menlo,monospace;font-size:.5rem;font-weight:600;letter-spacing:.09em;text-transform:uppercase;color:var(--t3);line-height:1.4}
-.logo-sep{width:1px;height:22px;background:var(--border);margin:0 .2rem}
-.nav-links{display:flex;gap:1.75rem;margin-left:.5rem;flex:1}
-.nav-links a{color:var(--t2);font-size:.8375rem;font-weight:500;transition:color .15s}
+.nav-inner{max-width:1240px;margin:0 auto;padding:0 2.5rem;height:60px;display:flex;align-items:center;gap:2rem}
+.logo{display:flex;align-items:center;gap:.5rem;color:var(--text)}
+.logo-mark{flex-shrink:0}
+.logo-wordmark{font-size:.9rem;font-weight:800;letter-spacing:-.01em;line-height:1;display:flex;flex-direction:column}
+.logo-aivy{color:var(--text)}
+.logo-sub{font-size:.55rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--t3);margin-top:.05em}
+.nav-divider{width:1px;height:22px;background:var(--border)}
+.nav-product{font-size:.7rem;font-weight:700;letter-spacing:.05em;text-transform:uppercase;color:var(--ac-text)}
+.nav-links{display:flex;gap:2rem;margin-left:auto;flex:1;padding-left:1rem}
+.nav-links a{color:var(--t2);font-size:.875rem;font-weight:500;transition:color .15s}
 .nav-links a:hover{color:var(--text)}
-.theme-toggle{width:32px;height:32px;border-radius:2px;border:1px solid var(--bdr-s);color:var(--t3);display:flex;align-items:center;justify-content:center;transition:color .15s;cursor:pointer}
+.theme-toggle{width:34px;height:34px;border-radius:50%;border:1px solid var(--bdr-s);color:var(--t3);display:flex;align-items:center;justify-content:center;transition:color .15s;cursor:pointer;flex-shrink:0}
 .theme-toggle:hover{color:var(--text)}
-.nav-cta{background:var(--accent);color:#fff;font-size:.8125rem;font-weight:600;padding:.42rem 1.1rem;border-radius:2px;letter-spacing:.01em;transition:opacity .15s;white-space:nowrap}
+.nav-cta{background:var(--accent);color:#fff;font-size:.8125rem;font-weight:700;padding:.5rem 1.25rem;border-radius:6px;letter-spacing:.01em;transition:opacity .15s;white-space:nowrap;flex-shrink:0}
 .nav-cta:hover{opacity:.88}
 
 /* ── HERO ───────────────────────────────────────────────── */
-.hero{max-width:1200px;margin:0 auto;padding:5.5rem 2rem 4.5rem;display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:center}
-.hero-signal{display:inline-flex;align-items:center;gap:.5rem;font-family:ui-monospace,"SF Mono",Menlo,monospace;font-size:.6875rem;font-weight:600;letter-spacing:.06em;color:var(--green);margin-bottom:1.5rem}
-.sig-dot{width:7px;height:7px;border-radius:50%;background:var(--green);animation:gpulse 2.2s ease-in-out infinite}
-@keyframes gpulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.4;transform:scale(.8)}}
+.hero-outer{display:grid;grid-template-columns:52% 48%;min-height:88vh;position:relative;overflow:hidden}
+.hero-left{background:var(--bg);padding:5rem 3.5rem 5rem 6rem;display:flex;flex-direction:column;justify-content:center;clip-path:polygon(0 0,100% 0,92% 100%,0 100%);z-index:1;position:relative}
+.hero-right{background:var(--hero-r);padding:4rem 3rem 4rem 4rem;display:flex;align-items:center;justify-content:center;margin-left:-8%}
 
-.hero-h{font-family:Georgia,"Times New Roman",serif;font-weight:700;letter-spacing:-0.03em;margin-bottom:1.5rem;display:flex;flex-direction:column}
-.hl-channels{font-size:clamp(1.375rem,2.5vw,2.2rem);color:var(--t2);line-height:1.2;margin-bottom:.2em}
-.hl-channels span{color:var(--t3);font-size:.85em}
-.hl-big{font-size:clamp(3rem,6.5vw,6rem);color:var(--accent);font-style:italic;line-height:.95;margin-top:.1em}
+.hero-eyebrow{display:inline-flex;align-items:center;gap:.5rem;background:var(--ac-d);border:1px solid var(--ac-b);border-radius:100px;padding:.3rem .85rem;margin-bottom:2rem;width:fit-content}
+.hero-eyebrow-dot{width:6px;height:6px;border-radius:50%;background:var(--accent);animation:gpulse 2.2s ease-in-out infinite;flex-shrink:0}
+@keyframes gpulse{0%,100%{opacity:1}50%{opacity:.35}}
+.hero-eyebrow-txt{font-size:.65rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--ac-text)}
 
-.hero-body{font-size:1.0625rem;color:var(--t2);line-height:1.72;max-width:44ch;margin-bottom:2.25rem}
-.hero-actions{display:flex;align-items:center;gap:1.5rem;flex-wrap:wrap}
-.btn-p{display:inline-flex;align-items:center;background:var(--accent);color:#fff;font-size:.875rem;font-weight:600;padding:.68rem 1.45rem;border-radius:2px;letter-spacing:.01em;transition:opacity .15s}
+.hero-h{font-size:clamp(2.5rem,5.5vw,5rem);font-weight:900;letter-spacing:-.035em;line-height:1;margin-bottom:1.5rem}
+.hero-h .line1{color:var(--text);display:block}
+.hero-h .line2{color:var(--t2);display:block;font-size:.72em}
+.hero-h .line-ai{color:var(--accent);display:block;font-size:1.15em}
+
+.hero-body{font-size:1.0625rem;color:var(--t2);line-height:1.72;max-width:42ch;margin-bottom:2.5rem}
+.hero-actions{display:flex;align-items:center;gap:1.25rem;flex-wrap:wrap}
+.btn-p{display:inline-flex;align-items:center;gap:.4rem;background:var(--accent);color:#fff;font-size:.9rem;font-weight:700;padding:.72rem 1.5rem;border-radius:8px;letter-spacing:.01em;transition:opacity .15s}
 .btn-p:hover{opacity:.88}
 .btn-g{color:var(--t2);font-size:.875rem;font-weight:500;transition:color .15s}
 .btn-g:hover{color:var(--text)}
 
-/* ── CHANNEL HUB SVG wrapper ────────────────────────────── */
-.hub-wrap{display:flex;align-items:center;justify-content:center;padding:1rem 0}
-.hub-wrap svg{width:100%;max-width:380px;height:auto}
+/* ── CHANNEL HUB (on green bg) ──────────────────────────── */
+.hub-wrap{width:100%;max-width:360px;display:flex;align-items:center;justify-content:center}
+.hub-wrap svg{width:100%;height:auto}
 
 /* ── STRIP ──────────────────────────────────────────────── */
-.strip{background:var(--surface);border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
-.strip-inner{max-width:1200px;margin:0 auto;padding:0 2rem;display:grid;grid-template-columns:3fr 1fr 1fr 1fr}
-.s-item{padding:1.75rem 2rem;border-right:1px solid var(--border)}
+.strip{background:var(--text);color:#fff}
+.strip-inner{max-width:1240px;margin:0 auto;padding:0 2.5rem;display:grid;grid-template-columns:3fr 1fr 1fr 1fr}
+.s-item{padding:1.75rem 2rem;border-right:1px solid rgba(255,255,255,.08)}
 .s-item:first-child{padding-left:0}
 .s-item:last-child{border-right:none}
-.s-val{font-family:Georgia,"Times New Roman",serif;font-size:2.25rem;font-weight:700;letter-spacing:-0.03em;color:var(--text);display:block;margin-bottom:.15rem;line-height:1}
+.s-val{font-size:2.25rem;font-weight:900;letter-spacing:-.04em;color:#fff;display:block;margin-bottom:.2rem;line-height:1}
 .s-val em{font-style:normal;color:var(--accent)}
-.s-lbl{font-size:.8rem;color:var(--t3);line-height:1.45}
-.s-item:first-child .s-val{font-size:1.375rem;font-style:italic;line-height:1.3}
+.s-lbl{font-size:.775rem;color:rgba(255,255,255,.5);line-height:1.5}
+.s-item:first-child .s-val{font-size:1.25rem;font-weight:700;line-height:1.4;letter-spacing:-.01em}
 
 /* ── SECTIONS ───────────────────────────────────────────── */
-.sec-eyebrow{font-size:.6875rem;font-weight:600;letter-spacing:.11em;text-transform:uppercase;color:var(--accent);display:flex;align-items:center;gap:.6rem;margin-bottom:.85rem}
-.sec-eyebrow::before{content:'';width:20px;height:1px;background:var(--accent);flex-shrink:0}
-.sec-h2{font-family:Georgia,"Times New Roman",serif;font-weight:700;letter-spacing:-0.025em;line-height:1.1;text-wrap:balance;font-size:clamp(1.875rem,3vw,2.75rem)}
-.sec-h2 em{font-style:italic;color:var(--accent)}
-.sec-body{font-size:1rem;color:var(--t2);max-width:44ch;line-height:1.7;margin-top:.75rem}
-.wrap{max-width:1200px;margin:0 auto}
-.section{padding:5rem 2rem}
+.sec-eyebrow{font-size:.65rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--ac-text);display:flex;align-items:center;gap:.5rem;margin-bottom:.85rem}
+.sec-eyebrow::before{content:'';width:16px;height:2px;background:var(--accent);border-radius:2px;flex-shrink:0}
+.sec-h2{font-size:clamp(2rem,3.5vw,3rem);font-weight:900;letter-spacing:-.035em;line-height:1.05;text-wrap:balance}
+.sec-h2 em{font-style:normal;color:var(--accent)}
+.sec-body{font-size:1rem;color:var(--t2);max-width:46ch;line-height:1.72;margin-top:.75rem}
+.wrap{max-width:1240px;margin:0 auto}
+.section{padding:5.5rem 2.5rem}
 
 /* ── 6 CHANNELS ─────────────────────────────────────────── */
-.channels-section{background:var(--bg-alt,var(--bg));padding:5rem 2rem}
-.ch-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.25rem;margin-top:3rem}
-.ch-card{background:var(--surface);border:1px solid var(--border);border-radius:4px;padding:1.75rem;transition:border-color .2s,box-shadow .2s}
-.ch-card:hover{border-color:var(--bdr-s);box-shadow:var(--shadow)}
-.ch-card.featured{border-left:3px solid var(--accent)}
-.ch-icon{width:36px;height:36px;border-radius:3px;display:flex;align-items:center;justify-content:center;margin-bottom:1.1rem;flex-shrink:0}
-.ch-name{font-family:Georgia,"Times New Roman",serif;font-size:1.125rem;font-weight:700;letter-spacing:-0.015em;margin-bottom:.5rem;color:var(--text)}
+.ch-section{background:var(--bg-alt);padding:5.5rem 2.5rem}
+.ch-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;margin-top:3rem}
+.ch-card{background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:1.75rem;transition:border-color .2s,transform .2s,box-shadow .2s}
+.ch-card:hover{border-color:var(--accent);transform:translateY(-2px);box-shadow:var(--shadow)}
+.ch-icon{width:38px;height:38px;border-radius:8px;display:flex;align-items:center;justify-content:center;margin-bottom:1.1rem;background:var(--ac-d)}
+.ch-name{font-size:1rem;font-weight:800;letter-spacing:-.015em;margin-bottom:.45rem;color:var(--text)}
 .ch-body{font-size:.875rem;color:var(--t2);line-height:1.65}
-.ch-tag{display:inline-block;margin-top:.9rem;font-size:.6875rem;font-weight:600;letter-spacing:.07em;text-transform:uppercase;padding:.2rem .5rem;border-radius:2px}
-.tag-gold{color:var(--accent);background:var(--ac-d)}
-.tag-blue{color:var(--blue);background:var(--bl-d)}
-.tag-green{color:var(--green);background:var(--gr-d)}
+.ch-pill{display:inline-block;margin-top:.9rem;font-size:.625rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;padding:.2rem .55rem;border-radius:100px;background:var(--ac-d);color:var(--ac-text)}
 
 /* ── HOW IT WORKS ───────────────────────────────────────── */
-.flow-section{background:var(--bg);padding:5rem 2rem}
-.flow-steps{display:grid;grid-template-columns:repeat(5,1fr);gap:0;margin-top:3rem;position:relative}
-.flow-steps::before{content:'';position:absolute;top:22px;left:calc(10% + 22px);right:calc(10% + 22px);height:1px;background:var(--border)}
-.flow-step{display:flex;flex-direction:column;align-items:center;text-align:center;padding:0 1rem;position:relative}
-.flow-num{width:44px;height:44px;border-radius:50%;background:var(--surface);border:2px solid var(--border);display:flex;align-items:center;justify-content:center;margin-bottom:1.1rem;position:relative;z-index:1;transition:border-color .3s}
+.flow-section{background:var(--bg);padding:5.5rem 2.5rem}
+.flow-steps{display:grid;grid-template-columns:repeat(5,1fr);gap:0;margin-top:3.5rem;position:relative}
+.flow-steps::before{content:'';position:absolute;top:20px;left:calc(10% + 20px);right:calc(10% + 20px);height:1px;background:var(--border)}
+.flow-step{display:flex;flex-direction:column;align-items:center;text-align:center;padding:0 .75rem;position:relative}
+.flow-num{width:40px;height:40px;border-radius:50%;background:var(--surface);border:2px solid var(--border);display:flex;align-items:center;justify-content:center;margin-bottom:1rem;position:relative;z-index:1;transition:border-color .3s,background .3s}
 .flow-step.active .flow-num{border-color:var(--accent);background:var(--ac-d)}
-.flow-num-txt{font-family:ui-monospace,"SF Mono",Menlo,monospace;font-size:.75rem;font-weight:700;color:var(--t3)}
+.flow-num-txt{font-size:.7rem;font-weight:800;color:var(--t3);letter-spacing:.02em}
 .flow-step.active .flow-num-txt{color:var(--accent)}
-.flow-label{font-size:.8125rem;font-weight:600;color:var(--text);margin-bottom:.35rem;line-height:1.3}
-.flow-desc{font-size:.75rem;color:var(--t3);line-height:1.5}
+.flow-label{font-size:.8125rem;font-weight:700;color:var(--text);margin-bottom:.3rem;line-height:1.3}
+.flow-desc{font-size:.75rem;color:var(--t3);line-height:1.55}
 
 /* ── GUEST JOURNEY ──────────────────────────────────────── */
-.journey-section{background:var(--bg-alt);padding:5rem 2rem}
-.journey-grid{display:grid;grid-template-columns:1fr 2fr;gap:4rem;align-items:start}
-.jlist{margin-top:1.5rem;display:flex;flex-direction:column;gap:0}
+.journey-section{background:var(--bg-alt);padding:5.5rem 2.5rem}
+.journey-grid{display:grid;grid-template-columns:1fr 2fr;gap:5rem;align-items:start}
+.jlist{margin-top:1.5rem;display:flex;flex-direction:column}
 .jitem{display:flex;gap:1rem;padding:1rem 0;border-bottom:1px solid var(--border);align-items:flex-start}
 .jitem:last-child{border-bottom:none}
-.j-num{font-family:ui-monospace,"SF Mono",Menlo,monospace;font-size:.65rem;font-weight:700;letter-spacing:.06em;color:var(--accent);width:20px;flex-shrink:0;padding-top:.15rem}
-.j-info{}
-.j-title{font-size:.9375rem;font-weight:600;color:var(--text);margin-bottom:.2rem}
-.j-ch{font-size:.75rem;color:var(--t3)}
-.j-ch strong{color:var(--blue);font-weight:500}
+.j-num{font-size:.65rem;font-weight:800;letter-spacing:.06em;color:var(--accent);width:20px;flex-shrink:0;padding-top:.15rem}
+.j-title{font-size:.9375rem;font-weight:700;color:var(--text);margin-bottom:.2rem}
+.j-ch{font-size:.75rem;color:var(--t3);}
+.j-ch strong{color:var(--ac-text);font-weight:600}
 
-/* Live message feed */
-.feed-card{background:var(--surface);border:1px solid var(--border);border-radius:4px;overflow:hidden;box-shadow:var(--shadow)}
+/* Feed card */
+.feed-card{background:var(--surface);border:1px solid var(--border);border-radius:8px;overflow:hidden;box-shadow:var(--shadow)}
 .feed-header{padding:.85rem 1.25rem;border-bottom:1px solid var(--border);background:var(--sf2);display:flex;align-items:center;justify-content:space-between}
 .feed-title{font-size:.8125rem;font-weight:600;color:var(--t2)}
-.feed-live{display:flex;align-items:center;gap:.35rem;font-size:.6875rem;font-weight:700;letter-spacing:.05em;text-transform:uppercase;color:var(--green)}
-.feed-live::before{content:'';width:6px;height:6px;border-radius:50%;background:var(--green);animation:gpulse 2s infinite}
-.feed-body{padding:0}
-.feed-msg{display:flex;align-items:center;gap:.75rem;padding:.8rem 1.25rem;border-bottom:1px solid var(--border);animation:slideIn .4s ease-out}
+.feed-live{display:flex;align-items:center;gap:.35rem;font-size:.625rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--accent)}
+.feed-live::before{content:'';width:6px;height:6px;border-radius:50%;background:var(--accent);animation:gpulse 2s infinite}
+.feed-msg{display:flex;align-items:center;gap:.75rem;padding:.8rem 1.25rem;border-bottom:1px solid var(--border);animation:slideIn .35s ease-out}
 .feed-msg:last-child{border-bottom:none}
-@keyframes slideIn{from{opacity:0;transform:translateY(-6px)}to{opacity:1;transform:translateY(0)}}
-.feed-ch{width:28px;height:28px;border-radius:3px;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:.65rem;font-weight:700;letter-spacing:.04em}
-.feed-content{flex:1}
-.feed-sender{font-size:.8125rem;font-weight:600;color:var(--text);display:flex;align-items:center;gap:.5rem}
-.feed-text{font-size:.75rem;color:var(--t3);margin-top:.05rem;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:200px}
-.feed-time{font-family:ui-monospace,"SF Mono",Menlo,monospace;font-size:.65rem;color:var(--t3);flex-shrink:0}
-.feed-status{display:flex;align-items:center;gap:.3rem;font-size:.65rem;font-weight:600;color:var(--green)}
-.feed-status.pending{color:var(--accent)}
-.feed-status::before{content:'';width:4px;height:4px;border-radius:50%;background:currentColor}
+@keyframes slideIn{from{opacity:0;transform:translateY(-5px)}to{opacity:1;transform:translateY(0)}}
+.feed-ch{width:28px;height:28px;border-radius:6px;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:.6rem;font-weight:800;letter-spacing:.04em}
+.feed-content{flex:1;min-width:0}
+.feed-sender{font-size:.8125rem;font-weight:600;color:var(--text)}
+.feed-text{font-size:.75rem;color:var(--t3);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:220px}
+.feed-time{font-size:.65rem;font-family:ui-monospace,monospace;color:var(--t3);flex-shrink:0}
+.feed-status{display:flex;align-items:center;gap:.3rem;font-size:.625rem;font-weight:700;color:var(--accent);margin-top:.05rem}
+.feed-status::before{content:'';width:4px;height:4px;border-radius:50%;background:currentColor;flex-shrink:0}
+.feed-status.pending{color:var(--t3)}
 
 /* ── PRICING ────────────────────────────────────────────── */
-.pricing-section{background:var(--bg);padding:5rem 2rem}
+.pricing-section{background:var(--bg);padding:5.5rem 2.5rem}
 .pricing-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.25rem;margin-top:3rem}
-.price-card{background:var(--surface);border:1px solid var(--border);border-radius:4px;padding:2rem;position:relative;transition:box-shadow .2s}
+.price-card{background:var(--surface);border:2px solid var(--border);border-radius:12px;padding:2.25rem;position:relative;transition:box-shadow .2s,border-color .2s}
 .price-card:hover{box-shadow:var(--shadow)}
-.price-card.featured{border-color:var(--accent);border-width:2px}
-.price-badge{position:absolute;top:-1px;left:50%;transform:translateX(-50%);font-size:.6875rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase;background:var(--accent);color:#fff;padding:.2rem .75rem;border-radius:0 0 3px 3px;white-space:nowrap}
-.price-tier{font-size:.6875rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--t3);margin-bottom:.75rem}
-.price-size{font-family:Georgia,"Times New Roman",serif;font-size:1.25rem;font-weight:700;letter-spacing:-0.015em;color:var(--text);margin-bottom:.3rem;line-height:1.2}
+.price-card.featured{border-color:var(--accent)}
+.price-badge{position:absolute;top:-1px;left:50%;transform:translateX(-50%);font-size:.625rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;background:var(--accent);color:#fff;padding:.22rem .85rem;border-radius:0 0 6px 6px;white-space:nowrap}
+.price-tier{font-size:.625rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--t3);margin-bottom:.6rem}
+.price-size{font-size:1.25rem;font-weight:900;letter-spacing:-.02em;color:var(--text);margin-bottom:.2rem}
 .price-rooms{font-size:.8125rem;color:var(--t3);margin-bottom:1.5rem}
-.price-amount{font-family:Georgia,"Times New Roman",serif;font-size:2.5rem;font-weight:700;letter-spacing:-0.03em;color:var(--text);line-height:1;margin-bottom:.2rem}
+.price-amount{font-size:2.75rem;font-weight:900;letter-spacing:-.04em;color:var(--text);line-height:1;margin-bottom:.2rem}
 .price-amount em{font-style:normal;color:var(--accent)}
 .price-period{font-size:.8125rem;color:var(--t3);margin-bottom:1.5rem}
 .price-features{list-style:none;margin-bottom:1.75rem;display:flex;flex-direction:column;gap:.55rem}
 .price-features li{display:flex;align-items:flex-start;gap:.6rem;font-size:.875rem;color:var(--t2)}
-.price-features li::before{content:'';width:14px;height:14px;border-radius:50%;background:var(--gr-d);display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:.15rem;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='10' viewBox='0 0 24 24' fill='none' stroke='%23226B3F' stroke-width='3'%3E%3Cpolyline points='20 6 9 17 4 12'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:center;background-size:10px}
-.price-cta{display:block;text-align:center;background:var(--accent);color:#fff;font-size:.875rem;font-weight:600;padding:.65rem;border-radius:2px;transition:opacity .15s}
+.price-features li::before{content:'✓';font-size:.7rem;font-weight:900;color:var(--accent);width:14px;flex-shrink:0;margin-top:.15rem}
+.price-cta{display:block;text-align:center;background:var(--accent);color:#fff;font-size:.875rem;font-weight:700;padding:.7rem;border-radius:8px;transition:opacity .15s}
 .price-cta:hover{opacity:.88}
-.price-card:not(.featured) .price-cta{background:var(--surface);color:var(--text);border:1px solid var(--bdr-s)}
-.price-card:not(.featured) .price-cta:hover{border-color:var(--accent);color:var(--accent)}
-.pricing-vs{margin-top:2.5rem;padding:1.5rem 2rem;background:var(--surface);border:1px solid var(--border);border-radius:4px;display:flex;align-items:center;gap:3rem;flex-wrap:wrap}
-.vs-label{font-size:.875rem;color:var(--t3);flex:1;min-width:200px}
-.vs-label strong{color:var(--text);font-weight:600}
+.price-card:not(.featured) .price-cta{background:transparent;color:var(--text);border:2px solid var(--bdr-s)}
+.price-card:not(.featured) .price-cta:hover{border-color:var(--accent);color:var(--ac-text)}
+.pricing-vs{margin-top:2rem;padding:1.5rem 2rem;background:var(--surface);border:1px solid var(--border);border-radius:10px;display:flex;align-items:center;gap:3rem;flex-wrap:wrap}
+.vs-label{font-size:.875rem;color:var(--t2);flex:1;min-width:200px;line-height:1.55}
+.vs-label strong{color:var(--text);font-weight:700}
 .vs-item{text-align:center}
-.vs-val{font-family:Georgia,"Times New Roman",serif;font-size:1.5rem;font-weight:700;letter-spacing:-0.02em;display:block;margin-bottom:.1rem}
-.vs-val.red{color:var(--red,#8C2A2A)}
-.vs-val.green{color:var(--green)}
+.vs-val{font-size:1.625rem;font-weight:900;letter-spacing:-.03em;display:block;margin-bottom:.1rem}
+.vs-val.red{color:#C0392B}
+.vs-val.green{color:var(--accent)}
 .vs-lbl{font-size:.75rem;color:var(--t3)}
 
-/* ── TECH STACK ─────────────────────────────────────────── */
-.tech-section{background:var(--bg-alt);padding:4rem 2rem}
-.tech-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1rem;margin-top:2.5rem}
-.tech-item{background:var(--surface);border:1px solid var(--border);border-radius:4px;padding:1.25rem 1.5rem}
-.tech-name{font-size:.9375rem;font-weight:600;color:var(--text);margin-bottom:.3rem}
-.tech-role{font-size:.8125rem;color:var(--t3);line-height:1.5}
-
 /* ── CTA ─────────────────────────────────────────────────── */
-.cta-section{background:var(--bg);border-top:1px solid var(--border);padding:6rem 2rem;text-align:center}
-.cta-h{font-family:Georgia,"Times New Roman",serif;font-size:clamp(2.25rem,4vw,3.5rem);font-weight:700;letter-spacing:-0.025em;line-height:1.07;text-wrap:balance;margin:0 auto 1.25rem;max-width:22ch}
-.cta-h em{color:var(--accent);font-style:italic}
-.cta-sub{font-size:1rem;color:var(--t2);margin:0 auto 2.5rem;max-width:46ch;line-height:1.7}
+.cta-section{background:var(--accent);padding:6rem 2.5rem;text-align:center}
+.cta-h{font-size:clamp(2.25rem,4.5vw,3.75rem);font-weight:900;letter-spacing:-.04em;line-height:1.05;color:#fff;margin:0 auto 1.25rem;max-width:24ch;text-wrap:balance}
+.cta-sub{font-size:1rem;color:rgba(255,255,255,.8);margin:0 auto 2.5rem;max-width:46ch;line-height:1.72}
 .cta-row{display:flex;align-items:center;justify-content:center;gap:1.25rem;flex-wrap:wrap}
-.btn-lg{display:inline-flex;align-items:center;background:var(--accent);color:#fff;font-size:.9375rem;font-weight:600;padding:.8rem 2rem;border-radius:2px;letter-spacing:.01em;transition:opacity .15s}
-.btn-lg:hover{opacity:.88}
-.btn-ol{display:inline-flex;align-items:center;border:1px solid var(--bdr-s);color:var(--t2);font-size:.875rem;font-weight:500;padding:.78rem 1.75rem;border-radius:2px;transition:all .15s}
-.btn-ol:hover{border-color:var(--accent);color:var(--text)}
-.cta-note{font-size:.8125rem;color:var(--t3);margin-top:1.25rem}
+.btn-white{display:inline-flex;align-items:center;background:#fff;color:var(--text);font-size:.9375rem;font-weight:800;padding:.8rem 2.25rem;border-radius:8px;letter-spacing:-.01em;transition:opacity .15s}
+.btn-white:hover{opacity:.9}
+.btn-outline-white{display:inline-flex;align-items:center;border:2px solid rgba(255,255,255,.4);color:#fff;font-size:.875rem;font-weight:600;padding:.78rem 1.75rem;border-radius:8px;transition:border-color .15s}
+.btn-outline-white:hover{border-color:#fff}
+.cta-note{font-size:.8125rem;color:rgba(255,255,255,.65);margin-top:1.25rem}
 
 /* ── FOOTER ──────────────────────────────────────────────── */
-footer{background:var(--surface);border-top:1px solid var(--border);padding:3rem 2rem}
-.foot-inner{max-width:1200px;margin:0 auto;display:flex;align-items:flex-start;justify-content:space-between;gap:3rem;flex-wrap:wrap}
-.foot-brand p{font-size:.8375rem;color:var(--t3);max-width:30ch;margin-top:.5rem;line-height:1.6}
+footer{background:var(--text);color:rgba(255,255,255,.7);padding:3.5rem 2.5rem}
+.foot-inner{max-width:1240px;margin:0 auto;display:flex;align-items:flex-start;justify-content:space-between;gap:3rem;flex-wrap:wrap}
+.foot-brand{display:flex;flex-direction:column;gap:.6rem}
+.foot-logo{display:flex;align-items:center;gap:.5rem}
+.foot-logo-aivy{font-size:1rem;font-weight:900;color:#fff;letter-spacing:-.01em}
+.foot-logo-sub{font-size:.55rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:rgba(255,255,255,.35)}
+.foot-brand p{font-size:.8375rem;max-width:28ch;line-height:1.6;margin-top:.25rem}
+.foot-product-name{font-size:.75rem;font-weight:700;color:var(--accent);letter-spacing:.04em}
 .foot-cols{display:flex;gap:4rem;flex-wrap:wrap}
-.foot-col h4{font-size:.6875rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--t3);margin-bottom:.9rem}
-.foot-col a{display:block;color:var(--t2);font-size:.875rem;margin-bottom:.5rem;transition:color .15s}
-.foot-col a:hover{color:var(--text)}
-.foot-bottom{max-width:1200px;margin:.5rem auto 0;border-top:1px solid var(--border);padding-top:1.5rem;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:.75rem}
-.foot-bottom p{font-size:.8125rem;color:var(--t3)}
+.foot-col h4{font-size:.6rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.3);margin-bottom:.9rem}
+.foot-col a{display:block;color:rgba(255,255,255,.6);font-size:.875rem;margin-bottom:.5rem;transition:color .15s}
+.foot-col a:hover{color:#fff}
+.foot-bottom{max-width:1240px;margin:.5rem auto 0;border-top:1px solid rgba(255,255,255,.08);padding-top:1.5rem;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:.75rem}
+.foot-bottom p{font-size:.8125rem}
 .foot-links{display:flex;gap:1.5rem}
-.foot-links a{font-size:.8125rem;color:var(--t3);transition:color .15s}
-.foot-links a:hover{color:var(--text)}
+.foot-links a{font-size:.8125rem;color:rgba(255,255,255,.45);transition:color .15s}
+.foot-links a:hover{color:#fff}
 
 /* ── RESPONSIVE ──────────────────────────────────────────── */
 @media(max-width:960px){
-  .hero,.journey-grid{grid-template-columns:1fr;gap:2.5rem}
-  .hero{padding:3.5rem 1.5rem 3rem}
+  .hero-outer{grid-template-columns:1fr;min-height:auto}
+  .hero-left{clip-path:none;padding:4rem 1.75rem 3rem}
+  .hero-right{margin-left:0;padding:3rem 1.75rem;min-height:340px}
   .ch-grid,.pricing-grid{grid-template-columns:1fr}
   .flow-steps{grid-template-columns:1fr 1fr;gap:1.5rem}
   .flow-steps::before{display:none}
-  .tech-grid{grid-template-columns:1fr 1fr}
+  .journey-grid{grid-template-columns:1fr;gap:2.5rem}
   .strip-inner{grid-template-columns:1fr 1fr}
-  .s-item{border-right:none;border-bottom:1px solid var(--border)}
+  .s-item{border-right:none;border-bottom:1px solid rgba(255,255,255,.08)}
   .s-item:last-child{border-bottom:none}
   .nav-links{display:none}
 }
@@ -237,224 +234,188 @@ footer{background:var(--surface);border-top:1px solid var(--border);padding:3rem
 <nav>
   <div class="nav-inner">
     <a href="#" class="logo">
-      <span class="logo-iv">IV</span>
-      <span class="logo-sep"></span>
-      <span class="logo-name">Priority<br>Management</span>
+      <svg class="logo-mark" width="18" height="18" viewBox="0 0 18 18" fill="none">
+        <path d="M9 2C9 2 9 2 9 2C12.5 4 15 6.5 15 9.5C15 13 12.5 16 9 16C5.5 16 3 13 3 9.5C3 6.5 5.5 4 9 2Z" fill="var(--accent)"/>
+        <circle cx="9" cy="9.5" r="2.5" fill="white" opacity=".6"/>
+      </svg>
+      <div class="logo-wordmark">
+        <span class="logo-aivy">AIVY</span>
+        <span class="logo-sub">Solutions</span>
+      </div>
     </a>
+    <span class="nav-divider"></span>
+    <span class="nav-product">AutoReception</span>
     <div class="nav-links">
-      <a href="#">IV Package</a>
       <a href="#">Canali</a>
       <a href="#">Come funziona</a>
+      <a href="#">Percorso ospite</a>
       <a href="#">Prezzi</a>
-      <a href="#">Contatti</a>
     </div>
     <button class="theme-toggle" id="themeToggle" aria-label="Cambia tema">
-      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>
     </button>
-    <a href="#" class="nav-cta">Prenota demo</a>
+    <a href="#" class="nav-cta">Prenota demo →</a>
   </div>
 </nav>
 
-<!-- HERO -->
-<section class="hero">
-  <div>
-    <div class="hero-signal">
-      <span class="sig-dot"></span>
-      RICEZIONE AI ATTIVA — <span id="liveClock">02:47</span>
+<!-- HERO — diagonal split -->
+<div class="hero-outer">
+  <div class="hero-left">
+    <div class="hero-eyebrow">
+      <span class="hero-eyebrow-dot"></span>
+      <span class="hero-eyebrow-txt">Receptionist AI 24/7 — <span id="liveClock">02:47</span></span>
     </div>
-    <div class="hero-h">
-      <div class="hl-channels">
-        WhatsApp. Voce. Email.<br>
-        <span>Booking.com. SMS. Recensioni.</span>
-      </div>
-      <em class="hl-big">Un'unica AI.</em>
-    </div>
+    <h1 class="hero-h">
+      <span class="line1">WhatsApp. Voce.<br>Email.</span>
+      <span class="line2">Booking.com. SMS.<br>Recensioni.</span>
+      <span class="line-ai">Un'unica AI.</span>
+    </h1>
     <p class="hero-body">
-      L'IV Package centralizza ogni canale di comunicazione degli ospiti in un unico sistema AI — risponde in secondi, 24 ore su 24, 7 giorni su 7, senza personale notturno e senza un messaggio perso.
+      AutoReception centralizza ogni canale di comunicazione degli ospiti in un unico sistema AI — risponde in secondi, 24 ore su 24, senza personale notturno e senza un messaggio perso.
     </p>
     <div class="hero-actions">
-      <a href="#" class="btn-p">Scopri l'IV Package</a>
-      <a href="#" class="btn-g">Come funziona →</a>
+      <a href="#" class="btn-p">Scopri AutoReception →</a>
+      <a href="#" class="btn-g">Come funziona</a>
     </div>
   </div>
 
-  <!-- Channel Hub Diagram -->
-  <div class="hub-wrap">
-    <svg viewBox="0 0 360 360" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Diagramma: sei canali convergono in un unico hub AI">
+  <!-- Channel Hub on green background -->
+  <div class="hero-right">
+    <div class="hub-wrap">
+      <svg viewBox="0 0 340 340" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="6 canali convergono in un unico hub AI">
+        <defs>
+          <path id="p0" d="M170,78 L170,132"/>
+          <path id="p1" d="M256,125 L207,153"/>
+          <path id="p2" d="M256,215 L207,187"/>
+          <path id="p3" d="M170,262 L170,208"/>
+          <path id="p4" d="M84,215 L133,187"/>
+          <path id="p5" d="M84,125 L133,153"/>
+          <path id="r0" d="M170,132 L170,78"/>
+          <path id="r1" d="M207,153 L256,125"/>
+          <path id="r2" d="M207,187 L256,215"/>
+          <path id="r3" d="M170,208 L170,262"/>
+          <path id="r4" d="M133,187 L84,215"/>
+          <path id="r5" d="M133,153 L84,125"/>
+        </defs>
 
-      <defs>
-        <!-- Glow for hub -->
-        <filter id="glow" x="-30%" y="-30%" width="160%" height="160%">
-          <feGaussianBlur stdDeviation="3" result="blur"/>
-          <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
-        </filter>
+        <!-- Connection lines -->
+        <line x1="170" y1="78" x2="170" y2="132" stroke="rgba(255,255,255,.22)" stroke-width="1.5"/>
+        <line x1="256" y1="125" x2="207" y2="153" stroke="rgba(255,255,255,.22)" stroke-width="1.5"/>
+        <line x1="256" y1="215" x2="207" y2="187" stroke="rgba(255,255,255,.22)" stroke-width="1.5"/>
+        <line x1="170" y1="262" x2="170" y2="208" stroke="rgba(255,255,255,.22)" stroke-width="1.5"/>
+        <line x1="84" y1="215" x2="133" y2="187" stroke="rgba(255,255,255,.22)" stroke-width="1.5"/>
+        <line x1="84" y1="125" x2="133" y2="153" stroke="rgba(255,255,255,.22)" stroke-width="1.5"/>
 
-        <!-- Paths for dot animation (node edge → hub edge) -->
-        <!-- WhatsApp: top (180,50) → (180,128) -->
-        <path id="p0" d="M180,80 L180,134"/>
-        <!-- Voice: top-right (293,115) → hub edge -->
-        <path id="p1" d="M268,129 L220,157"/>
-        <!-- Email: bottom-right (293,245) → hub edge -->
-        <path id="p2" d="M268,231 L220,203"/>
-        <!-- Booking.com: bottom (180,310) → hub edge -->
-        <path id="p3" d="M180,280 L180,226"/>
-        <!-- SMS: bottom-left (67,245) → hub edge -->
-        <path id="p4" d="M92,231 L140,203"/>
-        <!-- Reviews: top-left (67,115) → hub edge -->
-        <path id="p5" d="M92,129 L140,157"/>
+        <!-- CENTER HUB -->
+        <circle cx="170" cy="170" r="44" fill="white" opacity=".95"/>
+        <circle cx="170" cy="170" r="36" fill="rgba(46,201,42,.12)"/>
+        <text x="170" y="162" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,system-ui,sans-serif" font-size="13" font-weight="900" fill="#0C1A0A" letter-spacing="-0.5">AIVY</text>
+        <text x="170" y="178" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,system-ui,sans-serif" font-size="8" font-weight="700" fill="#2EC92A" letter-spacing="1.5">AI HUB</text>
 
-        <!-- Return paths (hub edge → node) for response dots -->
-        <path id="r0" d="M180,134 L180,80"/>
-        <path id="r1" d="M220,157 L268,129"/>
-        <path id="r2" d="M220,203 L268,231"/>
-        <path id="r3" d="M180,226 L180,280"/>
-        <path id="r4" d="M140,203 L92,231"/>
-        <path id="r5" d="M140,157 L92,129"/>
-      </defs>
+        <!-- CHANNEL NODES -->
+        <!-- WhatsApp: top (170,48) -->
+        <circle cx="170" cy="48" r="28" fill="rgba(255,255,255,.15)" stroke="rgba(255,255,255,.35)" stroke-width="1.5"/>
+        <text x="170" y="44" text-anchor="middle" font-family="ui-monospace,monospace" font-size="6.5" font-weight="800" fill="white" letter-spacing="0.5">WA</text>
+        <text x="170" y="55" text-anchor="middle" font-family="-apple-system,system-ui,sans-serif" font-size="5.5" font-weight="600" fill="rgba(255,255,255,.7)">WhatsApp</text>
 
-      <!-- Connection lines -->
-      <line x1="180" y1="80" x2="180" y2="134" stroke="var(--border)" stroke-width="1.5"/>
-      <line x1="268" y1="129" x2="220" y2="157" stroke="var(--border)" stroke-width="1.5"/>
-      <line x1="268" y1="231" x2="220" y2="203" stroke="var(--border)" stroke-width="1.5"/>
-      <line x1="180" y1="280" x2="180" y2="226" stroke="var(--border)" stroke-width="1.5"/>
-      <line x1="92" y1="231" x2="140" y2="203" stroke="var(--border)" stroke-width="1.5"/>
-      <line x1="92" y1="129" x2="140" y2="157" stroke="var(--border)" stroke-width="1.5"/>
+        <!-- Voice: top-right (270,113) -->
+        <circle cx="270" cy="113" r="28" fill="rgba(255,255,255,.15)" stroke="rgba(255,255,255,.35)" stroke-width="1.5"/>
+        <text x="270" y="109" text-anchor="middle" font-family="ui-monospace,monospace" font-size="6.5" font-weight="800" fill="white" letter-spacing="0.5">TEL</text>
+        <text x="270" y="120" text-anchor="middle" font-family="-apple-system,system-ui,sans-serif" font-size="5.5" font-weight="600" fill="rgba(255,255,255,.7)">Voce</text>
 
-      <!-- CENTER HUB -->
-      <circle cx="180" cy="180" r="46" fill="var(--surface)" stroke="var(--accent)" stroke-width="1.5"/>
-      <circle cx="180" cy="180" r="38" fill="var(--ac-d)"/>
-      <text x="180" y="172" text-anchor="middle" font-family="Georgia,serif" font-size="22" font-weight="700" fill="var(--accent)" letter-spacing="-1">IV</text>
-      <text x="180" y="188" text-anchor="middle" font-family="ui-monospace,monospace" font-size="7" font-weight="600" fill="var(--t3)" letter-spacing="1.5">AI HUB</text>
+        <!-- Email: bottom-right (270,227) -->
+        <circle cx="270" cy="227" r="28" fill="rgba(255,255,255,.15)" stroke="rgba(255,255,255,.35)" stroke-width="1.5"/>
+        <text x="270" y="223" text-anchor="middle" font-family="ui-monospace,monospace" font-size="9" font-weight="800" fill="white">@</text>
+        <text x="270" y="234" text-anchor="middle" font-family="-apple-system,system-ui,sans-serif" font-size="5.5" font-weight="600" fill="rgba(255,255,255,.7)">Email</text>
 
-      <!-- CHANNEL NODES -->
-      <!-- WhatsApp: top (180,50) -->
-      <circle cx="180" cy="50" r="30" fill="var(--surface)" stroke="var(--border)" stroke-width="1.5"/>
-      <circle cx="180" cy="50" r="24" fill="var(--gr-d)"/>
-      <text x="180" y="45" text-anchor="middle" font-family="ui-monospace,monospace" font-size="7" font-weight="700" fill="var(--green)" letter-spacing="0.5">WA</text>
-      <text x="180" y="57" text-anchor="middle" font-family="ui-monospace,monospace" font-size="6" fill="var(--t3)">WhatsApp</text>
+        <!-- Booking.com: bottom (170,292) -->
+        <circle cx="170" cy="292" r="28" fill="rgba(255,255,255,.15)" stroke="rgba(255,255,255,.35)" stroke-width="1.5"/>
+        <text x="170" y="288" text-anchor="middle" font-family="ui-monospace,monospace" font-size="6.5" font-weight="800" fill="white" letter-spacing="0.5">BK</text>
+        <text x="170" y="299" text-anchor="middle" font-family="-apple-system,system-ui,sans-serif" font-size="5.5" font-weight="600" fill="rgba(255,255,255,.7)">Booking.com</text>
 
-      <!-- Voice: top-right (293,115) -->
-      <circle cx="293" cy="115" r="30" fill="var(--surface)" stroke="var(--border)" stroke-width="1.5"/>
-      <circle cx="293" cy="115" r="24" fill="var(--bl-d)"/>
-      <text x="293" y="110" text-anchor="middle" font-family="ui-monospace,monospace" font-size="7" font-weight="700" fill="var(--blue)" letter-spacing="0.5">TEL</text>
-      <text x="293" y="122" text-anchor="middle" font-family="ui-monospace,monospace" font-size="6" fill="var(--t3)">Voce</text>
+        <!-- SMS: bottom-left (70,227) -->
+        <circle cx="70" cy="227" r="28" fill="rgba(255,255,255,.15)" stroke="rgba(255,255,255,.35)" stroke-width="1.5"/>
+        <text x="70" y="223" text-anchor="middle" font-family="ui-monospace,monospace" font-size="6.5" font-weight="800" fill="white" letter-spacing="0.5">SMS</text>
+        <text x="70" y="234" text-anchor="middle" font-family="-apple-system,system-ui,sans-serif" font-size="5.5" font-weight="600" fill="rgba(255,255,255,.7)">SMS</text>
 
-      <!-- Email: bottom-right (293,245) -->
-      <circle cx="293" cy="245" r="30" fill="var(--surface)" stroke="var(--border)" stroke-width="1.5"/>
-      <circle cx="293" cy="245" r="24" fill="var(--ac-d)"/>
-      <text x="293" y="240" text-anchor="middle" font-family="ui-monospace,monospace" font-size="7" font-weight="700" fill="var(--accent)" letter-spacing="0.5">@</text>
-      <text x="293" y="252" text-anchor="middle" font-family="ui-monospace,monospace" font-size="6" fill="var(--t3)">Email</text>
+        <!-- Reviews: top-left (70,113) -->
+        <circle cx="70" cy="113" r="28" fill="rgba(255,255,255,.15)" stroke="rgba(255,255,255,.35)" stroke-width="1.5"/>
+        <text x="70" y="109" text-anchor="middle" font-family="ui-monospace,monospace" font-size="9" font-weight="800" fill="white">★</text>
+        <text x="70" y="120" text-anchor="middle" font-family="-apple-system,system-ui,sans-serif" font-size="5.5" font-weight="600" fill="rgba(255,255,255,.7)">Recensioni</text>
 
-      <!-- Booking.com: bottom (180,310) -->
-      <circle cx="180" cy="310" r="30" fill="var(--surface)" stroke="var(--border)" stroke-width="1.5"/>
-      <circle cx="180" cy="310" r="24" fill="var(--bl-d)"/>
-      <text x="180" y="305" text-anchor="middle" font-family="ui-monospace,monospace" font-size="7" font-weight="700" fill="var(--blue)" letter-spacing="0.5">BK</text>
-      <text x="180" y="317" text-anchor="middle" font-family="ui-monospace,monospace" font-size="6" fill="var(--t3)">Booking.com</text>
-
-      <!-- SMS: bottom-left (67,245) -->
-      <circle cx="67" cy="245" r="30" fill="var(--surface)" stroke="var(--border)" stroke-width="1.5"/>
-      <circle cx="67" cy="245" r="24" fill="var(--gr-d)"/>
-      <text x="67" y="240" text-anchor="middle" font-family="ui-monospace,monospace" font-size="7" font-weight="700" fill="var(--green)" letter-spacing="0.5">SMS</text>
-      <text x="67" y="252" text-anchor="middle" font-family="ui-monospace,monospace" font-size="6" fill="var(--t3)">SMS</text>
-
-      <!-- Reviews: top-left (67,115) -->
-      <circle cx="67" cy="115" r="30" fill="var(--surface)" stroke="var(--border)" stroke-width="1.5"/>
-      <circle cx="67" cy="115" r="24" fill="var(--ac-d)"/>
-      <text x="67" y="110" text-anchor="middle" font-family="ui-monospace,monospace" font-size="7" font-weight="700" fill="var(--accent)" letter-spacing="0.5">★</text>
-      <text x="67" y="122" text-anchor="middle" font-family="ui-monospace,monospace" font-size="6" fill="var(--t3)">Recensioni</text>
-
-      <!-- INBOUND animated dots (message → hub) with staggered delays -->
-      <circle r="4.5" fill="var(--green)" opacity="0"><animateMotion dur="1.6s" begin="0s" repeatCount="indefinite"><mpath href="#p0"/></animateMotion><animate attributeName="opacity" values="0;1;1;0" keyTimes="0;0.05;0.9;1" dur="1.6s" repeatCount="indefinite" begin="0s"/></circle>
-      <circle r="4.5" fill="var(--blue)" opacity="0"><animateMotion dur="1.6s" begin="0.55s" repeatCount="indefinite"><mpath href="#p1"/></animateMotion><animate attributeName="opacity" values="0;1;1;0" keyTimes="0;0.05;0.9;1" dur="1.6s" repeatCount="indefinite" begin="0.55s"/></circle>
-      <circle r="4.5" fill="var(--accent)" opacity="0"><animateMotion dur="1.6s" begin="1.1s" repeatCount="indefinite"><mpath href="#p2"/></animateMotion><animate attributeName="opacity" values="0;1;1;0" keyTimes="0;0.05;0.9;1" dur="1.6s" repeatCount="indefinite" begin="1.1s"/></circle>
-      <circle r="4.5" fill="var(--blue)" opacity="0"><animateMotion dur="1.6s" begin="1.65s" repeatCount="indefinite"><mpath href="#p3"/></animateMotion><animate attributeName="opacity" values="0;1;1;0" keyTimes="0;0.05;0.9;1" dur="1.6s" repeatCount="indefinite" begin="1.65s"/></circle>
-      <circle r="4.5" fill="var(--green)" opacity="0"><animateMotion dur="1.6s" begin="2.2s" repeatCount="indefinite"><mpath href="#p4"/></animateMotion><animate attributeName="opacity" values="0;1;1;0" keyTimes="0;0.05;0.9;1" dur="1.6s" repeatCount="indefinite" begin="2.2s"/></circle>
-      <circle r="4.5" fill="var(--accent)" opacity="0"><animateMotion dur="1.6s" begin="2.75s" repeatCount="indefinite"><mpath href="#p5"/></animateMotion><animate attributeName="opacity" values="0;1;1;0" keyTimes="0;0.05;0.9;1" dur="1.6s" repeatCount="indefinite" begin="2.75s"/></circle>
-
-      <!-- OUTBOUND animated dots (hub → node, response) smaller, lighter -->
-      <circle r="3" fill="var(--accent)" opacity="0"><animateMotion dur="1.6s" begin="0.8s" repeatCount="indefinite"><mpath href="#r0"/></animateMotion><animate attributeName="opacity" values="0;0.7;0.7;0" keyTimes="0;0.05;0.9;1" dur="1.6s" repeatCount="indefinite" begin="0.8s"/></circle>
-      <circle r="3" fill="var(--accent)" opacity="0"><animateMotion dur="1.6s" begin="1.35s" repeatCount="indefinite"><mpath href="#r1"/></animateMotion><animate attributeName="opacity" values="0;0.7;0.7;0" keyTimes="0;0.05;0.9;1" dur="1.6s" repeatCount="indefinite" begin="1.35s"/></circle>
-      <circle r="3" fill="var(--accent)" opacity="0"><animateMotion dur="1.6s" begin="1.9s" repeatCount="indefinite"><mpath href="#r2"/></animateMotion><animate attributeName="opacity" values="0;0.7;0.7;0" keyTimes="0;0.05;0.9;1" dur="1.6s" repeatCount="indefinite" begin="1.9s"/></circle>
-      <circle r="3" fill="var(--accent)" opacity="0"><animateMotion dur="1.6s" begin="2.45s" repeatCount="indefinite"><mpath href="#r3"/></animateMotion><animate attributeName="opacity" values="0;0.7;0.7;0" keyTimes="0;0.05;0.9;1" dur="1.6s" repeatCount="indefinite" begin="2.45s"/></circle>
-      <circle r="3" fill="var(--accent)" opacity="0"><animateMotion dur="1.6s" begin="3.0s" repeatCount="indefinite"><mpath href="#r4"/></animateMotion><animate attributeName="opacity" values="0;0.7;0.7;0" keyTimes="0;0.05;0.9;1" dur="1.6s" repeatCount="indefinite" begin="3.0s"/></circle>
-      <circle r="3" fill="var(--accent)" opacity="0"><animateMotion dur="1.6s" begin="3.55s" repeatCount="indefinite"><mpath href="#r5"/></animateMotion><animate attributeName="opacity" values="0;0.7;0.7;0" keyTimes="0;0.05;0.9;1" dur="1.6s" repeatCount="indefinite" begin="3.55s"/></circle>
-    </svg>
+        <!-- Inbound dots -->
+        <circle r="4.5" fill="white" opacity="0"><animateMotion dur="1.6s" begin="0s" repeatCount="indefinite"><mpath href="#p0"/></animateMotion><animate attributeName="opacity" values="0;.9;.9;0" keyTimes="0;0.05;0.9;1" dur="1.6s" repeatCount="indefinite" begin="0s"/></circle>
+        <circle r="4.5" fill="white" opacity="0"><animateMotion dur="1.6s" begin="0.52s" repeatCount="indefinite"><mpath href="#p1"/></animateMotion><animate attributeName="opacity" values="0;.9;.9;0" keyTimes="0;0.05;0.9;1" dur="1.6s" repeatCount="indefinite" begin="0.52s"/></circle>
+        <circle r="4.5" fill="white" opacity="0"><animateMotion dur="1.6s" begin="1.04s" repeatCount="indefinite"><mpath href="#p2"/></animateMotion><animate attributeName="opacity" values="0;.9;.9;0" keyTimes="0;0.05;0.9;1" dur="1.6s" repeatCount="indefinite" begin="1.04s"/></circle>
+        <circle r="4.5" fill="white" opacity="0"><animateMotion dur="1.6s" begin="1.56s" repeatCount="indefinite"><mpath href="#p3"/></animateMotion><animate attributeName="opacity" values="0;.9;.9;0" keyTimes="0;0.05;0.9;1" dur="1.6s" repeatCount="indefinite" begin="1.56s"/></circle>
+        <circle r="4.5" fill="white" opacity="0"><animateMotion dur="1.6s" begin="2.08s" repeatCount="indefinite"><mpath href="#p4"/></animateMotion><animate attributeName="opacity" values="0;.9;.9;0" keyTimes="0;0.05;0.9;1" dur="1.6s" repeatCount="indefinite" begin="2.08s"/></circle>
+        <circle r="4.5" fill="white" opacity="0"><animateMotion dur="1.6s" begin="2.6s" repeatCount="indefinite"><mpath href="#p5"/></animateMotion><animate attributeName="opacity" values="0;.9;.9;0" keyTimes="0;0.05;0.9;1" dur="1.6s" repeatCount="indefinite" begin="2.6s"/></circle>
+        <!-- Outbound dots (response) -->
+        <circle r="3" fill="rgba(255,255,255,.7)" opacity="0"><animateMotion dur="1.6s" begin="0.8s" repeatCount="indefinite"><mpath href="#r0"/></animateMotion><animate attributeName="opacity" values="0;.6;.6;0" keyTimes="0;0.05;0.9;1" dur="1.6s" repeatCount="indefinite" begin="0.8s"/></circle>
+        <circle r="3" fill="rgba(255,255,255,.7)" opacity="0"><animateMotion dur="1.6s" begin="1.32s" repeatCount="indefinite"><mpath href="#r1"/></animateMotion><animate attributeName="opacity" values="0;.6;.6;0" keyTimes="0;0.05;0.9;1" dur="1.6s" repeatCount="indefinite" begin="1.32s"/></circle>
+        <circle r="3" fill="rgba(255,255,255,.7)" opacity="0"><animateMotion dur="1.6s" begin="1.84s" repeatCount="indefinite"><mpath href="#r2"/></animateMotion><animate attributeName="opacity" values="0;.6;.6;0" keyTimes="0;0.05;0.9;1" dur="1.6s" repeatCount="indefinite" begin="1.84s"/></circle>
+        <circle r="3" fill="rgba(255,255,255,.7)" opacity="0"><animateMotion dur="1.6s" begin="2.36s" repeatCount="indefinite"><mpath href="#r3"/></animateMotion><animate attributeName="opacity" values="0;.6;.6;0" keyTimes="0;0.05;0.9;1" dur="1.6s" repeatCount="indefinite" begin="2.36s"/></circle>
+        <circle r="3" fill="rgba(255,255,255,.7)" opacity="0"><animateMotion dur="1.6s" begin="2.88s" repeatCount="indefinite"><mpath href="#r4"/></animateMotion><animate attributeName="opacity" values="0;.6;.6;0" keyTimes="0;0.05;0.9;1" dur="1.6s" repeatCount="indefinite" begin="2.88s"/></circle>
+        <circle r="3" fill="rgba(255,255,255,.7)" opacity="0"><animateMotion dur="1.6s" begin="3.4s" repeatCount="indefinite"><mpath href="#r5"/></animateMotion><animate attributeName="opacity" values="0;.6;.6;0" keyTimes="0;0.05;0.9;1" dur="1.6s" repeatCount="indefinite" begin="3.4s"/></circle>
+      </svg>
+    </div>
   </div>
-</section>
+</div>
 
 <!-- STRIP -->
 <div class="strip">
   <div class="strip-inner">
     <div class="s-item">
-      <span class="s-val" style="font-family:Georgia,serif;font-size:1.375rem;font-style:italic;line-height:1.3">L'unica soluzione che centralizza voce, WhatsApp, SMS, email, Booking.com e recensioni in un solo hub AI.</span>
+      <span class="s-val">L'unico sistema che gestisce voce, WhatsApp, SMS, email, Booking.com e recensioni in un hub AI unico.</span>
     </div>
-    <div class="s-item"><span class="s-val">6<em>ch</em></span><span class="s-lbl">Canali gestiti da un'unica piattaforma</span></div>
-    <div class="s-item"><span class="s-val"><em>&lt;</em>15<em>s</em></span><span class="s-lbl">Tempo medio di risposta AI su ogni canale</span></div>
+    <div class="s-item"><span class="s-val">6<em>ch</em></span><span class="s-lbl">Canali gestiti in una sola piattaforma</span></div>
+    <div class="s-item"><span class="s-val"><em>&lt;</em>15<em>s</em></span><span class="s-lbl">Tempo medio di risposta su ogni canale</span></div>
     <div class="s-item"><span class="s-val"><em>0</em></span><span class="s-lbl">Messaggi non consegnati o persi</span></div>
   </div>
 </div>
 
 <!-- 6 CHANNELS -->
-<section class="channels-section">
+<section class="ch-section">
   <div class="wrap">
-    <p class="sec-eyebrow">I sei canali dell'IV Package</p>
+    <p class="sec-eyebrow">I sei canali di AutoReception</p>
     <h2 class="sec-h2">Ogni modo in cui un ospite<br>può contattarvi. <em>Coperto.</em></h2>
     <div class="ch-grid">
-
-      <div class="ch-card featured">
-        <div class="ch-icon" style="background:var(--gr-d)">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--green)" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
-        </div>
+      <div class="ch-card">
+        <div class="ch-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></div>
         <h3 class="ch-name">WhatsApp Business</h3>
-        <p class="ch-body">Messaggi in entrata e in uscita via Twilio WhatsApp Business API. Supporto immagini e PDF (conferme, mappe, menu). Il canale preferito dagli ospiti europei.</p>
-        <span class="ch-tag tag-green">Twilio WhatsApp API</span>
+        <p class="ch-body">Messaggi in entrata e in uscita via API. Supporto immagini, PDF e documenti. Il canale preferito dagli ospiti europei, attivo 24/7 senza operatore.</p>
+        <span class="ch-pill">Twilio WhatsApp API</span>
       </div>
-
-      <div class="ch-card featured">
-        <div class="ch-icon" style="background:var(--bl-d)">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--blue)" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.5 13.5a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.44 2.5h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L7.91 10.1a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-        </div>
+      <div class="ch-card">
+        <div class="ch-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.5 13.5a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.44 2.5h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 10.1a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg></div>
         <h3 class="ch-name">Voce (Chiamate)</h3>
-        <p class="ch-body">Twilio Voice gestisce le chiamate in entrata: speech-to-text, risposta AI generata da Claude, text-to-speech in uscita. L'ospite chiama, l'AI risponde — nella sua lingua.</p>
-        <span class="ch-tag tag-blue">Twilio Voice</span>
+        <p class="ch-body">L'ospite chiama, l'AI risponde. Speech-to-text, generazione risposta AI, text-to-speech in uscita — nella lingua dell'ospite, in tempo reale.</p>
+        <span class="ch-pill">Twilio Voice</span>
       </div>
-
       <div class="ch-card">
-        <div class="ch-icon" style="background:var(--ac-d)">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-        </div>
+        <div class="ch-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></div>
         <h3 class="ch-name">Email</h3>
-        <p class="ch-body">Listener IMAP per la casella dell'hotel + relay SMTP per le risposte. Thread preservati via Message-ID. Il dominio dell'hotel rimane il mittente — brand consistency garantita.</p>
-        <span class="ch-tag tag-gold">SMTP / IMAP</span>
+        <p class="ch-body">Monitoraggio casella in entrata e risposta automatica nel thread originale. Il dominio dell'hotel rimane il mittente — nessun cambio di brand per l'ospite.</p>
+        <span class="ch-pill">SMTP / IMAP</span>
       </div>
-
       <div class="ch-card">
-        <div class="ch-icon" style="background:var(--bl-d)">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--blue)" stroke-width="2"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg>
-        </div>
+        <div class="ch-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2"><rect x="5" y="2" width="14" height="20" rx="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg></div>
         <h3 class="ch-name">SMS</h3>
-        <p class="ch-body">Twilio Programmable Messaging per SMS in entrata e in uscita. Ideale per conferme di prenotazione, chiavi digitali e aggiornamenti rapidi — canale universale, nessuna app richiesta.</p>
-        <span class="ch-tag tag-blue">Twilio Messaging</span>
+        <p class="ch-body">Messaggi brevi per conferme, chiavi digitali, aggiornamenti. Canale universale — nessuna app richiesta, funziona su qualsiasi telefono.</p>
+        <span class="ch-pill">Twilio Messaging</span>
       </div>
-
       <div class="ch-card">
-        <div class="ch-icon" style="background:var(--bl-d)">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--blue)" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
-        </div>
-        <h3 class="ch-name">Booking.com Messaggi</h3>
-        <p class="ch-body">Tramite la Connectivity Partner API di Booking.com: ricezione e risposta ai messaggi degli ospiti direttamente nel thread della prenotazione. Zero ritardi, zero copiaincolla.</p>
-        <span class="ch-tag tag-blue">Connectivity Partner API</span>
+        <div class="ch-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg></div>
+        <h3 class="ch-name">Booking.com</h3>
+        <p class="ch-body">Ricezione e risposta diretta ai messaggi degli ospiti nel thread di prenotazione. Zero copiaincolla, zero ritardi — tutto dentro Booking.com.</p>
+        <span class="ch-pill">Connectivity Partner API</span>
       </div>
-
       <div class="ch-card">
-        <div class="ch-icon" style="background:var(--ac-d)">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-        </div>
+        <div class="ch-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div>
         <h3 class="ch-name">Recensioni</h3>
-        <p class="ch-body">Risposta automatica alle recensioni Booking.com (e Google) tramite la stessa integrazione Connectivity Partner. L'AI risponde nel tono della struttura, mai con template generici.</p>
-        <span class="ch-tag tag-gold">Review API</span>
+        <p class="ch-body">Risposta automatica alle recensioni Booking.com e Google nel tono della struttura — mai con template generici, sempre contestuali alla recensione ricevuta.</p>
+        <span class="ch-pill">Review API</span>
       </div>
-
     </div>
   </div>
 </section>
@@ -468,72 +429,72 @@ footer{background:var(--surface);border-top:1px solid var(--border);padding:3rem
       <div class="flow-step">
         <div class="flow-num"><span class="flow-num-txt">01</span></div>
         <div class="flow-label">L'ospite scrive</div>
-        <div class="flow-desc">Su qualsiasi canale — WhatsApp, voce, SMS, email, Booking.com</div>
+        <div class="flow-desc">Su qualsiasi dei sei canali — WhatsApp, voce, SMS, email, Booking.com</div>
       </div>
       <div class="flow-step active">
         <div class="flow-num"><span class="flow-num-txt">02</span></div>
         <div class="flow-label">Normalizzazione</div>
-        <div class="flow-desc">Il canale adattatore converte il messaggio in uno schema unificato JSON</div>
+        <div class="flow-desc">Il canale adattatore converte il messaggio in uno schema unificato</div>
       </div>
       <div class="flow-step active">
         <div class="flow-num"><span class="flow-num-txt">03</span></div>
         <div class="flow-label">Contesto + AI</div>
-        <div class="flow-desc">Il server MCP inietta tariffe, disponibilità e policy — Claude API genera la risposta</div>
+        <div class="flow-desc">Il sistema inietta tariffe, disponibilità e policy — l'AI genera la risposta</div>
       </div>
       <div class="flow-step active">
         <div class="flow-num"><span class="flow-num-txt">04</span></div>
-        <div class="flow-label">Verifica o auto-invio</div>
-        <div class="flow-desc">Risposta automatica se entro la soglia di confidenza; altrimenti escalation allo staff</div>
+        <div class="flow-label">Invio o escalation</div>
+        <div class="flow-desc">Risposta automatica entro la soglia di confidenza; altrimenti notifica allo staff</div>
       </div>
       <div class="flow-step">
         <div class="flow-num"><span class="flow-num-txt">05</span></div>
         <div class="flow-label">Risposta consegnata</div>
-        <div class="flow-desc">De-normalizzata e inviata sul canale originale, nel thread corretto</div>
+        <div class="flow-desc">Inviata sul canale originale, nel thread corretto, a nome dell'hotel</div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- LIVE MESSAGE FEED + JOURNEY -->
+<!-- GUEST JOURNEY + LIVE FEED -->
 <section class="journey-section">
   <div class="wrap">
     <div class="journey-grid">
       <div>
         <p class="sec-eyebrow">Il percorso dell'ospite</p>
         <h2 class="sec-h2">Ogni fase del soggiorno.<br><em>Su ogni canale.</em></h2>
-        <p class="sec-body">L'IV Package non è solo ricezione — accompagna l'ospite dal momento della prenotazione fino alla recensione finale.</p>
+        <p class="sec-body">AutoReception non è solo ricezione — accompagna l'ospite dalla prenotazione alla recensione finale.</p>
         <div class="jlist">
           <div class="jitem">
             <span class="j-num">01</span>
-            <div class="j-info">
+            <div>
               <div class="j-title">Offerta pre-arrivo</div>
-              <div class="j-ch">via <strong>Email · WhatsApp</strong> — upgrade, colazione, parking</div>
+              <div class="j-ch">via <strong>Email · WhatsApp</strong> — upgrade, colazione, parcheggio</div>
             </div>
           </div>
           <div class="jitem">
             <span class="j-num">02</span>
-            <div class="j-info">
+            <div>
               <div class="j-title">Documenti e registrazione</div>
               <div class="j-ch">via <strong>SMS · Email</strong> — link sicuro, ISTAT automatico</div>
             </div>
           </div>
           <div class="jitem">
             <span class="j-num">03</span>
-            <div class="j-info">
+            <div>
               <div class="j-title">Check-in assistito 24/7</div>
               <div class="j-ch">via <strong>WhatsApp · Voce · SMS</strong> — chiave digitale, benvenuto</div>
             </div>
           </div>
           <div class="jitem">
             <span class="j-num">04</span>
-            <div class="j-info">
+            <div>
               <div class="j-title">Richieste durante il soggiorno</div>
-              <div class="j-ch">via <strong>tutti i canali</strong> — room service, manutenzione, info</div>
+              <div class="j-ch">via <strong>tutti i canali</strong> — room service, info, manutenzione</div>
             </div>
           </div>
           <div class="jitem">
             <span class="j-num">05</span>
-            <div class="j-info">
+            <div>
               <div class="j-title">Post checkout e recensioni</div>
               <div class="j-ch">via <strong>Email · Booking.com · Google</strong> — review request, offerta ritorno</div>
             </div>
@@ -541,7 +502,6 @@ footer{background:var(--surface);border-top:1px solid var(--border);padding:3rem
         </div>
       </div>
 
-      <!-- Live message feed -->
       <div class="feed-card">
         <div class="feed-header">
           <span class="feed-title">Messaggi in arrivo — tutti i canali</span>
@@ -556,26 +516,24 @@ footer{background:var(--surface);border-top:1px solid var(--border);padding:3rem
 <!-- PRICING -->
 <section class="pricing-section">
   <div class="wrap">
-    <p class="sec-eyebrow">Prezzi IV Package</p>
+    <p class="sec-eyebrow">Prezzi AutoReception</p>
     <h2 class="sec-h2">Scalabile con la struttura.<br><em>Non con i messaggi.</em></h2>
-    <p class="sec-body">Il prezzo riflette il valore operativo sostituito — non il volume di messaggi. Confrontato con una reception notturna h24 con personale umano, l'IV Package costa una frazione.</p>
-
+    <p class="sec-body">Il costo riflette il valore operativo sostituito — non il volume di messaggi. Setup completo in meno di una settimana.</p>
     <div class="pricing-grid">
       <div class="price-card">
         <div class="price-tier">Small</div>
-        <div class="price-size">Strutture sotto 20 camere</div>
+        <div class="price-size">Sotto 20 camere</div>
         <div class="price-rooms">B&B, agriturismi, piccoli hotel</div>
         <div class="price-amount">€300<em>–600</em></div>
         <div class="price-period">al mese · tutto incluso</div>
         <ul class="price-features">
           <li>Tutti e 6 i canali attivi</li>
-          <li>Ricezione AI 24/7</li>
+          <li>AutoReception AI 24/7</li>
           <li>Onboarding incluso</li>
           <li>Dashboard di monitoraggio</li>
         </ul>
         <a href="#" class="price-cta">Richiedi demo</a>
       </div>
-
       <div class="price-card featured">
         <div class="price-badge">Più richiesto</div>
         <div class="price-tier">Mid</div>
@@ -585,71 +543,45 @@ footer{background:var(--surface);border-top:1px solid var(--border);padding:3rem
         <div class="price-period">al mese · tutto incluso</div>
         <ul class="price-features">
           <li>Tutti e 6 i canali attivi</li>
-          <li>Ricezione AI 24/7 multilingue</li>
+          <li>AI multilingue 24/7</li>
           <li>Integrazione PMS esistente</li>
           <li>Gestione escalation avanzata</li>
           <li>Report mensile performance</li>
         </ul>
         <a href="#" class="price-cta">Richiedi demo</a>
       </div>
-
       <div class="price-card">
         <div class="price-tier">Enterprise</div>
         <div class="price-size">50+ camere o ADR elevato</div>
-        <div class="price-rooms">Hotel di lusso, alta stagionalità (ADR €300+)</div>
+        <div class="price-rooms">Hotel di lusso, alta stagionalità</div>
         <div class="price-amount">€2.000<em>+</em></div>
         <div class="price-period">al mese · su misura</div>
         <ul class="price-features">
-          <li>Tutti e 6 i canali + Google Reviews</li>
+          <li>Tutti i canali + Google Reviews</li>
           <li>SLA prioritario</li>
-          <li>Knowledge base personalizzata (RAG)</li>
-          <li>Account manager dedicato</li>
+          <li>Knowledge base personalizzata</li>
+          <li>Account manager Aivy dedicato</li>
           <li>Integrazioni custom</li>
         </ul>
         <a href="#" class="price-cta">Contattaci</a>
       </div>
     </div>
-
     <div class="pricing-vs">
       <div class="vs-label"><strong>Confronto diretto:</strong> reception notturna h24 con 2 turni di personale (stipendi, ferie, malattia, formazione) su una struttura media da 35 camere</div>
-      <div class="vs-item">
-        <span class="vs-val red">€3.500<span style="font-size:1.25rem">+</span></span>
-        <span class="vs-lbl">Reception umana<br>al mese</span>
-      </div>
-      <div style="font-size:1.5rem;color:var(--t3);font-weight:300">vs</div>
-      <div class="vs-item">
-        <span class="vs-val green">€800–1.500</span>
-        <span class="vs-lbl">IV Package<br>al mese</span>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- TECH STACK -->
-<section class="tech-section">
-  <div class="wrap">
-    <p class="sec-eyebrow">Architettura tecnica</p>
-    <h2 class="sec-h2" style="font-size:clamp(1.5rem,2.5vw,2rem)">Infrastruttura enterprise.<br><em>Nessun vendor lock-in.</em></h2>
-    <div class="tech-grid">
-      <div class="tech-item"><div class="tech-name">Claude API (Anthropic)</div><div class="tech-role">AI di comprensione e generazione risposte — Sonnet class</div></div>
-      <div class="tech-item"><div class="tech-name">Twilio</div><div class="tech-role">Voce, SMS, WhatsApp Business API — webhook real-time</div></div>
-      <div class="tech-item"><div class="tech-name">Booking.com Partner API</div><div class="tech-role">Messaggistica OTA e risposte recensioni via Connectivity Partner</div></div>
-      <div class="tech-item"><div class="tech-name">SMTP / IMAP</div><div class="tech-role">Email in entrata e in uscita sul dominio dell'hotel</div></div>
-      <div class="tech-item"><div class="tech-name">MCP Server (Node.js)</div><div class="tech-role">Orchestrazione, context injection, tool dispatch</div></div>
-      <div class="tech-item"><div class="tech-name">PostgreSQL + pgvector</div><div class="tech-role">Storico conversazioni, prenotazioni, knowledge base RAG</div></div>
-      <div class="tech-item"><div class="tech-name">Self-hosted VPS</div><div class="tech-role">Hetzner / DigitalOcean / AWS — nessun costo per messaggio</div></div>
-      <div class="tech-item"><div class="tech-name">Dashboard admin</div><div class="tech-role">Log conversazioni, override risposte, gestione escalation</div></div>
+      <div class="vs-item"><span class="vs-val red">€3.500<span style="font-size:1.2rem">+</span></span><span class="vs-lbl">Reception umana al mese</span></div>
+      <div style="font-size:1.5rem;color:var(--t3);font-weight:300;flex-shrink:0">vs</div>
+      <div class="vs-item"><span class="vs-val green">€800–1.500</span><span class="vs-lbl">AutoReception al mese</span></div>
     </div>
   </div>
 </section>
 
 <!-- CTA -->
 <section class="cta-section">
-  <h2 class="cta-h">Il vostro hotel, sempre <em>raggiungibile.</em></h2>
-  <p class="cta-sub">Pilota l'IV Package su una struttura, misuriamo i risultati insieme — tempo di risposta, soddisfazione ospiti, costi operativi. Setup completo in meno di una settimana.</p>
+  <h2 class="cta-h">Il vostro hotel, sempre raggiungibile.</h2>
+  <p class="cta-sub">Pilota AutoReception su una struttura — misuriamo insieme tempi di risposta, soddisfazione ospiti e risparmio operativo. Setup in meno di una settimana.</p>
   <div class="cta-row">
-    <a href="#" class="btn-lg">Prenota una demo</a>
-    <a href="#" class="btn-ol">Scarica la documentazione</a>
+    <a href="#" class="btn-white">Prenota una demo →</a>
+    <a href="#" class="btn-outline-white">Contatta Aivy Solutions</a>
   </div>
   <p class="cta-note">Nessun costo di attivazione · Pilot su una proprietà · Risultati misurabili in 30 giorni</p>
 </section>
@@ -658,39 +590,41 @@ footer{background:var(--surface);border-top:1px solid var(--border);padding:3rem
 <footer>
   <div class="foot-inner">
     <div class="foot-brand">
-      <div style="display:flex;align-items:center;gap:.6rem;margin-bottom:.5rem">
-        <span style="font-family:Georgia,serif;font-weight:700;font-size:1.4rem;color:var(--accent);letter-spacing:-0.02em">IV</span>
-        <span style="font-family:ui-monospace,monospace;font-size:.55rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--t3);line-height:1.4">Priority<br>Management</span>
+      <div class="foot-logo">
+        <svg width="16" height="16" viewBox="0 0 18 18" fill="none"><path d="M9 2C9 2 9 2 9 2C12.5 4 15 6.5 15 9.5C15 13 12.5 16 9 16C5.5 16 3 13 3 9.5C3 6.5 5.5 4 9 2Z" fill="#2EC92A"/><circle cx="9" cy="9.5" r="2.5" fill="white" opacity=".5"/></svg>
+        <div>
+          <div class="foot-logo-aivy">AIVY Solutions</div>
+          <div class="foot-logo-sub">AI Automation & Operations</div>
+        </div>
       </div>
+      <div class="foot-product-name">AutoReception</div>
       <p>Receptionist AI 24/7 multicanale per strutture ricettive italiane.</p>
     </div>
     <div class="foot-cols">
       <div class="foot-col">
         <h4>Prodotto</h4>
-        <a href="#">IV Package</a>
+        <a href="#">AutoReception</a>
         <a href="#">Canali integrati</a>
         <a href="#">Come funziona</a>
-        <a href="#">Architettura</a>
         <a href="#">Prezzi</a>
       </div>
       <div class="foot-col">
-        <h4>Azienda</h4>
+        <h4>Aivy Solutions</h4>
         <a href="#">Chi siamo</a>
-        <a href="#">Case study</a>
-        <a href="#">Blog</a>
+        <a href="#">Vision</a>
         <a href="#">Contatti</a>
+        <a href="#">getaivy.info</a>
       </div>
       <div class="foot-col">
-        <h4>Risorse</h4>
-        <a href="#">Documentazione API</a>
-        <a href="#">Booking.com Partner</a>
+        <h4>Supporto</h4>
+        <a href="#">Documentazione</a>
         <a href="#">Stato servizi</a>
-        <a href="#">Sicurezza</a>
+        <a href="#">Sicurezza e privacy</a>
       </div>
     </div>
   </div>
   <div class="foot-bottom">
-    <p>© 2025 IV Priority Management. Tutti i diritti riservati.</p>
+    <p>© 2025 Aivy Solutions. AutoReception è un prodotto Aivy Solutions LLC.</p>
     <div class="foot-links">
       <a href="#">Privacy</a>
       <a href="#">Termini</a>
@@ -700,75 +634,56 @@ footer{background:var(--surface);border-top:1px solid var(--border);padding:3rem
 </footer>
 
 <script>
-/* ── THEME ──────────────────────────────────────────────── */
+/* THEME */
 const root=document.documentElement;
 const toggleBtn=document.getElementById('themeToggle');
 let theme=root.getAttribute('data-theme')||(window.matchMedia('(prefers-color-scheme:dark)').matches?'dark':'light');
 function applyTheme(t){root.setAttribute('data-theme',t);theme=t}
+applyTheme(theme);
 toggleBtn.addEventListener('click',()=>applyTheme(theme==='dark'?'light':'dark'));
 
-/* ── CLOCK ──────────────────────────────────────────────── */
-function tick(){
-  const n=new Date();
-  const s=String(n.getHours()).padStart(2,'0')+':'+String(n.getMinutes()).padStart(2,'0');
-  const el=document.getElementById('liveClock');if(el)el.textContent=s;
-}
+/* CLOCK */
+function tick(){const n=new Date();const s=String(n.getHours()).padStart(2,'0')+':'+String(n.getMinutes()).padStart(2,'0');const el=document.getElementById('liveClock');if(el)el.textContent=s;}
 tick();setInterval(tick,60000);
 
-/* ── LIVE FEED ──────────────────────────────────────────── */
-const feedMessages=[
-  {ch:'WA', chColor:'var(--green)', chBg:'var(--gr-d)', sender:'Carlos M.', text:'Sono arrivato ma la reception è chiusa', time:'02:47', status:'Risposto', done:true},
-  {ch:'BK', chColor:'var(--blue)',  chBg:'var(--bl-d)', sender:'Sophie L. (Booking)', text:'Posso portare un animale domestico?', time:'06:12', status:'Risposto', done:true},
-  {ch:'TEL',chColor:'var(--blue)',  chBg:'var(--bl-d)', sender:'Chiamata +39 02 3456', text:'Disponibilità 15-18 agosto', time:'09:30', status:'Risposto', done:true},
-  {ch:'@',  chColor:'var(--accent)',chBg:'var(--ac-d)', sender:'info@hotelbraman.it', text:'Conferma prenotazione richiesta', time:'10:45', status:'Risposto', done:true},
-  {ch:'SMS',chColor:'var(--green)', chBg:'var(--gr-d)', sender:'+44 7700 9000', text:'What time is checkout?', time:'11:20', status:'Risposto', done:true},
-  {ch:'★',  chColor:'var(--accent)',chBg:'var(--ac-d)', sender:'Recensione 4★ — Ahmed K.', text:'"Ottima posizione, personale disponibile"', time:'13:05', status:'Risposta AI inviata', done:true},
-  {ch:'WA', chColor:'var(--green)', chBg:'var(--gr-d)', sender:'Yuki T.', text:'エアコンが壊れています', time:'14:38', status:'Escalato allo staff', done:false},
-  {ch:'BK', chColor:'var(--blue)',  chBg:'var(--bl-d)', sender:'Thomas B. (Booking)', text:'Early check-in possibile?', time:'15:22', status:'In risposta…', done:null},
+/* LIVE FEED */
+const msgs=[
+  {ch:'WA',bg:'rgba(46,201,42,.15)',clr:'#1A7A18',sender:'Carlos M.',text:'Sono arrivato ma la reception è chiusa',time:'02:47',status:'Risposto',done:true},
+  {ch:'BK',bg:'rgba(30,120,200,.13)',clr:'#1A5FAA',sender:'Sophie L. (Booking)',text:'Posso portare un animale domestico?',time:'06:12',status:'Risposto',done:true},
+  {ch:'TEL',bg:'rgba(30,120,200,.13)',clr:'#1A5FAA',sender:'Chiamata in arrivo',text:'+39 02 3456 — disponibilità 15 agosto',time:'09:30',status:'Risposto',done:true},
+  {ch:'@',bg:'rgba(46,201,42,.12)',clr:'#1A7A18',sender:'info@struttura.it',text:'Conferma prenotazione — camera doppia',time:'10:45',status:'Risposto',done:true},
+  {ch:'SMS',bg:'rgba(46,201,42,.12)',clr:'#1A7A18',sender:'+44 7700 9000',text:'What time is checkout?',time:'11:20',status:'Risposto',done:true},
+  {ch:'★',bg:'rgba(200,160,30,.12)',clr:'#8A6A10',sender:'Recensione 4★ — Ahmed K.',text:'"Ottima posizione, staff disponibile"',time:'13:05',status:'Risposta inviata',done:true},
+  {ch:'WA',bg:'rgba(46,201,42,.15)',clr:'#1A7A18',sender:'Yuki T.',text:'エアコンが壊れています',time:'14:38',status:'Escalato staff',done:false},
+  {ch:'BK',bg:'rgba(30,120,200,.13)',clr:'#1A5FAA',sender:'Thomas B. (Booking)',text:'Early check-in possibile?',time:'15:22',status:'In risposta…',done:null},
 ];
 
 let feedIdx=0;
 const feedBody=document.getElementById('feedBody');
-
-function renderFeedMsg(m){
+function renderMsg(m){
   const row=document.createElement('div');
   row.className='feed-msg';
-  const statusCls=m.done===null?'pending':m.done?'':'pending';
+  const sc=m.done===null||m.done===false?'pending':'';
   row.innerHTML=`
-    <div class="feed-ch" style="color:${m.chColor};background:${m.chBg}">${m.ch}</div>
+    <div class="feed-ch" style="background:${m.bg};color:${m.clr}">${m.ch}</div>
     <div class="feed-content">
       <div class="feed-sender">${m.sender}</div>
       <div class="feed-text">${m.text}</div>
     </div>
-    <div style="display:flex;flex-direction:column;align-items:flex-end;gap:.2rem;flex-shrink:0">
+    <div style="display:flex;flex-direction:column;align-items:flex-end;gap:.15rem;flex-shrink:0">
       <div class="feed-time">${m.time}</div>
-      <div class="feed-status ${statusCls}">${m.status}</div>
+      <div class="feed-status ${sc}">${m.status}</div>
     </div>`;
-  feedBody.insertBefore(row, feedBody.firstChild);
-  // Keep max 6 visible
+  feedBody.insertBefore(row,feedBody.firstChild);
   while(feedBody.children.length>6)feedBody.removeChild(feedBody.lastChild);
 }
-
-// Seed with first 5 messages
-function seedFeed(){
-  const initial=feedMessages.slice(0,5);
-  initial.forEach(m=>renderFeedMsg(m));
-}
-
-// Cycle through remaining messages
-function cycleFeed(){
-  const m=feedMessages[feedIdx % feedMessages.length];
-  renderFeedMsg(m);
-  feedIdx++;
-}
-
 window.addEventListener('load',()=>{
-  seedFeed();
+  msgs.slice(0,5).forEach(m=>renderMsg(m));
   feedIdx=5;
-  setInterval(cycleFeed,3200);
+  setInterval(()=>{renderMsg(msgs[feedIdx%msgs.length]);feedIdx++;},3200);
 });
 
-/* ── FLOW STEP ANIMATION ────────────────────────────────── */
+/* FLOW STEP CYCLE */
 window.addEventListener('load',()=>{
   const steps=document.querySelectorAll('.flow-step');
   let active=1;
