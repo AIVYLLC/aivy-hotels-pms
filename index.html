@@ -158,37 +158,37 @@ nav{position:sticky;top:0;z-index:100;background:var(--nav-bg);backdrop-filter:b
 .sim-chips{display:flex;gap:.5rem;flex-wrap:wrap;margin:1.75rem 0 2rem}
 .sim-chip{background:var(--surface);border:1px solid var(--border);border-radius:100px;padding:.4rem .9rem;font-size:.8125rem;font-weight:600;color:var(--t2);cursor:pointer;transition:all .15s;white-space:nowrap;font-family:inherit}
 .sim-chip:hover{border-color:var(--accent);color:var(--accent);background:var(--ac-d)}
-.sim-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem}
-.sim-card{background:var(--surface);border:1px solid var(--border);border-radius:12px;overflow:hidden;display:flex;flex-direction:column;box-shadow:var(--shadow)}
-.sim-card-head{padding:.9rem 1.25rem;border-bottom:1px solid var(--border);background:var(--sf2);display:flex;align-items:center;justify-content:space-between;flex-shrink:0}
-.sim-card-label{font-size:.8125rem;font-weight:700;color:var(--text);display:flex;align-items:center;gap:.4rem}
-.sim-card-hint{font-size:.7rem;color:var(--t3)}
-.sim-textarea{flex:1;width:100%;min-height:160px;padding:1.15rem 1.25rem;background:transparent;border:none;outline:none;font-family:inherit;font-size:.9375rem;color:var(--text);line-height:1.65;resize:none}
-.sim-textarea::placeholder{color:var(--t3)}
-.sim-footer{padding:1rem 1.25rem;border-top:1px solid var(--border);flex-shrink:0}
-.sim-send{width:100%;background:var(--accent);color:#fff;font-size:.9rem;font-weight:700;padding:.7rem;border-radius:8px;cursor:pointer;border:none;transition:opacity .15s;display:flex;align-items:center;justify-content:center;gap:.5rem;letter-spacing:.01em;font-family:inherit}
-.sim-send:hover:not(:disabled){opacity:.88}
-.sim-send:disabled{opacity:.4;cursor:not-allowed}
-.sim-send-hint{font-size:.65rem;color:rgba(255,255,255,.7);font-weight:500;margin-top:.35rem;text-align:center}
-.sim-response-area{flex:1;padding:1.25rem;min-height:160px;display:flex;flex-direction:column;justify-content:center}
-.sim-empty{text-align:center;color:var(--t3);padding:1.5rem 0;display:flex;flex-direction:column;align-items:center;gap:.6rem}
-.sim-empty-icon{font-size:1.75rem;opacity:.35;line-height:1}
-.sim-empty-txt{font-size:.875rem;line-height:1.5}
-.sim-typing{display:flex;align-items:center;gap:.45rem;padding:.25rem 0}
-.sim-dot{width:9px;height:9px;border-radius:50%;background:var(--accent);opacity:.55}
-.sim-dot:nth-child(1){animation:tdot 1.1s ease-in-out infinite}
-.sim-dot:nth-child(2){animation:tdot 1.1s ease-in-out .2s infinite}
-.sim-dot:nth-child(3){animation:tdot 1.1s ease-in-out .4s infinite}
-@keyframes tdot{0%,60%,100%{transform:translateY(0);opacity:.5}30%{transform:translateY(-7px);opacity:1}}
-.sim-response-text{font-size:.9375rem;color:var(--text);line-height:1.75}
-.sim-cursor{display:inline-block;width:2px;height:1em;background:var(--accent);vertical-align:text-bottom;margin-left:1px;animation:cblink .65s step-end infinite}
-@keyframes cblink{0%,100%{opacity:1}50%{opacity:0}}
-.sim-meta{padding:.7rem 1.25rem;border-top:1px solid var(--border);background:var(--sf2);display:flex;gap:.45rem;flex-wrap:wrap;align-items:center;flex-shrink:0}
-.sim-badge{font-size:.65rem;font-weight:700;letter-spacing:.04em;padding:.22rem .6rem;border-radius:100px}
-.sim-badge-time{background:var(--ac-d);color:var(--ac-text)}
-.sim-badge-lang{background:var(--ac-d);color:var(--ac-text)}
-.sim-badge-sent{background:rgba(34,107,63,.12);color:#1A6A30}
-:root[data-theme="dark"] .sim-badge-sent,:root[data-theme="dark"] .sim-badge-lang,:root[data-theme="dark"] .sim-badge-time{color:var(--accent)}
+.chat-window{max-width:700px;margin:0 auto;background:var(--surface);border:1px solid var(--border);border-radius:16px;overflow:hidden;box-shadow:var(--shadow);display:flex;flex-direction:column;height:500px}
+.chat-head{padding:.9rem 1.25rem;border-bottom:1px solid var(--border);background:var(--sf2);display:flex;align-items:center;justify-content:space-between;flex-shrink:0}
+.chat-head-left{display:flex;align-items:center;gap:.7rem}
+.chat-avatar{width:34px;height:34px;border-radius:50%;background:var(--accent);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.chat-head-name{font-size:.9rem;font-weight:700;color:var(--text);line-height:1.2}
+.chat-head-status{font-size:.68rem;color:var(--accent);display:flex;align-items:center;gap:.3rem;margin-top:.1rem}
+.chat-head-status::before{content:'';width:6px;height:6px;border-radius:50%;background:var(--accent);display:inline-block;animation:statuspulse 2s infinite}
+@keyframes statuspulse{0%,100%{opacity:1}50%{opacity:.35}}
+.chat-clear-btn{font-size:.75rem;color:var(--t3);cursor:pointer;background:none;border:1px solid var(--border);font-family:inherit;padding:.28rem .7rem;border-radius:100px;transition:all .15s}
+.chat-clear-btn:hover{color:var(--text);border-color:var(--bdr-s)}
+.chat-thread{flex:1;overflow-y:auto;padding:1.1rem 1.1rem;display:flex;flex-direction:column;gap:.65rem;scroll-behavior:smooth}
+.chat-thread::-webkit-scrollbar{width:4px}
+.chat-thread::-webkit-scrollbar-thumb{background:var(--border);border-radius:2px}
+.chat-bubble{max-width:84%;padding:.7rem 1rem;border-radius:18px;font-size:.9rem;line-height:1.65;word-break:break-word;animation:bubblein .18s ease-out}
+@keyframes bubblein{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+.chat-bubble.user{align-self:flex-end;background:var(--accent);color:#fff;border-radius:18px 18px 4px 18px}
+.chat-bubble.ai{align-self:flex-start;background:var(--sf2);color:var(--text);border-radius:18px 18px 18px 4px;border:1px solid var(--border)}
+.chat-dots{display:flex;align-items:center;gap:4px;padding:.15rem .2rem}
+.chat-dot{width:7px;height:7px;border-radius:50%;background:var(--t3)}
+.chat-dot:nth-child(1){animation:tdot 1.1s ease-in-out infinite}
+.chat-dot:nth-child(2){animation:tdot 1.1s ease-in-out .2s infinite}
+.chat-dot:nth-child(3){animation:tdot 1.1s ease-in-out .4s infinite}
+@keyframes tdot{0%,60%,100%{transform:translateY(0);opacity:.5}30%{transform:translateY(-6px);opacity:1}}
+.chat-input-bar{padding:.75rem 1rem;border-top:1px solid var(--border);background:var(--surface);flex-shrink:0;display:flex;gap:.55rem;align-items:flex-end}
+.chat-input{flex:1;background:var(--bg-alt);border:1px solid var(--border);border-radius:20px;padding:.55rem 1rem;font-family:inherit;font-size:.9375rem;color:var(--text);outline:none;resize:none;max-height:110px;line-height:1.5;transition:border-color .15s;overflow-y:auto}
+.chat-input:focus{border-color:var(--accent)}
+.chat-input::placeholder{color:var(--t3)}
+.chat-send-btn{width:38px;height:38px;background:var(--accent);border:none;border-radius:50%;cursor:pointer;display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:opacity .15s,transform .15s}
+.chat-send-btn:hover:not(:disabled){opacity:.88;transform:scale(1.06)}
+.chat-send-btn:disabled{opacity:.38;cursor:not-allowed}
+.chat-hint{font-size:.67rem;color:var(--t3);text-align:center;padding:.3rem 0 .6rem}
 
 /* ── CTA ─────────────────────────────────────────────────── */
 .cta-section{background:var(--accent);padding:6rem 2.5rem;text-align:center}
@@ -273,7 +273,7 @@ footer{background:#080E07;color:rgba(255,255,255,.65);padding:4rem 2.5rem 2.5rem
   .hero-outer{grid-template-columns:1fr;min-height:auto}
   .hero-left{clip-path:none;padding:4rem 1.75rem 3rem}
   .hero-right{margin-left:0;padding:3rem 1.75rem;min-height:340px}
-  .ch-grid,.sim-grid{grid-template-columns:1fr}
+  .ch-grid{grid-template-columns:1fr}
   .flow-steps{grid-template-columns:1fr 1fr;gap:1.5rem}
   .flow-steps::before{display:none}
   .journey-grid{grid-template-columns:1fr;gap:2.5rem}
@@ -564,63 +564,47 @@ footer{background:#080E07;color:rgba(255,255,255,.65);padding:4rem 2.5rem 2.5rem
   </div>
 </section>
 
-<!-- SIMULATOR -->
+<!-- CHATBOT -->
 <section class="sim-section" id="demo">
   <div class="wrap">
     <p class="sec-eyebrow">Prova AutoReception</p>
-    <h2 class="sec-h2">Scrivi un messaggio reale.<br><em>L'AI risponde.</em></h2>
-    <p class="sec-body">Qualsiasi lingua, qualsiasi scenario. Digita il messaggio di un ospite e vedi AutoReception rispondere — come farebbe 24 ore su 24.</p>
+    <h2 class="sec-h2">Scrivi qualsiasi cosa.<br><em>L'AI risponde davvero.</em></h2>
+    <p class="sec-body">Una conversazione reale con AutoReception. Qualsiasi lingua, qualsiasi domanda — esattamente come parlerebbe con i tuoi ospiti 24 ore su 24.</p>
 
     <div class="sim-chips">
-      <button class="sim-chip" onclick="fillSim('Mi sono dimenticato la chiave in camera')">🔑 Chiave dimenticata</button>
-      <button class="sim-chip" onclick="fillSim('What time is checkout tomorrow?')">⏰ Checkout time</button>
-      <button class="sim-chip" onclick="fillSim('Ich hätte gerne noch eine Decke bitte')">🛏️ Noch eine Decke</button>
-      <button class="sim-chip" onclick="fillSim('El aire acondicionado no funciona en mi habitación')">❄️ AC no funciona</button>
-      <button class="sim-chip" onclick="fillSim('Bonjour, à quelle heure est le petit-déjeuner ?')">☕ Petit-déjeuner</button>
-      <button class="sim-chip" onclick="fillSim('我想要退房，谢谢')">🇨🇳 退房 · 中文</button>
+      <button class="sim-chip" onclick="sendFromChip('Avete camere disponibili per questo weekend?')">🛏️ Disponibilità</button>
+      <button class="sim-chip" onclick="sendFromChip('What time is checkout tomorrow?')">⏰ Checkout</button>
+      <button class="sim-chip" onclick="sendFromChip('Ich hätte gerne noch eine Decke bitte')">🛏️ Noch eine Decke</button>
+      <button class="sim-chip" onclick="sendFromChip('El aire acondicionado no funciona')">❄️ AC no funciona</button>
+      <button class="sim-chip" onclick="sendFromChip('Bonjour, à quelle heure est le petit-déjeuner ?')">☕ Petit-déjeuner</button>
+      <button class="sim-chip" onclick="sendFromChip('我想要退房，谢谢')">🇨🇳 退房</button>
     </div>
 
-    <div class="sim-grid">
-      <!-- Input card -->
-      <div class="sim-card">
-        <div class="sim-card-head">
-          <span class="sim-card-label">
-            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
-            Messaggio ospite
-          </span>
-          <span class="sim-card-hint">Qualsiasi lingua</span>
-        </div>
-        <textarea id="simInput" class="sim-textarea" placeholder="Scrivi il messaggio dell'ospite…&#10;&#10;Es. &quot;Buonasera, il riscaldamento non funziona&quot;"></textarea>
-        <div class="sim-footer">
-          <button id="simBtn" class="sim-send" onclick="runSim()">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
-            Invia a AutoReception
-          </button>
-          <div class="sim-send-hint">o premi Ctrl+Invio</div>
-        </div>
-      </div>
-
-      <!-- Response card -->
-      <div class="sim-card">
-        <div class="sim-card-head">
-          <span class="sim-card-label">
-            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2.5"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
-            <span style="color:var(--accent)">AutoReception</span>
-          </span>
-          <span id="simStatus" class="sim-card-hint">In attesa di un messaggio</span>
-        </div>
-        <div id="simResponseArea" class="sim-response-area">
-          <div class="sim-empty" id="simEmpty">
-            <span class="sim-empty-icon">💬</span>
-            <span class="sim-empty-txt">La risposta AI apparirà qui.<br>Prova uno dei messaggi sopra.</span>
+    <div class="chat-window">
+      <div class="chat-head">
+        <div class="chat-head-left">
+          <div class="chat-avatar">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+          </div>
+          <div>
+            <div class="chat-head-name">AutoReception</div>
+            <div class="chat-head-status">Online — risponde ora</div>
           </div>
         </div>
-        <div id="simMeta" class="sim-meta" style="display:none">
-          <span id="simBadgeTime" class="sim-badge sim-badge-time">⚡ —</span>
-          <span id="simBadgeLang" class="sim-badge sim-badge-lang">🌍 —</span>
-          <span class="sim-badge sim-badge-sent">✓ Risposta inviata</span>
-        </div>
+        <button class="chat-clear-btn" onclick="clearChat()">Nuova chat</button>
       </div>
+
+      <div class="chat-thread" id="chatThread">
+        <div class="chat-bubble ai">Ciao! 👋 Sono AutoReception. Come posso aiutarla oggi? Rispondo in qualsiasi lingua.</div>
+      </div>
+
+      <div class="chat-input-bar">
+        <textarea id="chatInput" class="chat-input" rows="1" placeholder="Scrivi un messaggio…"></textarea>
+        <button id="chatSendBtn" class="chat-send-btn" onclick="sendChat()">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+        </button>
+      </div>
+      <div class="chat-hint">Enter per inviare · Shift+Enter per andare a capo</div>
     </div>
   </div>
 </section>
@@ -969,7 +953,7 @@ window.addEventListener('load',()=>{
   },1800);
 });
 
-/* ── AI RESPONSE SIMULATOR ──────────────────────────────── */
+/* ── CHATBOT ─────────────────────────────────────────────── */
 const SIM_LANG_MARKERS={
   it:['sono','mi','ho','di','che','il','la','per','non','ma','un','con','si','da','del','della','nel','ha','le','anche','come','tutto','buongiorno','buonasera','grazie','vorrei','stanza','camera','riscaldamento','chiave'],
   en:['the','is','are','am','have','has','my','your','this','that','can','could','would','please','need','want','room','hotel','check','hello','hi','thank','thanks','what','when','how','time'],
@@ -1135,65 +1119,105 @@ function simDetectIntent(text){
   return'general';
 }
 
-function fillSim(text){
-  document.getElementById('simInput').value=text;
-  document.getElementById('simInput').focus();
+/* Chat state */
+let chatHistory=[];
+let chatBusy=false;
+
+function getChatThread(){return document.getElementById('chatThread');}
+function getChatInput(){return document.getElementById('chatInput');}
+function getChatSendBtn(){return document.getElementById('chatSendBtn');}
+
+function appendBubble(text,role){
+  const thread=getChatThread();
+  const div=document.createElement('div');
+  div.className='chat-bubble '+role;
+  div.textContent=text;
+  thread.appendChild(div);
+  thread.scrollTop=thread.scrollHeight;
+  return div;
 }
 
-function runSim(){
-  const input=document.getElementById('simInput').value.trim();
-  if(!input)return;
-  const btn=document.getElementById('simBtn');
-  const status=document.getElementById('simStatus');
-  const area=document.getElementById('simResponseArea');
-  const meta=document.getElementById('simMeta');
+function showTyping(){
+  const thread=getChatThread();
+  const div=document.createElement('div');
+  div.className='chat-bubble ai';
+  div.id='chatTyping';
+  div.innerHTML='<div class="chat-dots"><div class="chat-dot"></div><div class="chat-dot"></div><div class="chat-dot"></div></div>';
+  thread.appendChild(div);
+  thread.scrollTop=thread.scrollHeight;
+}
 
-  btn.disabled=true;
-  meta.style.display='none';
-  status.textContent='Elaborazione…';
+function hideTyping(){
+  const el=document.getElementById('chatTyping');
+  if(el)el.remove();
+}
 
-  const lang=simDetectLang(input);
-  const intent=simDetectIntent(input);
+/* Fallback lookup for when API is unavailable */
+function localFallback(text){
+  const lang=simDetectLang(text);
+  const intent=simDetectIntent(text);
   const pool=SIM_RESPONSES[lang]||SIM_RESPONSES.en;
-  const responseText=pool[intent]||pool.general||SIM_RESPONSES.en.general;
-
-  area.innerHTML='<div class="sim-typing"><div class="sim-dot"></div><div class="sim-dot"></div><div class="sim-dot"></div></div>';
-
-  const t0=Date.now();
-
-  setTimeout(()=>{
-    status.textContent='Risposta in corso…';
-    const div=document.createElement('div');
-    div.className='sim-response-text';
-    area.innerHTML='';
-    area.appendChild(div);
-
-    const cursor=document.createElement('span');
-    cursor.className='sim-cursor';
-
-    let i=0;
-    const speed=Math.max(8,Math.min(20,Math.round(4000/responseText.length)));
-
-    const ticker=setInterval(()=>{
-      i++;
-      div.textContent=responseText.slice(0,i);
-      div.appendChild(cursor);
-      if(i>=responseText.length){
-        clearInterval(ticker);
-        cursor.remove();
-        const elapsed=((Date.now()-t0)/1000).toFixed(1);
-        document.getElementById('simBadgeTime').textContent='⚡ '+elapsed+'s';
-        document.getElementById('simBadgeLang').textContent=SIM_LANG_NAMES[lang]||lang;
-        meta.style.display='flex';
-        status.textContent='Risposta inviata';
-        btn.disabled=false;
-      }
-    },speed);
-  },1400);
+  return pool[intent]||pool.general||SIM_RESPONSES.en.general;
 }
 
-document.getElementById('simInput').addEventListener('keydown',e=>{
-  if((e.ctrlKey||e.metaKey)&&e.key==='Enter')runSim();
+async function sendChat(){
+  if(chatBusy)return;
+  const input=getChatInput();
+  const text=input.value.trim();
+  if(!text)return;
+
+  input.value='';
+  input.style.height='';
+  chatBusy=true;
+  getChatSendBtn().disabled=true;
+
+  appendBubble(text,'user');
+  chatHistory.push({role:'user',content:text});
+  showTyping();
+
+  let replyText;
+  try{
+    const res=await fetch('/api/chat',{
+      method:'POST',
+      headers:{'Content-Type':'application/json'},
+      body:JSON.stringify({messages:chatHistory}),
+      signal:AbortSignal.timeout(12000)
+    });
+    if(!res.ok)throw new Error('HTTP '+res.status);
+    const data=await res.json();
+    replyText=data.text||localFallback(text);
+  }catch{
+    replyText=localFallback(text);
+  }
+
+  hideTyping();
+  appendBubble(replyText,'ai');
+  chatHistory.push({role:'assistant',content:replyText});
+
+  chatBusy=false;
+  getChatSendBtn().disabled=false;
+  input.focus();
+}
+
+function sendFromChip(text){
+  getChatInput().value=text;
+  sendChat();
+}
+
+function clearChat(){
+  chatHistory=[];
+  const thread=getChatThread();
+  thread.innerHTML='<div class="chat-bubble ai">Ciao! 👋 Sono AutoReception. Come posso aiutarla oggi? Rispondo in qualsiasi lingua.</div>';
+}
+
+/* Auto-resize textarea */
+getChatInput().addEventListener('input',function(){
+  this.style.height='';
+  this.style.height=Math.min(this.scrollHeight,110)+'px';
+});
+
+getChatInput().addEventListener('keydown',e=>{
+  if(e.key==='Enter'&&!e.shiftKey){e.preventDefault();sendChat();}
 });
 
 /* ── MODALS ──────────────────────────────────────────────── */
