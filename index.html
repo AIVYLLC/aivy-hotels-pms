@@ -1,4 +1,4 @@
-<title>Aivy PMS — Con l'ospite, dall'offerta all'arrivederci</title>
+<title>IV Priority Management — IV Package, Receptionist AI 24/7</title>
 <style>
 /* ── TOKENS ─────────────────────────────────────────────── */
 :root {
@@ -16,422 +16,184 @@
   --bl-d:    rgba(42,95,140,.10);
   --green:   #226B3F;
   --gr-d:    rgba(34,107,63,.10);
-  --red:     #8C2A2A;
-  --rd-d:    rgba(140,42,42,.10);
   --border:  rgba(18,24,32,.09);
   --bdr-s:   rgba(18,24,32,.16);
   --nav-bg:  rgba(236,234,227,.93);
   --shadow:  0 1px 3px rgba(0,0,0,.04),0 4px 14px rgba(0,0,0,.05);
 }
 @media (prefers-color-scheme:dark){:root{
-  --bg:#07101C; --bg-alt:#0C1628; --surface:#0F1E30; --sf2:#142235;
-  --text:#E2E6F0; --t2:#94A0B8; --t3:#4E5870;
-  --accent:#CCA030; --ac-d:rgba(204,160,48,.12); --ac-b:rgba(204,160,48,.30);
-  --blue:#4888CC; --bl-d:rgba(72,136,204,.12);
-  --green:#38A860; --gr-d:rgba(56,168,96,.12);
-  --red:#C04040; --rd-d:rgba(192,64,64,.12);
-  --border:rgba(226,230,240,.07); --bdr-s:rgba(226,230,240,.14);
-  --nav-bg:rgba(7,16,28,.93);
-  --shadow:0 1px 3px rgba(0,0,0,.25),0 4px 18px rgba(0,0,0,.22);
-}}
-:root[data-theme="light"]{
-  --bg:#ECEAE3;--bg-alt:#F5F4EF;--surface:#FFFFFF;--sf2:#F8F7F3;
-  --text:#121820;--t2:#485060;--t3:#8A90A0;
-  --accent:#B8881E;--ac-d:rgba(184,136,30,.10);--ac-b:rgba(184,136,30,.28);
-  --blue:#2A5F8C;--bl-d:rgba(42,95,140,.10);
-  --green:#226B3F;--gr-d:rgba(34,107,63,.10);
-  --red:#8C2A2A;--rd-d:rgba(140,42,42,.10);
-  --border:rgba(18,24,32,.09);--bdr-s:rgba(18,24,32,.16);
-  --nav-bg:rgba(236,234,227,.93);
-  --shadow:0 1px 3px rgba(0,0,0,.04),0 4px 14px rgba(0,0,0,.05);
-}
-:root[data-theme="dark"]{
   --bg:#07101C;--bg-alt:#0C1628;--surface:#0F1E30;--sf2:#142235;
   --text:#E2E6F0;--t2:#94A0B8;--t3:#4E5870;
   --accent:#CCA030;--ac-d:rgba(204,160,48,.12);--ac-b:rgba(204,160,48,.30);
   --blue:#4888CC;--bl-d:rgba(72,136,204,.12);
   --green:#38A860;--gr-d:rgba(56,168,96,.12);
-  --red:#C04040;--rd-d:rgba(192,64,64,.12);
   --border:rgba(226,230,240,.07);--bdr-s:rgba(226,230,240,.14);
   --nav-bg:rgba(7,16,28,.93);
   --shadow:0 1px 3px rgba(0,0,0,.25),0 4px 18px rgba(0,0,0,.22);
-}
+}}
+:root[data-theme="light"]{--bg:#ECEAE3;--bg-alt:#F5F4EF;--surface:#FFFFFF;--sf2:#F8F7F3;--text:#121820;--t2:#485060;--t3:#8A90A0;--accent:#B8881E;--ac-d:rgba(184,136,30,.10);--ac-b:rgba(184,136,30,.28);--blue:#2A5F8C;--bl-d:rgba(42,95,140,.10);--green:#226B3F;--gr-d:rgba(34,107,63,.10);--border:rgba(18,24,32,.09);--bdr-s:rgba(18,24,32,.16);--nav-bg:rgba(236,234,227,.93);--shadow:0 1px 3px rgba(0,0,0,.04),0 4px 14px rgba(0,0,0,.05)}
+:root[data-theme="dark"]{--bg:#07101C;--bg-alt:#0C1628;--surface:#0F1E30;--sf2:#142235;--text:#E2E6F0;--t2:#94A0B8;--t3:#4E5870;--accent:#CCA030;--ac-d:rgba(204,160,48,.12);--ac-b:rgba(204,160,48,.30);--blue:#4888CC;--bl-d:rgba(72,136,204,.12);--green:#38A860;--gr-d:rgba(56,168,96,.12);--border:rgba(226,230,240,.07);--bdr-s:rgba(226,230,240,.14);--nav-bg:rgba(7,16,28,.93);--shadow:0 1px 3px rgba(0,0,0,.25),0 4px 18px rgba(0,0,0,.22)}
 
 /* ── RESET ──────────────────────────────────────────────── */
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
-body{
-  font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;
-  background:var(--bg);color:var(--text);
-  font-size:16px;line-height:1.6;
-  -webkit-font-smoothing:antialiased;overflow-x:hidden;
-}
+body{font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;background:var(--bg);color:var(--text);font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
 a{color:inherit;text-decoration:none}
 button{font-family:inherit;cursor:pointer;border:none;background:none}
 
 /* ── NAV ────────────────────────────────────────────────── */
-nav{
-  position:sticky;top:0;z-index:100;
-  background:var(--nav-bg);
-  backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);
-  border-bottom:1px solid var(--border);
-}
-.nav-inner{
-  max-width:1200px;margin:0 auto;padding:0 2rem;
-  height:58px;display:flex;align-items:center;gap:1.5rem;
-}
-.logo{
-  color:var(--text);
-  font-family:Georgia,"Times New Roman",serif;
-  font-weight:700;font-size:1.25rem;letter-spacing:-0.02em;
-  display:flex;align-items:center;gap:.4rem;
-}
-.logo-badge{
-  font-family:ui-monospace,"SF Mono",Menlo,monospace;
-  font-size:.58rem;font-weight:600;letter-spacing:.1em;
-  color:var(--accent);border:1px solid var(--ac-b);
-  padding:2px 6px;border-radius:2px;
-}
-.nav-links{display:flex;gap:1.75rem;margin-left:.75rem;flex:1}
+nav{position:sticky;top:0;z-index:100;background:var(--nav-bg);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border-bottom:1px solid var(--border)}
+.nav-inner{max-width:1200px;margin:0 auto;padding:0 2rem;height:58px;display:flex;align-items:center;gap:1.5rem}
+.logo{color:var(--text);display:flex;align-items:center;gap:.6rem}
+.logo-iv{font-family:Georgia,"Times New Roman",serif;font-weight:700;font-size:1.6rem;letter-spacing:-0.03em;color:var(--accent);line-height:1}
+.logo-name{font-family:ui-monospace,"SF Mono",Menlo,monospace;font-size:.5rem;font-weight:600;letter-spacing:.09em;text-transform:uppercase;color:var(--t3);line-height:1.4}
+.logo-sep{width:1px;height:22px;background:var(--border);margin:0 .2rem}
+.nav-links{display:flex;gap:1.75rem;margin-left:.5rem;flex:1}
 .nav-links a{color:var(--t2);font-size:.8375rem;font-weight:500;transition:color .15s}
 .nav-links a:hover{color:var(--text)}
-.theme-toggle{
-  width:32px;height:32px;border-radius:2px;
-  border:1px solid var(--bdr-s);color:var(--t3);
-  display:flex;align-items:center;justify-content:center;
-  transition:color .15s;cursor:pointer;
-}
+.theme-toggle{width:32px;height:32px;border-radius:2px;border:1px solid var(--bdr-s);color:var(--t3);display:flex;align-items:center;justify-content:center;transition:color .15s;cursor:pointer}
 .theme-toggle:hover{color:var(--text)}
-.nav-cta{
-  background:var(--accent);color:#fff;
-  font-size:.8125rem;font-weight:600;padding:.42rem 1.1rem;
-  border-radius:2px;letter-spacing:.01em;transition:opacity .15s;white-space:nowrap;
-}
+.nav-cta{background:var(--accent);color:#fff;font-size:.8125rem;font-weight:600;padding:.42rem 1.1rem;border-radius:2px;letter-spacing:.01em;transition:opacity .15s;white-space:nowrap}
 .nav-cta:hover{opacity:.88}
 
 /* ── HERO ───────────────────────────────────────────────── */
-.hero{
-  max-width:1200px;margin:0 auto;
-  padding:5.5rem 2rem 4.5rem;
-  display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:center;
-}
-.hero-signal{
-  display:inline-flex;align-items:center;gap:.5rem;
-  font-family:ui-monospace,"SF Mono",Menlo,monospace;
-  font-size:.6875rem;font-weight:600;letter-spacing:.06em;
-  color:var(--green);margin-bottom:1.5rem;
-}
-.sig-dot{
-  width:7px;height:7px;border-radius:50%;background:var(--green);
-  animation:gpulse 2.2s ease-in-out infinite;
-}
-@keyframes gpulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.4;transform:scale(.82)}}
+.hero{max-width:1200px;margin:0 auto;padding:5.5rem 2rem 4.5rem;display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:center}
+.hero-signal{display:inline-flex;align-items:center;gap:.5rem;font-family:ui-monospace,"SF Mono",Menlo,monospace;font-size:.6875rem;font-weight:600;letter-spacing:.06em;color:var(--green);margin-bottom:1.5rem}
+.sig-dot{width:7px;height:7px;border-radius:50%;background:var(--green);animation:gpulse 2.2s ease-in-out infinite}
+@keyframes gpulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.4;transform:scale(.8)}}
 
-/* Three-line headline — different sizes encode rhythm not hierarchy */
-.hero-h{
-  font-family:Georgia,"Times New Roman",serif;
-  font-weight:700;letter-spacing:-0.03em;
-  margin-bottom:1.5rem;display:flex;flex-direction:column;gap:.1em;
-}
-.hl-a{font-size:clamp(2rem,3.8vw,3.5rem);color:var(--t2);line-height:1.05}
-.hl-b{font-size:clamp(2rem,3.8vw,3.5rem);color:var(--t2);line-height:1.05}
-.hl-c{
-  font-size:clamp(2.75rem,6vw,5.75rem);
-  color:var(--accent);font-style:italic;line-height:1.0;
-  margin-top:.06em;
-}
+.hero-h{font-family:Georgia,"Times New Roman",serif;font-weight:700;letter-spacing:-0.03em;margin-bottom:1.5rem;display:flex;flex-direction:column}
+.hl-channels{font-size:clamp(1.375rem,2.5vw,2.2rem);color:var(--t2);line-height:1.2;margin-bottom:.2em}
+.hl-channels span{color:var(--t3);font-size:.85em}
+.hl-big{font-size:clamp(3rem,6.5vw,6rem);color:var(--accent);font-style:italic;line-height:.95;margin-top:.1em}
 
-.hero-body{
-  font-size:1.0625rem;color:var(--t2);
-  line-height:1.72;max-width:44ch;margin-bottom:2.25rem;
-}
+.hero-body{font-size:1.0625rem;color:var(--t2);line-height:1.72;max-width:44ch;margin-bottom:2.25rem}
 .hero-actions{display:flex;align-items:center;gap:1.5rem;flex-wrap:wrap}
-.btn-p{
-  display:inline-flex;align-items:center;
-  background:var(--accent);color:#fff;
-  font-size:.875rem;font-weight:600;
-  padding:.68rem 1.45rem;border-radius:2px;letter-spacing:.01em;transition:opacity .15s;
-}
+.btn-p{display:inline-flex;align-items:center;background:var(--accent);color:#fff;font-size:.875rem;font-weight:600;padding:.68rem 1.45rem;border-radius:2px;letter-spacing:.01em;transition:opacity .15s}
 .btn-p:hover{opacity:.88}
 .btn-g{color:var(--t2);font-size:.875rem;font-weight:500;transition:color .15s}
 .btn-g:hover{color:var(--text)}
 
-/* ── GUEST JOURNEY TIMELINE ─────────────────────────────── */
-.journey-card{
-  background:var(--surface);border:1px solid var(--border);
-  border-radius:6px;overflow:hidden;box-shadow:var(--shadow);
-}
-.jc-header{
-  padding:.9rem 1.4rem;border-bottom:1px solid var(--border);
-  background:var(--sf2);display:flex;align-items:center;justify-content:space-between;
-}
-.jc-title{font-size:.8125rem;font-weight:600;color:var(--t2)}
-.jc-sub{
-  font-family:ui-monospace,"SF Mono",Menlo,monospace;
-  font-size:.6875rem;color:var(--green);font-weight:700;letter-spacing:.04em;
-}
+/* ── CHANNEL HUB SVG wrapper ────────────────────────────── */
+.hub-wrap{display:flex;align-items:center;justify-content:center;padding:1rem 0}
+.hub-wrap svg{width:100%;max-width:380px;height:auto}
 
-.jc-body{padding:1.25rem 1.4rem;position:relative}
-
-/* Timeline vertical line */
-.jc-body::before{
-  content:'';position:absolute;left:calc(1.4rem + 8px);top:1.4rem;bottom:1.4rem;
-  width:1px;background:var(--border);
-}
-
-.jt-stage{
-  display:flex;gap:1rem;align-items:flex-start;
-  padding:.6rem 0;position:relative;
-  opacity:0;transform:translateY(8px);
-  transition:opacity .4s ease,transform .4s ease;
-}
-.jt-stage.visible{opacity:1;transform:translateY(0)}
-
-.jt-dot{
-  width:17px;height:17px;border-radius:50%;
-  border:2px solid var(--border);background:var(--surface);
-  display:flex;align-items:center;justify-content:center;
-  flex-shrink:0;position:relative;z-index:1;
-  transition:border-color .3s,background .3s;
-}
-.jt-dot.done{background:var(--accent);border-color:var(--accent)}
-.jt-dot.done::after{
-  content:'';width:5px;height:5px;border-radius:50%;background:#fff;
-}
-.jt-dot.active{border-color:var(--accent)}
-.jt-dot.active::after{
-  content:'';width:5px;height:5px;border-radius:50%;
-  background:var(--accent);animation:gpulse 1.5s infinite;
-}
-
-.jt-info{flex:1;padding-bottom:.5rem;border-bottom:1px solid var(--border)}
-.jt-stage:last-child .jt-info{border-bottom:none;padding-bottom:0}
-.jt-label{
-  font-size:.6875rem;font-weight:600;letter-spacing:.08em;
-  text-transform:uppercase;color:var(--t3);margin-bottom:.15rem;
-}
-.jt-text{font-size:.875rem;font-weight:500;color:var(--text);line-height:1.4;margin-bottom:.2rem}
-.jt-detail{font-size:.78rem;color:var(--t3);line-height:1.45}
-.jt-accent{color:var(--accent);font-weight:600}
-.jt-green{color:var(--green);font-weight:600}
-
-/* ── STATS STRIP ────────────────────────────────────────── */
-.strip{
-  background:var(--surface);
-  border-top:1px solid var(--border);border-bottom:1px solid var(--border);
-}
-.strip-inner{
-  max-width:1200px;margin:0 auto;padding:0 2rem;
-  display:grid;grid-template-columns:2fr 1fr 1fr 1fr;
-}
-.s-item{
-  padding:1.75rem 2rem;
-  border-right:1px solid var(--border);
-}
+/* ── STRIP ──────────────────────────────────────────────── */
+.strip{background:var(--surface);border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
+.strip-inner{max-width:1200px;margin:0 auto;padding:0 2rem;display:grid;grid-template-columns:3fr 1fr 1fr 1fr}
+.s-item{padding:1.75rem 2rem;border-right:1px solid var(--border)}
 .s-item:first-child{padding-left:0}
 .s-item:last-child{border-right:none}
-/* First item larger — deliberately unequal */
-.s-item:first-child .s-val{
-  font-size:1.5rem;line-height:1.2;
-  font-family:Georgia,"Times New Roman",serif;
-  font-weight:700;letter-spacing:-0.02em;
-  color:var(--text);display:block;margin-bottom:.35rem;
-  font-style:italic;
-}
-.s-val{
-  font-family:Georgia,"Times New Roman",serif;
-  font-size:2.25rem;font-weight:700;letter-spacing:-0.03em;
-  color:var(--text);display:block;margin-bottom:.15rem;line-height:1;
-}
+.s-val{font-family:Georgia,"Times New Roman",serif;font-size:2.25rem;font-weight:700;letter-spacing:-0.03em;color:var(--text);display:block;margin-bottom:.15rem;line-height:1}
 .s-val em{font-style:normal;color:var(--accent)}
 .s-lbl{font-size:.8rem;color:var(--t3);line-height:1.45}
+.s-item:first-child .s-val{font-size:1.375rem;font-style:italic;line-height:1.3}
 
-/* ── SECTION SHARED ─────────────────────────────────────── */
-.sec-eyebrow{
-  font-size:.6875rem;font-weight:600;letter-spacing:.11em;
-  text-transform:uppercase;color:var(--accent);
-  display:flex;align-items:center;gap:.6rem;margin-bottom:.85rem;
-}
+/* ── SECTIONS ───────────────────────────────────────────── */
+.sec-eyebrow{font-size:.6875rem;font-weight:600;letter-spacing:.11em;text-transform:uppercase;color:var(--accent);display:flex;align-items:center;gap:.6rem;margin-bottom:.85rem}
 .sec-eyebrow::before{content:'';width:20px;height:1px;background:var(--accent);flex-shrink:0}
-.sec-h2{
-  font-family:Georgia,"Times New Roman",serif;
-  font-weight:700;letter-spacing:-0.025em;line-height:1.1;
-  text-wrap:balance;font-size:clamp(1.875rem,3vw,2.75rem);
-}
+.sec-h2{font-family:Georgia,"Times New Roman",serif;font-weight:700;letter-spacing:-0.025em;line-height:1.1;text-wrap:balance;font-size:clamp(1.875rem,3vw,2.75rem)}
 .sec-h2 em{font-style:italic;color:var(--accent)}
 .sec-body{font-size:1rem;color:var(--t2);max-width:44ch;line-height:1.7;margin-top:.75rem}
 .wrap{max-width:1200px;margin:0 auto}
+.section{padding:5rem 2rem}
 
-/* ── JOURNEY STAGES (5 stages, non-uniform layout) ───────── */
-.stages-section{background:var(--bg);padding:5rem 2rem}
+/* ── 6 CHANNELS ─────────────────────────────────────────── */
+.channels-section{background:var(--bg-alt,var(--bg));padding:5rem 2rem}
+.ch-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.25rem;margin-top:3rem}
+.ch-card{background:var(--surface);border:1px solid var(--border);border-radius:4px;padding:1.75rem;transition:border-color .2s,box-shadow .2s}
+.ch-card:hover{border-color:var(--bdr-s);box-shadow:var(--shadow)}
+.ch-card.featured{border-left:3px solid var(--accent)}
+.ch-icon{width:36px;height:36px;border-radius:3px;display:flex;align-items:center;justify-content:center;margin-bottom:1.1rem;flex-shrink:0}
+.ch-name{font-family:Georgia,"Times New Roman",serif;font-size:1.125rem;font-weight:700;letter-spacing:-0.015em;margin-bottom:.5rem;color:var(--text)}
+.ch-body{font-size:.875rem;color:var(--t2);line-height:1.65}
+.ch-tag{display:inline-block;margin-top:.9rem;font-size:.6875rem;font-weight:600;letter-spacing:.07em;text-transform:uppercase;padding:.2rem .5rem;border-radius:2px}
+.tag-gold{color:var(--accent);background:var(--ac-d)}
+.tag-blue{color:var(--blue);background:var(--bl-d)}
+.tag-green{color:var(--green);background:var(--gr-d)}
 
-.stages-grid{display:grid;gap:1.5rem}
+/* ── HOW IT WORKS ───────────────────────────────────────── */
+.flow-section{background:var(--bg);padding:5rem 2rem}
+.flow-steps{display:grid;grid-template-columns:repeat(5,1fr);gap:0;margin-top:3rem;position:relative}
+.flow-steps::before{content:'';position:absolute;top:22px;left:calc(10% + 22px);right:calc(10% + 22px);height:1px;background:var(--border)}
+.flow-step{display:flex;flex-direction:column;align-items:center;text-align:center;padding:0 1rem;position:relative}
+.flow-num{width:44px;height:44px;border-radius:50%;background:var(--surface);border:2px solid var(--border);display:flex;align-items:center;justify-content:center;margin-bottom:1.1rem;position:relative;z-index:1;transition:border-color .3s}
+.flow-step.active .flow-num{border-color:var(--accent);background:var(--ac-d)}
+.flow-num-txt{font-family:ui-monospace,"SF Mono",Menlo,monospace;font-size:.75rem;font-weight:700;color:var(--t3)}
+.flow-step.active .flow-num-txt{color:var(--accent)}
+.flow-label{font-size:.8125rem;font-weight:600;color:var(--text);margin-bottom:.35rem;line-height:1.3}
+.flow-desc{font-size:.75rem;color:var(--t3);line-height:1.5}
 
-/* Stage cards — each has its own width via grid on row 1 */
-.stage-row-1{display:grid;grid-template-columns:1fr 1fr 1fr;gap:1.5rem}
-.stage-row-2{display:grid;grid-template-columns:5fr 7fr;gap:1.5rem}
+/* ── GUEST JOURNEY ──────────────────────────────────────── */
+.journey-section{background:var(--bg-alt);padding:5rem 2rem}
+.journey-grid{display:grid;grid-template-columns:1fr 2fr;gap:4rem;align-items:start}
+.jlist{margin-top:1.5rem;display:flex;flex-direction:column;gap:0}
+.jitem{display:flex;gap:1rem;padding:1rem 0;border-bottom:1px solid var(--border);align-items:flex-start}
+.jitem:last-child{border-bottom:none}
+.j-num{font-family:ui-monospace,"SF Mono",Menlo,monospace;font-size:.65rem;font-weight:700;letter-spacing:.06em;color:var(--accent);width:20px;flex-shrink:0;padding-top:.15rem}
+.j-info{}
+.j-title{font-size:.9375rem;font-weight:600;color:var(--text);margin-bottom:.2rem}
+.j-ch{font-size:.75rem;color:var(--t3)}
+.j-ch strong{color:var(--blue);font-weight:500}
 
-.stage-card{
-  background:var(--surface);border:1px solid var(--border);
-  border-radius:4px;padding:2rem;
-  transition:border-color .2s, box-shadow .2s;
-}
-.stage-card:hover{border-color:var(--bdr-s);box-shadow:var(--shadow)}
+/* Live message feed */
+.feed-card{background:var(--surface);border:1px solid var(--border);border-radius:4px;overflow:hidden;box-shadow:var(--shadow)}
+.feed-header{padding:.85rem 1.25rem;border-bottom:1px solid var(--border);background:var(--sf2);display:flex;align-items:center;justify-content:space-between}
+.feed-title{font-size:.8125rem;font-weight:600;color:var(--t2)}
+.feed-live{display:flex;align-items:center;gap:.35rem;font-size:.6875rem;font-weight:700;letter-spacing:.05em;text-transform:uppercase;color:var(--green)}
+.feed-live::before{content:'';width:6px;height:6px;border-radius:50%;background:var(--green);animation:gpulse 2s infinite}
+.feed-body{padding:0}
+.feed-msg{display:flex;align-items:center;gap:.75rem;padding:.8rem 1.25rem;border-bottom:1px solid var(--border);animation:slideIn .4s ease-out}
+.feed-msg:last-child{border-bottom:none}
+@keyframes slideIn{from{opacity:0;transform:translateY(-6px)}to{opacity:1;transform:translateY(0)}}
+.feed-ch{width:28px;height:28px;border-radius:3px;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:.65rem;font-weight:700;letter-spacing:.04em}
+.feed-content{flex:1}
+.feed-sender{font-size:.8125rem;font-weight:600;color:var(--text);display:flex;align-items:center;gap:.5rem}
+.feed-text{font-size:.75rem;color:var(--t3);margin-top:.05rem;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:200px}
+.feed-time{font-family:ui-monospace,"SF Mono",Menlo,monospace;font-size:.65rem;color:var(--t3);flex-shrink:0}
+.feed-status{display:flex;align-items:center;gap:.3rem;font-size:.65rem;font-weight:600;color:var(--green)}
+.feed-status.pending{color:var(--accent)}
+.feed-status::before{content:'';width:4px;height:4px;border-radius:50%;background:currentColor}
 
-/* Stage number — meaningful here, it IS a sequence */
-.stage-num{
-  font-family:ui-monospace,"SF Mono",Menlo,monospace;
-  font-size:.6875rem;font-weight:700;letter-spacing:.06em;
-  color:var(--accent);margin-bottom:1rem;display:block;
-}
-.stage-title{
-  font-family:Georgia,"Times New Roman",serif;
-  font-size:1.125rem;font-weight:700;letter-spacing:-0.015em;
-  margin-bottom:.6rem;color:var(--text);line-height:1.2;
-}
-.stage-body{font-size:.875rem;color:var(--t2);line-height:1.65}
+/* ── PRICING ────────────────────────────────────────────── */
+.pricing-section{background:var(--bg);padding:5rem 2rem}
+.pricing-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.25rem;margin-top:3rem}
+.price-card{background:var(--surface);border:1px solid var(--border);border-radius:4px;padding:2rem;position:relative;transition:box-shadow .2s}
+.price-card:hover{box-shadow:var(--shadow)}
+.price-card.featured{border-color:var(--accent);border-width:2px}
+.price-badge{position:absolute;top:-1px;left:50%;transform:translateX(-50%);font-size:.6875rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase;background:var(--accent);color:#fff;padding:.2rem .75rem;border-radius:0 0 3px 3px;white-space:nowrap}
+.price-tier{font-size:.6875rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--t3);margin-bottom:.75rem}
+.price-size{font-family:Georgia,"Times New Roman",serif;font-size:1.25rem;font-weight:700;letter-spacing:-0.015em;color:var(--text);margin-bottom:.3rem;line-height:1.2}
+.price-rooms{font-size:.8125rem;color:var(--t3);margin-bottom:1.5rem}
+.price-amount{font-family:Georgia,"Times New Roman",serif;font-size:2.5rem;font-weight:700;letter-spacing:-0.03em;color:var(--text);line-height:1;margin-bottom:.2rem}
+.price-amount em{font-style:normal;color:var(--accent)}
+.price-period{font-size:.8125rem;color:var(--t3);margin-bottom:1.5rem}
+.price-features{list-style:none;margin-bottom:1.75rem;display:flex;flex-direction:column;gap:.55rem}
+.price-features li{display:flex;align-items:flex-start;gap:.6rem;font-size:.875rem;color:var(--t2)}
+.price-features li::before{content:'';width:14px;height:14px;border-radius:50%;background:var(--gr-d);display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:.15rem;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='10' viewBox='0 0 24 24' fill='none' stroke='%23226B3F' stroke-width='3'%3E%3Cpolyline points='20 6 9 17 4 12'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:center;background-size:10px}
+.price-cta{display:block;text-align:center;background:var(--accent);color:#fff;font-size:.875rem;font-weight:600;padding:.65rem;border-radius:2px;transition:opacity .15s}
+.price-cta:hover{opacity:.88}
+.price-card:not(.featured) .price-cta{background:var(--surface);color:var(--text);border:1px solid var(--bdr-s)}
+.price-card:not(.featured) .price-cta:hover{border-color:var(--accent);color:var(--accent)}
+.pricing-vs{margin-top:2.5rem;padding:1.5rem 2rem;background:var(--surface);border:1px solid var(--border);border-radius:4px;display:flex;align-items:center;gap:3rem;flex-wrap:wrap}
+.vs-label{font-size:.875rem;color:var(--t3);flex:1;min-width:200px}
+.vs-label strong{color:var(--text);font-weight:600}
+.vs-item{text-align:center}
+.vs-val{font-family:Georgia,"Times New Roman",serif;font-size:1.5rem;font-weight:700;letter-spacing:-0.02em;display:block;margin-bottom:.1rem}
+.vs-val.red{color:var(--red,#8C2A2A)}
+.vs-val.green{color:var(--green)}
+.vs-lbl{font-size:.75rem;color:var(--t3)}
 
-/* Wide stage cards (row 2) get richer content */
-.stage-card.wide{padding:2.25rem}
-.stage-card.wide .stage-title{font-size:1.25rem;margin-bottom:.75rem}
-.stage-card.wide .stage-body{font-size:.9375rem;max-width:52ch}
-
-.stage-pills{display:flex;gap:.5rem;flex-wrap:wrap;margin-top:1.1rem}
-.spill{
-  font-size:.6875rem;font-weight:600;padding:.22rem .55rem;
-  border-radius:2px;letter-spacing:.04em;text-transform:uppercase;
-}
-.spill.gold{color:var(--accent);background:var(--ac-d)}
-.spill.blue{color:var(--blue);background:var(--bl-d)}
-.spill.green{color:var(--green);background:var(--gr-d)}
-
-/* Inline micro-stat inside stage card */
-.stage-stat{
-  margin-top:1.25rem;padding-top:1.1rem;
-  border-top:1px solid var(--border);
-  display:flex;align-items:baseline;gap:.4rem;
-}
-.stage-stat-val{
-  font-family:Georgia,"Times New Roman",serif;
-  font-size:1.75rem;font-weight:700;letter-spacing:-0.02em;color:var(--accent);
-}
-.stage-stat-lbl{font-size:.8rem;color:var(--t3);line-height:1.4}
-
-/* ── CHAT SECTION (check-in moment) ─────────────────────── */
-.chat-section{background:var(--bg-alt);padding:5rem 2rem}
-.chat-layout{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center}
-
-.chat-widget{
-  background:var(--surface);border:1px solid var(--border);
-  border-radius:6px;overflow:hidden;box-shadow:var(--shadow);
-}
-.cw-head{
-  padding:.9rem 1.25rem;border-bottom:1px solid var(--border);
-  background:var(--sf2);display:flex;align-items:center;gap:.75rem;
-}
-.cw-ava{
-  width:34px;height:34px;border-radius:50%;
-  background:var(--ac-d);border:2px solid var(--ac-b);
-  display:flex;align-items:center;justify-content:center;flex-shrink:0;
-}
-.cw-info{flex:1}
-.cw-name{font-size:.875rem;font-weight:600;color:var(--text);line-height:1.2}
-.cw-status{display:flex;align-items:center;gap:.35rem;font-size:.7rem;color:var(--green)}
-.cw-status::before{
-  content:'';width:5px;height:5px;border-radius:50%;
-  background:var(--green);animation:gpulse 2s infinite;
-}
-.cw-time{
-  font-family:ui-monospace,"SF Mono",Menlo,monospace;
-  font-size:.7rem;font-weight:700;color:var(--t3);
-  background:var(--bg);border:1px solid var(--border);
-  padding:.2rem .5rem;border-radius:2px;
-}
-.cw-body{padding:1.2rem;display:flex;flex-direction:column;gap:.85rem}
-.msg-row{display:flex;flex-direction:column;gap:.18rem}
-.msg-row.guest{align-items:flex-start}
-.msg-row.ai{align-items:flex-end}
-.msg-who{font-size:.62rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--t3);padding:0 .1rem}
-.bubble{max-width:85%;padding:.65rem .9rem;border-radius:3px;font-size:.875rem;line-height:1.55}
-.guest .bubble{background:var(--bg-alt,var(--bg));border:1px solid var(--border);color:var(--text)}
-.ai .bubble{background:var(--ac-d);border:1px solid var(--ac-b);color:var(--text)}
-.msg-ts{font-family:ui-monospace,"SF Mono",Menlo,monospace;font-size:.62rem;color:var(--t3);padding:0 .2rem}
-.cw-foot{
-  border-top:1px solid var(--border);padding:.65rem 1.25rem;
-  background:var(--sf2);display:flex;gap:1.5rem;flex-wrap:wrap;
-}
-.cf-stat{font-size:.6875rem;color:var(--t3)}
-.cf-stat strong{color:var(--green);font-weight:600}
-.td{width:5px;height:5px;border-radius:50%;background:var(--accent);animation:tdot .9s ease-in-out infinite}
-.td:nth-child(2){animation-delay:.18s}.td:nth-child(3){animation-delay:.36s}
-@keyframes tdot{0%,60%,100%{transform:translateY(0);opacity:.35}30%{transform:translateY(-5px);opacity:1}}
-
-/* ── RATE TABLE ──────────────────────────────────────────── */
-.table-section{background:var(--bg);padding:5rem 2rem}
-.table-layout{display:grid;grid-template-columns:1fr 2.2fr;gap:4rem;align-items:start}
-.tbl-controls{display:flex;align-items:center;justify-content:space-between;margin-bottom:1.25rem;flex-wrap:wrap;gap:.75rem}
-.tbl-filters{display:flex;gap:.5rem;flex-wrap:wrap}
-.fbtn{
-  font-size:.75rem;font-weight:500;padding:.3rem .75rem;
-  border-radius:2px;border:1px solid var(--bdr-s);
-  color:var(--t2);background:var(--surface);cursor:pointer;transition:all .15s;
-}
-.fbtn.active{background:var(--accent);color:#fff;border-color:var(--accent)}
-.fbtn:hover:not(.active){border-color:var(--accent);color:var(--text)}
-.tbl-meta{font-size:.75rem;color:var(--t3)}
-.tbl-meta span{color:var(--green);font-weight:600}
-.tbl-wrap{overflow-x:auto}
-table{width:100%;border-collapse:collapse}
-thead tr{border-bottom:2px solid var(--bdr-s)}
-thead th{
-  font-size:.6875rem;font-weight:600;letter-spacing:.08em;
-  text-transform:uppercase;color:var(--t3);
-  padding:.75rem 1rem;text-align:left;white-space:nowrap;
-}
-thead th.r{text-align:right}
-tbody tr{border-bottom:1px solid var(--border);transition:background .25s}
-tbody tr:last-child{border-bottom:none}
-tbody tr:hover{background:var(--ac-d)}
-tbody tr.hl{animation:rpop .55s ease-out forwards}
-@keyframes rpop{0%{background:rgba(72,136,204,.18)}100%{background:transparent}}
-tbody td{padding:.875rem 1rem;font-size:.875rem;color:var(--text);font-variant-numeric:tabular-nums}
-td.rtype{font-weight:600}
-td.rate{font-family:ui-monospace,"SF Mono",Menlo,monospace}
-td.airate{font-family:ui-monospace,"SF Mono",Menlo,monospace;color:var(--accent);font-weight:700}
-td.var{font-family:ui-monospace,"SF Mono",Menlo,monospace;font-size:.8125rem}
-td.pos{color:var(--green)}td.neg{color:var(--red)}td.meh{color:var(--t3)}
-.pill{display:inline-flex;align-items:center;gap:.3rem;font-size:.6875rem;font-weight:600;padding:.2rem .55rem;border-radius:2px;letter-spacing:.04em;text-transform:uppercase;white-space:nowrap}
-.pill.op{background:var(--gr-d);color:var(--green)}
-.pill.st{background:var(--bl-d);color:var(--blue)}
-.pill.rv{background:var(--ac-d);color:var(--accent)}
-.pill.pr{background:var(--rd-d);color:var(--red)}
-.pdot{width:5px;height:5px;border-radius:50%;background:currentColor}
-.obar{width:68px;height:4px;background:var(--border);border-radius:2px;display:inline-block;vertical-align:middle;margin-right:.45rem}
-.ofill{height:100%;border-radius:2px;transition:width .5s}
-
-/* ── TESTIMONIALS ────────────────────────────────────────── */
-.testi-section{background:var(--bg-alt);padding:5rem 2rem}
-.testi-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem}
-.tc{background:var(--surface);border:1px solid var(--border);border-radius:4px;padding:2rem;box-shadow:var(--shadow)}
-.tc-metric{font-family:Georgia,"Times New Roman",serif;font-size:3rem;font-weight:700;letter-spacing:-0.03em;color:var(--accent);margin-bottom:.2rem}
-.tc-label{font-size:.8125rem;color:var(--t3);margin-bottom:1.5rem}
-.tc-quote{font-size:.9375rem;color:var(--t2);line-height:1.72;font-style:italic;margin-bottom:1.25rem;border-left:2px solid var(--accent);padding-left:1rem}
-.tc-auth{display:flex;align-items:center;gap:.75rem}
-.tc-ava{width:36px;height:36px;border-radius:50%;background:var(--ac-d);border:2px solid var(--ac-b);display:flex;align-items:center;justify-content:center;font-size:.75rem;font-weight:700;color:var(--accent);flex-shrink:0}
-.tc-name{font-size:.875rem;font-weight:600;color:var(--text)}
-.tc-role{font-size:.75rem;color:var(--t3)}
+/* ── TECH STACK ─────────────────────────────────────────── */
+.tech-section{background:var(--bg-alt);padding:4rem 2rem}
+.tech-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1rem;margin-top:2.5rem}
+.tech-item{background:var(--surface);border:1px solid var(--border);border-radius:4px;padding:1.25rem 1.5rem}
+.tech-name{font-size:.9375rem;font-weight:600;color:var(--text);margin-bottom:.3rem}
+.tech-role{font-size:.8125rem;color:var(--t3);line-height:1.5}
 
 /* ── CTA ─────────────────────────────────────────────────── */
-.cta-section{
-  background:var(--bg);
-  border-top:1px solid var(--border);padding:6rem 2rem;text-align:center;
-}
-.cta-h{
-  font-family:Georgia,"Times New Roman",serif;
-  font-size:clamp(2.25rem,4vw,3.5rem);font-weight:700;
-  letter-spacing:-0.025em;line-height:1.07;text-wrap:balance;
-  margin:0 auto 1.25rem;max-width:22ch;
-}
+.cta-section{background:var(--bg);border-top:1px solid var(--border);padding:6rem 2rem;text-align:center}
+.cta-h{font-family:Georgia,"Times New Roman",serif;font-size:clamp(2.25rem,4vw,3.5rem);font-weight:700;letter-spacing:-0.025em;line-height:1.07;text-wrap:balance;margin:0 auto 1.25rem;max-width:22ch}
 .cta-h em{color:var(--accent);font-style:italic}
 .cta-sub{font-size:1rem;color:var(--t2);margin:0 auto 2.5rem;max-width:46ch;line-height:1.7}
 .cta-row{display:flex;align-items:center;justify-content:center;gap:1.25rem;flex-wrap:wrap}
@@ -444,7 +206,6 @@ td.pos{color:var(--green)}td.neg{color:var(--red)}td.meh{color:var(--t3)}
 /* ── FOOTER ──────────────────────────────────────────────── */
 footer{background:var(--surface);border-top:1px solid var(--border);padding:3rem 2rem}
 .foot-inner{max-width:1200px;margin:0 auto;display:flex;align-items:flex-start;justify-content:space-between;gap:3rem;flex-wrap:wrap}
-.foot-brand-name{font-family:Georgia,serif;font-weight:700;font-size:1.15rem;letter-spacing:-0.02em;display:flex;align-items:center;gap:.4rem}
 .foot-brand p{font-size:.8375rem;color:var(--t3);max-width:30ch;margin-top:.5rem;line-height:1.6}
 .foot-cols{display:flex;gap:4rem;flex-wrap:wrap}
 .foot-col h4{font-size:.6875rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--t3);margin-bottom:.9rem}
@@ -458,13 +219,15 @@ footer{background:var(--surface);border-top:1px solid var(--border);padding:3rem
 
 /* ── RESPONSIVE ──────────────────────────────────────────── */
 @media(max-width:960px){
-  .hero,.chat-layout,.table-layout{grid-template-columns:1fr;gap:2.5rem}
+  .hero,.journey-grid{grid-template-columns:1fr;gap:2.5rem}
   .hero{padding:3.5rem 1.5rem 3rem}
-  .stage-row-1,.stage-row-2{grid-template-columns:1fr}
+  .ch-grid,.pricing-grid{grid-template-columns:1fr}
+  .flow-steps{grid-template-columns:1fr 1fr;gap:1.5rem}
+  .flow-steps::before{display:none}
+  .tech-grid{grid-template-columns:1fr 1fr}
   .strip-inner{grid-template-columns:1fr 1fr}
   .s-item{border-right:none;border-bottom:1px solid var(--border)}
   .s-item:last-child{border-bottom:none}
-  .testi-grid{grid-template-columns:1fr}
   .nav-links{display:none}
 }
 @media(prefers-reduced-motion:reduce){*{animation-duration:.01ms!important;transition-duration:.01ms!important}}
@@ -473,13 +236,17 @@ footer{background:var(--surface);border-top:1px solid var(--border);padding:3rem
 <!-- NAV -->
 <nav>
   <div class="nav-inner">
-    <a href="#" class="logo">Aivy <span class="logo-badge">PMS</span></a>
+    <a href="#" class="logo">
+      <span class="logo-iv">IV</span>
+      <span class="logo-sep"></span>
+      <span class="logo-name">Priority<br>Management</span>
+    </a>
     <div class="nav-links">
-      <a href="#">Percorso Ospite</a>
-      <a href="#">Ricezione AI</a>
-      <a href="#">Revenue AI</a>
-      <a href="#">Integrazioni</a>
+      <a href="#">IV Package</a>
+      <a href="#">Canali</a>
+      <a href="#">Come funziona</a>
       <a href="#">Prezzi</a>
+      <a href="#">Contatti</a>
     </div>
     <button class="theme-toggle" id="themeToggle" aria-label="Cambia tema">
       <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
@@ -496,69 +263,122 @@ footer{background:var(--surface);border-top:1px solid var(--border);padding:3rem
       RICEZIONE AI ATTIVA — <span id="liveClock">02:47</span>
     </div>
     <div class="hero-h">
-      <span class="hl-a">Un ospite.</span>
-      <span class="hl-b">Ogni momento.</span>
-      <em class="hl-c">Un'AI.</em>
+      <div class="hl-channels">
+        WhatsApp. Voce. Email.<br>
+        <span>Booking.com. SMS. Recensioni.</span>
+      </div>
+      <em class="hl-big">Un'unica AI.</em>
     </div>
     <p class="hero-body">
-      Aivy accompagna ogni ospite dalla prima offerta pre-arrivo fino alla recensione finale — gestendo documenti, registrazione, check-in, richieste durante il soggiorno e la relazione post-partenza in modo completamente automatico.
+      L'IV Package centralizza ogni canale di comunicazione degli ospiti in un unico sistema AI — risponde in secondi, 24 ore su 24, 7 giorni su 7, senza personale notturno e senza un messaggio perso.
     </p>
     <div class="hero-actions">
-      <a href="#" class="btn-p">Scopri il percorso</a>
-      <a href="#" class="btn-g">Prenota una demo →</a>
+      <a href="#" class="btn-p">Scopri l'IV Package</a>
+      <a href="#" class="btn-g">Come funziona →</a>
     </div>
   </div>
 
-  <!-- Animated Guest Journey Timeline -->
-  <div>
-    <div class="journey-card">
-      <div class="jc-header">
-        <span class="jc-title">Percorso ospite in tempo reale</span>
-        <span class="jc-sub">LIVE</span>
-      </div>
-      <div class="jc-body">
-        <div class="jt-stage" id="jts-0">
-          <div class="jt-dot done"></div>
-          <div class="jt-info">
-            <div class="jt-label">Offerta pre-arrivo</div>
-            <div class="jt-text">Junior Suite suggerita a Carlos M.</div>
-            <div class="jt-detail"><span class="jt-accent">Accettata</span> · +€45/notte · 3 giorni prima del check-in</div>
-          </div>
-        </div>
-        <div class="jt-stage" id="jts-1">
-          <div class="jt-dot done"></div>
-          <div class="jt-info">
-            <div class="jt-label">Documenti e registrazione</div>
-            <div class="jt-text">Passaporto verificato · Scheda compilata</div>
-            <div class="jt-detail"><span class="jt-green">Completato</span> · ISTAT inviato · 2 giorni prima</div>
-          </div>
-        </div>
-        <div class="jt-stage" id="jts-2">
-          <div class="jt-dot active"></div>
-          <div class="jt-info">
-            <div class="jt-label">Check-in assistito</div>
-            <div class="jt-text">Chiave digitale inviata · Camera 204 pronta</div>
-            <div class="jt-detail">Arrivo alle <span class="jt-accent">02:47</span> · Risposta AI in 8 secondi</div>
-          </div>
-        </div>
-        <div class="jt-stage" id="jts-3">
-          <div class="jt-dot"></div>
-          <div class="jt-info">
-            <div class="jt-label">Durante il soggiorno</div>
-            <div class="jt-text">Richieste, servizi, problemi — gestiti 24/7</div>
-            <div class="jt-detail">Colazione ordinata · Spa prenotata · 40+ lingue</div>
-          </div>
-        </div>
-        <div class="jt-stage" id="jts-4">
-          <div class="jt-dot"></div>
-          <div class="jt-info">
-            <div class="jt-label">Post check-out</div>
-            <div class="jt-text">Review request · Offerta ritorno personalizzata</div>
-            <div class="jt-detail">Ricevuta inviata · Fedeltà costruita · Prossimo soggiorno</div>
-          </div>
-        </div>
-      </div>
-    </div>
+  <!-- Channel Hub Diagram -->
+  <div class="hub-wrap">
+    <svg viewBox="0 0 360 360" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Diagramma: sei canali convergono in un unico hub AI">
+
+      <defs>
+        <!-- Glow for hub -->
+        <filter id="glow" x="-30%" y="-30%" width="160%" height="160%">
+          <feGaussianBlur stdDeviation="3" result="blur"/>
+          <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+        </filter>
+
+        <!-- Paths for dot animation (node edge → hub edge) -->
+        <!-- WhatsApp: top (180,50) → (180,128) -->
+        <path id="p0" d="M180,80 L180,134"/>
+        <!-- Voice: top-right (293,115) → hub edge -->
+        <path id="p1" d="M268,129 L220,157"/>
+        <!-- Email: bottom-right (293,245) → hub edge -->
+        <path id="p2" d="M268,231 L220,203"/>
+        <!-- Booking.com: bottom (180,310) → hub edge -->
+        <path id="p3" d="M180,280 L180,226"/>
+        <!-- SMS: bottom-left (67,245) → hub edge -->
+        <path id="p4" d="M92,231 L140,203"/>
+        <!-- Reviews: top-left (67,115) → hub edge -->
+        <path id="p5" d="M92,129 L140,157"/>
+
+        <!-- Return paths (hub edge → node) for response dots -->
+        <path id="r0" d="M180,134 L180,80"/>
+        <path id="r1" d="M220,157 L268,129"/>
+        <path id="r2" d="M220,203 L268,231"/>
+        <path id="r3" d="M180,226 L180,280"/>
+        <path id="r4" d="M140,203 L92,231"/>
+        <path id="r5" d="M140,157 L92,129"/>
+      </defs>
+
+      <!-- Connection lines -->
+      <line x1="180" y1="80" x2="180" y2="134" stroke="var(--border)" stroke-width="1.5"/>
+      <line x1="268" y1="129" x2="220" y2="157" stroke="var(--border)" stroke-width="1.5"/>
+      <line x1="268" y1="231" x2="220" y2="203" stroke="var(--border)" stroke-width="1.5"/>
+      <line x1="180" y1="280" x2="180" y2="226" stroke="var(--border)" stroke-width="1.5"/>
+      <line x1="92" y1="231" x2="140" y2="203" stroke="var(--border)" stroke-width="1.5"/>
+      <line x1="92" y1="129" x2="140" y2="157" stroke="var(--border)" stroke-width="1.5"/>
+
+      <!-- CENTER HUB -->
+      <circle cx="180" cy="180" r="46" fill="var(--surface)" stroke="var(--accent)" stroke-width="1.5"/>
+      <circle cx="180" cy="180" r="38" fill="var(--ac-d)"/>
+      <text x="180" y="172" text-anchor="middle" font-family="Georgia,serif" font-size="22" font-weight="700" fill="var(--accent)" letter-spacing="-1">IV</text>
+      <text x="180" y="188" text-anchor="middle" font-family="ui-monospace,monospace" font-size="7" font-weight="600" fill="var(--t3)" letter-spacing="1.5">AI HUB</text>
+
+      <!-- CHANNEL NODES -->
+      <!-- WhatsApp: top (180,50) -->
+      <circle cx="180" cy="50" r="30" fill="var(--surface)" stroke="var(--border)" stroke-width="1.5"/>
+      <circle cx="180" cy="50" r="24" fill="var(--gr-d)"/>
+      <text x="180" y="45" text-anchor="middle" font-family="ui-monospace,monospace" font-size="7" font-weight="700" fill="var(--green)" letter-spacing="0.5">WA</text>
+      <text x="180" y="57" text-anchor="middle" font-family="ui-monospace,monospace" font-size="6" fill="var(--t3)">WhatsApp</text>
+
+      <!-- Voice: top-right (293,115) -->
+      <circle cx="293" cy="115" r="30" fill="var(--surface)" stroke="var(--border)" stroke-width="1.5"/>
+      <circle cx="293" cy="115" r="24" fill="var(--bl-d)"/>
+      <text x="293" y="110" text-anchor="middle" font-family="ui-monospace,monospace" font-size="7" font-weight="700" fill="var(--blue)" letter-spacing="0.5">TEL</text>
+      <text x="293" y="122" text-anchor="middle" font-family="ui-monospace,monospace" font-size="6" fill="var(--t3)">Voce</text>
+
+      <!-- Email: bottom-right (293,245) -->
+      <circle cx="293" cy="245" r="30" fill="var(--surface)" stroke="var(--border)" stroke-width="1.5"/>
+      <circle cx="293" cy="245" r="24" fill="var(--ac-d)"/>
+      <text x="293" y="240" text-anchor="middle" font-family="ui-monospace,monospace" font-size="7" font-weight="700" fill="var(--accent)" letter-spacing="0.5">@</text>
+      <text x="293" y="252" text-anchor="middle" font-family="ui-monospace,monospace" font-size="6" fill="var(--t3)">Email</text>
+
+      <!-- Booking.com: bottom (180,310) -->
+      <circle cx="180" cy="310" r="30" fill="var(--surface)" stroke="var(--border)" stroke-width="1.5"/>
+      <circle cx="180" cy="310" r="24" fill="var(--bl-d)"/>
+      <text x="180" y="305" text-anchor="middle" font-family="ui-monospace,monospace" font-size="7" font-weight="700" fill="var(--blue)" letter-spacing="0.5">BK</text>
+      <text x="180" y="317" text-anchor="middle" font-family="ui-monospace,monospace" font-size="6" fill="var(--t3)">Booking.com</text>
+
+      <!-- SMS: bottom-left (67,245) -->
+      <circle cx="67" cy="245" r="30" fill="var(--surface)" stroke="var(--border)" stroke-width="1.5"/>
+      <circle cx="67" cy="245" r="24" fill="var(--gr-d)"/>
+      <text x="67" y="240" text-anchor="middle" font-family="ui-monospace,monospace" font-size="7" font-weight="700" fill="var(--green)" letter-spacing="0.5">SMS</text>
+      <text x="67" y="252" text-anchor="middle" font-family="ui-monospace,monospace" font-size="6" fill="var(--t3)">SMS</text>
+
+      <!-- Reviews: top-left (67,115) -->
+      <circle cx="67" cy="115" r="30" fill="var(--surface)" stroke="var(--border)" stroke-width="1.5"/>
+      <circle cx="67" cy="115" r="24" fill="var(--ac-d)"/>
+      <text x="67" y="110" text-anchor="middle" font-family="ui-monospace,monospace" font-size="7" font-weight="700" fill="var(--accent)" letter-spacing="0.5">★</text>
+      <text x="67" y="122" text-anchor="middle" font-family="ui-monospace,monospace" font-size="6" fill="var(--t3)">Recensioni</text>
+
+      <!-- INBOUND animated dots (message → hub) with staggered delays -->
+      <circle r="4.5" fill="var(--green)" opacity="0"><animateMotion dur="1.6s" begin="0s" repeatCount="indefinite"><mpath href="#p0"/></animateMotion><animate attributeName="opacity" values="0;1;1;0" keyTimes="0;0.05;0.9;1" dur="1.6s" repeatCount="indefinite" begin="0s"/></circle>
+      <circle r="4.5" fill="var(--blue)" opacity="0"><animateMotion dur="1.6s" begin="0.55s" repeatCount="indefinite"><mpath href="#p1"/></animateMotion><animate attributeName="opacity" values="0;1;1;0" keyTimes="0;0.05;0.9;1" dur="1.6s" repeatCount="indefinite" begin="0.55s"/></circle>
+      <circle r="4.5" fill="var(--accent)" opacity="0"><animateMotion dur="1.6s" begin="1.1s" repeatCount="indefinite"><mpath href="#p2"/></animateMotion><animate attributeName="opacity" values="0;1;1;0" keyTimes="0;0.05;0.9;1" dur="1.6s" repeatCount="indefinite" begin="1.1s"/></circle>
+      <circle r="4.5" fill="var(--blue)" opacity="0"><animateMotion dur="1.6s" begin="1.65s" repeatCount="indefinite"><mpath href="#p3"/></animateMotion><animate attributeName="opacity" values="0;1;1;0" keyTimes="0;0.05;0.9;1" dur="1.6s" repeatCount="indefinite" begin="1.65s"/></circle>
+      <circle r="4.5" fill="var(--green)" opacity="0"><animateMotion dur="1.6s" begin="2.2s" repeatCount="indefinite"><mpath href="#p4"/></animateMotion><animate attributeName="opacity" values="0;1;1;0" keyTimes="0;0.05;0.9;1" dur="1.6s" repeatCount="indefinite" begin="2.2s"/></circle>
+      <circle r="4.5" fill="var(--accent)" opacity="0"><animateMotion dur="1.6s" begin="2.75s" repeatCount="indefinite"><mpath href="#p5"/></animateMotion><animate attributeName="opacity" values="0;1;1;0" keyTimes="0;0.05;0.9;1" dur="1.6s" repeatCount="indefinite" begin="2.75s"/></circle>
+
+      <!-- OUTBOUND animated dots (hub → node, response) smaller, lighter -->
+      <circle r="3" fill="var(--accent)" opacity="0"><animateMotion dur="1.6s" begin="0.8s" repeatCount="indefinite"><mpath href="#r0"/></animateMotion><animate attributeName="opacity" values="0;0.7;0.7;0" keyTimes="0;0.05;0.9;1" dur="1.6s" repeatCount="indefinite" begin="0.8s"/></circle>
+      <circle r="3" fill="var(--accent)" opacity="0"><animateMotion dur="1.6s" begin="1.35s" repeatCount="indefinite"><mpath href="#r1"/></animateMotion><animate attributeName="opacity" values="0;0.7;0.7;0" keyTimes="0;0.05;0.9;1" dur="1.6s" repeatCount="indefinite" begin="1.35s"/></circle>
+      <circle r="3" fill="var(--accent)" opacity="0"><animateMotion dur="1.6s" begin="1.9s" repeatCount="indefinite"><mpath href="#r2"/></animateMotion><animate attributeName="opacity" values="0;0.7;0.7;0" keyTimes="0;0.05;0.9;1" dur="1.6s" repeatCount="indefinite" begin="1.9s"/></circle>
+      <circle r="3" fill="var(--accent)" opacity="0"><animateMotion dur="1.6s" begin="2.45s" repeatCount="indefinite"><mpath href="#r3"/></animateMotion><animate attributeName="opacity" values="0;0.7;0.7;0" keyTimes="0;0.05;0.9;1" dur="1.6s" repeatCount="indefinite" begin="2.45s"/></circle>
+      <circle r="3" fill="var(--accent)" opacity="0"><animateMotion dur="1.6s" begin="3.0s" repeatCount="indefinite"><mpath href="#r4"/></animateMotion><animate attributeName="opacity" values="0;0.7;0.7;0" keyTimes="0;0.05;0.9;1" dur="1.6s" repeatCount="indefinite" begin="3.0s"/></circle>
+      <circle r="3" fill="var(--accent)" opacity="0"><animateMotion dur="1.6s" begin="3.55s" repeatCount="indefinite"><mpath href="#r5"/></animateMotion><animate attributeName="opacity" values="0;0.7;0.7;0" keyTimes="0;0.05;0.9;1" dur="1.6s" repeatCount="indefinite" begin="3.55s"/></circle>
+    </svg>
   </div>
 </section>
 
@@ -566,288 +386,311 @@ footer{background:var(--surface);border-top:1px solid var(--border);padding:3rem
 <div class="strip">
   <div class="strip-inner">
     <div class="s-item">
-      <span class="s-val" style="font-family:Georgia,serif;font-size:1.5rem;font-style:italic;letter-spacing:-0.02em">Il primo hotel AI-native che accompagna l'ospite per l'intero soggiorno.</span>
+      <span class="s-val" style="font-family:Georgia,serif;font-size:1.375rem;font-style:italic;line-height:1.3">L'unica soluzione che centralizza voce, WhatsApp, SMS, email, Booking.com e recensioni in un solo hub AI.</span>
     </div>
-    <div class="s-item">
-      <span class="s-val">38<em>%</em></span>
-      <span class="s-lbl">Tasso di accettazione<br>offerte pre-arrivo</span>
-    </div>
-    <div class="s-item">
-      <span class="s-val"><em>8</em> sec</span>
-      <span class="s-lbl">Risposta media AI<br>a qualsiasi ora</span>
-    </div>
-    <div class="s-item">
-      <span class="s-val">4.9<em>★</em></span>
-      <span class="s-lbl">Soddisfazione media<br>ospiti con Aivy</span>
-    </div>
+    <div class="s-item"><span class="s-val">6<em>ch</em></span><span class="s-lbl">Canali gestiti da un'unica piattaforma</span></div>
+    <div class="s-item"><span class="s-val"><em>&lt;</em>15<em>s</em></span><span class="s-lbl">Tempo medio di risposta AI su ogni canale</span></div>
+    <div class="s-item"><span class="s-val"><em>0</em></span><span class="s-lbl">Messaggi non consegnati o persi</span></div>
   </div>
 </div>
 
-<!-- 5 STAGES — non-uniform layout -->
-<section class="stages-section">
+<!-- 6 CHANNELS -->
+<section class="channels-section">
   <div class="wrap">
-    <div style="margin-bottom:2.75rem">
-      <p class="sec-eyebrow">Il percorso completo</p>
-      <h2 class="sec-h2">Cinque momenti.<br><em>Un'unica AI.</em></h2>
-      <p class="sec-body">Dalla prima comunicazione prima dell'arrivo fino alla relazione che porta al prossimo soggiorno — Aivy è presente in ogni fase, in automatico.</p>
-    </div>
+    <p class="sec-eyebrow">I sei canali dell'IV Package</p>
+    <h2 class="sec-h2">Ogni modo in cui un ospite<br>può contattarvi. <em>Coperto.</em></h2>
+    <div class="ch-grid">
 
-    <!-- Row 1: 3 equal-ish cards -->
-    <div class="stages-grid">
-      <div class="stage-row-1">
-
-        <div class="stage-card">
-          <span class="stage-num">01 / OFFERTA PRE-ARRIVO</span>
-          <h3 class="stage-title">L'ospite giusto, l'offerta giusta, al momento giusto</h3>
-          <p class="stage-body">3 giorni prima dell'arrivo, Aivy analizza il profilo dell'ospite e invia un'offerta personalizzata — upgrade di camera, colazione inclusa, parcheggio, late checkout — via email o WhatsApp.</p>
-          <div class="stage-pills">
-            <span class="spill gold">Upsell automatico</span>
-            <span class="spill blue">Email · WhatsApp</span>
-          </div>
-          <div class="stage-stat">
-            <span class="stage-stat-val">38%</span>
-            <span class="stage-stat-lbl">degli ospiti accetta<br>almeno un'offerta</span>
-          </div>
+      <div class="ch-card featured">
+        <div class="ch-icon" style="background:var(--gr-d)">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--green)" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
         </div>
-
-        <div class="stage-card">
-          <span class="stage-num">02 / DOCUMENTI E REGISTRAZIONE</span>
-          <h3 class="stage-title">Passaporto, scheda, ISTAT — tutti senza carta</h3>
-          <p class="stage-body">L'ospite riceve un link sicuro, scatta la foto del documento e firma la scheda dal telefono. Aivy verifica, compila e invia la scheda all'ISTAT in automatico. Zero code in arrivo.</p>
-          <div class="stage-pills">
-            <span class="spill green">ISTAT automatico</span>
-            <span class="spill blue">Pre-check-in mobile</span>
-          </div>
-          <div class="stage-stat">
-            <span class="stage-stat-val">76%</span>
-            <span class="stage-stat-lbl">degli ospiti completa<br>il pre-check-in online</span>
-          </div>
-        </div>
-
-        <div class="stage-card">
-          <span class="stage-num">03 / CHECK-IN ASSISTITO</span>
-          <h3 class="stage-title">Benvenuto a qualsiasi ora, in qualsiasi lingua</h3>
-          <p class="stage-body">Con i documenti già ricevuti, il check-in è un messaggio. L'AI invia la chiave digitale, conferma la camera e risponde a ogni domanda — alle 2 di notte come alle 2 del pomeriggio.</p>
-          <div class="stage-pills">
-            <span class="spill gold">24/7</span>
-            <span class="spill blue">40+ lingue</span>
-            <span class="spill green">Chiave digitale</span>
-          </div>
-          <div class="stage-stat">
-            <span class="stage-stat-val">8 s</span>
-            <span class="stage-stat-lbl">risposta media<br>anche a mezzanotte</span>
-          </div>
-        </div>
+        <h3 class="ch-name">WhatsApp Business</h3>
+        <p class="ch-body">Messaggi in entrata e in uscita via Twilio WhatsApp Business API. Supporto immagini e PDF (conferme, mappe, menu). Il canale preferito dagli ospiti europei.</p>
+        <span class="ch-tag tag-green">Twilio WhatsApp API</span>
       </div>
 
-      <!-- Row 2: 2 wide cards, different proportions -->
-      <div class="stage-row-2">
-
-        <div class="stage-card wide">
-          <span class="stage-num">04 / DURANTE IL SOGGIORNO</span>
-          <h3 class="stage-title">Ogni richiesta gestita. Nessuna aspetta.</h3>
-          <p class="stage-body">Asciugamani extra, prenotazione al ristorante, segnalazione guasto, ordinazione room service — l'ospite scrive un messaggio e l'AI risponde o coinvolge lo staff, in base alla complessità.<br><br>Il log completo è disponibile ogni mattina. Zero telefonate senza risposta.</p>
-          <div class="stage-pills">
-            <span class="spill gold">Room service</span>
-            <span class="spill blue">Escalation intelligente</span>
-            <span class="spill green">Log notturno</span>
-          </div>
+      <div class="ch-card featured">
+        <div class="ch-icon" style="background:var(--bl-d)">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--blue)" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.5 13.5a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.44 2.5h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L7.91 10.1a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
         </div>
+        <h3 class="ch-name">Voce (Chiamate)</h3>
+        <p class="ch-body">Twilio Voice gestisce le chiamate in entrata: speech-to-text, risposta AI generata da Claude, text-to-speech in uscita. L'ospite chiama, l'AI risponde — nella sua lingua.</p>
+        <span class="ch-tag tag-blue">Twilio Voice</span>
+      </div>
 
-        <div class="stage-card wide">
-          <span class="stage-num">05 / POST CHECK-OUT E RELAZIONE</span>
-          <h3 class="stage-title">La partenza è l'inizio del prossimo ritorno</h3>
-          <p class="stage-body">Express checkout via messaggio, ricevuta inviata in automatico, review request su Booking.com o Google nei 30 minuti dopo la partenza. E qualche settimana dopo, un'offerta personalizzata per il prossimo soggiorno — costruendo fedeltà senza nessun intervento manuale.</p>
-          <div class="stage-pills">
-            <span class="spill green">Review automatica</span>
-            <span class="spill gold">Offerta ritorno</span>
-            <span class="spill blue">Express checkout</span>
-          </div>
-          <div class="stage-stat">
-            <span class="stage-stat-val">+0.4★</span>
-            <span class="stage-stat-lbl">punteggio recensioni medio<br>con review request Aivy</span>
-          </div>
+      <div class="ch-card">
+        <div class="ch-icon" style="background:var(--ac-d)">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
         </div>
+        <h3 class="ch-name">Email</h3>
+        <p class="ch-body">Listener IMAP per la casella dell'hotel + relay SMTP per le risposte. Thread preservati via Message-ID. Il dominio dell'hotel rimane il mittente — brand consistency garantita.</p>
+        <span class="ch-tag tag-gold">SMTP / IMAP</span>
+      </div>
+
+      <div class="ch-card">
+        <div class="ch-icon" style="background:var(--bl-d)">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--blue)" stroke-width="2"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg>
+        </div>
+        <h3 class="ch-name">SMS</h3>
+        <p class="ch-body">Twilio Programmable Messaging per SMS in entrata e in uscita. Ideale per conferme di prenotazione, chiavi digitali e aggiornamenti rapidi — canale universale, nessuna app richiesta.</p>
+        <span class="ch-tag tag-blue">Twilio Messaging</span>
+      </div>
+
+      <div class="ch-card">
+        <div class="ch-icon" style="background:var(--bl-d)">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--blue)" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+        </div>
+        <h3 class="ch-name">Booking.com Messaggi</h3>
+        <p class="ch-body">Tramite la Connectivity Partner API di Booking.com: ricezione e risposta ai messaggi degli ospiti direttamente nel thread della prenotazione. Zero ritardi, zero copiaincolla.</p>
+        <span class="ch-tag tag-blue">Connectivity Partner API</span>
+      </div>
+
+      <div class="ch-card">
+        <div class="ch-icon" style="background:var(--ac-d)">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        </div>
+        <h3 class="ch-name">Recensioni</h3>
+        <p class="ch-body">Risposta automatica alle recensioni Booking.com (e Google) tramite la stessa integrazione Connectivity Partner. L'AI risponde nel tono della struttura, mai con template generici.</p>
+        <span class="ch-tag tag-gold">Review API</span>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section class="flow-section">
+  <div class="wrap">
+    <p class="sec-eyebrow">Come funziona</p>
+    <h2 class="sec-h2">Dal messaggio dell'ospite<br>alla risposta — <em>in secondi.</em></h2>
+    <div class="flow-steps">
+      <div class="flow-step">
+        <div class="flow-num"><span class="flow-num-txt">01</span></div>
+        <div class="flow-label">L'ospite scrive</div>
+        <div class="flow-desc">Su qualsiasi canale — WhatsApp, voce, SMS, email, Booking.com</div>
+      </div>
+      <div class="flow-step active">
+        <div class="flow-num"><span class="flow-num-txt">02</span></div>
+        <div class="flow-label">Normalizzazione</div>
+        <div class="flow-desc">Il canale adattatore converte il messaggio in uno schema unificato JSON</div>
+      </div>
+      <div class="flow-step active">
+        <div class="flow-num"><span class="flow-num-txt">03</span></div>
+        <div class="flow-label">Contesto + AI</div>
+        <div class="flow-desc">Il server MCP inietta tariffe, disponibilità e policy — Claude API genera la risposta</div>
+      </div>
+      <div class="flow-step active">
+        <div class="flow-num"><span class="flow-num-txt">04</span></div>
+        <div class="flow-label">Verifica o auto-invio</div>
+        <div class="flow-desc">Risposta automatica se entro la soglia di confidenza; altrimenti escalation allo staff</div>
+      </div>
+      <div class="flow-step">
+        <div class="flow-num"><span class="flow-num-txt">05</span></div>
+        <div class="flow-label">Risposta consegnata</div>
+        <div class="flow-desc">De-normalizzata e inviata sul canale originale, nel thread corretto</div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- CHECK-IN CHAT DEMO -->
-<section class="chat-section">
+<!-- LIVE MESSAGE FEED + JOURNEY -->
+<section class="journey-section">
   <div class="wrap">
-    <div class="chat-layout">
+    <div class="journey-grid">
       <div>
-        <p class="sec-eyebrow">Fase 3 — Check-in assistito</p>
-        <h2 class="sec-h2">Le 2:47 di notte.<br><em>L'ospite non aspetta.</em></h2>
-        <p class="sec-body">Con i documenti già ricevuti e la camera assegnata, il check-in diventa un messaggio. L'AI sa già chi è l'ospite, qual è la sua camera e cosa ha prenotato.</p>
-        <div style="margin-top:1.75rem;display:flex;flex-direction:column;gap:.75rem">
-          <div style="display:flex;align-items:center;gap:.75rem;font-size:.875rem;color:var(--t2)">
-            <span style="width:20px;height:20px;border-radius:50%;background:var(--gr-d);display:flex;align-items:center;justify-content:center;flex-shrink:0">
-              <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="var(--green)" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>
-            </span>
-            Passaporto già verificato prima dell'arrivo
+        <p class="sec-eyebrow">Il percorso dell'ospite</p>
+        <h2 class="sec-h2">Ogni fase del soggiorno.<br><em>Su ogni canale.</em></h2>
+        <p class="sec-body">L'IV Package non è solo ricezione — accompagna l'ospite dal momento della prenotazione fino alla recensione finale.</p>
+        <div class="jlist">
+          <div class="jitem">
+            <span class="j-num">01</span>
+            <div class="j-info">
+              <div class="j-title">Offerta pre-arrivo</div>
+              <div class="j-ch">via <strong>Email · WhatsApp</strong> — upgrade, colazione, parking</div>
+            </div>
           </div>
-          <div style="display:flex;align-items:center;gap:.75rem;font-size:.875rem;color:var(--t2)">
-            <span style="width:20px;height:20px;border-radius:50%;background:var(--gr-d);display:flex;align-items:center;justify-content:center;flex-shrink:0">
-              <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="var(--green)" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>
-            </span>
-            Scheda e ISTAT compilati in automatico
+          <div class="jitem">
+            <span class="j-num">02</span>
+            <div class="j-info">
+              <div class="j-title">Documenti e registrazione</div>
+              <div class="j-ch">via <strong>SMS · Email</strong> — link sicuro, ISTAT automatico</div>
+            </div>
           </div>
-          <div style="display:flex;align-items:center;gap:.75rem;font-size:.875rem;color:var(--t2)">
-            <span style="width:20px;height:20px;border-radius:50%;background:var(--gr-d);display:flex;align-items:center;justify-content:center;flex-shrink:0">
-              <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="var(--green)" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>
-            </span>
-            Junior Suite accettata, pagamento in conto
+          <div class="jitem">
+            <span class="j-num">03</span>
+            <div class="j-info">
+              <div class="j-title">Check-in assistito 24/7</div>
+              <div class="j-ch">via <strong>WhatsApp · Voce · SMS</strong> — chiave digitale, benvenuto</div>
+            </div>
+          </div>
+          <div class="jitem">
+            <span class="j-num">04</span>
+            <div class="j-info">
+              <div class="j-title">Richieste durante il soggiorno</div>
+              <div class="j-ch">via <strong>tutti i canali</strong> — room service, manutenzione, info</div>
+            </div>
+          </div>
+          <div class="jitem">
+            <span class="j-num">05</span>
+            <div class="j-info">
+              <div class="j-title">Post checkout e recensioni</div>
+              <div class="j-ch">via <strong>Email · Booking.com · Google</strong> — review request, offerta ritorno</div>
+            </div>
           </div>
         </div>
       </div>
 
-      <div class="chat-widget">
-        <div class="cw-head">
-          <div class="cw-ava">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2.5"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
-          </div>
-          <div class="cw-info">
-            <div class="cw-name">Aivy — Ricezione AI</div>
-            <div class="cw-status">Attiva · risposta immediata</div>
-          </div>
-          <div class="cw-time" id="chatClock">02:47</div>
+      <!-- Live message feed -->
+      <div class="feed-card">
+        <div class="feed-header">
+          <span class="feed-title">Messaggi in arrivo — tutti i canali</span>
+          <span class="feed-live">Live</span>
         </div>
-        <div class="cw-body" id="chatBody"></div>
-        <div class="cw-foot">
-          <span class="cf-stat">Ospiti gestiti stanotte: <strong id="guestCount">0</strong></span>
-          <span class="cf-stat">Tempo medio: <strong>8 sec</strong></span>
-        </div>
+        <div id="feedBody"></div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- RATE TABLE -->
-<section class="table-section">
+<!-- PRICING -->
+<section class="pricing-section">
   <div class="wrap">
-    <div class="table-layout">
-      <div>
-        <p class="sec-eyebrow">Revenue AI</p>
-        <h2 class="sec-h2">Tariffe che lavorano<br>mentre tu dormi.</h2>
-        <p class="sec-body">Il motore tariffe di Aivy aggiorna i prezzi ogni 15 minuti su tutti i canali, basandosi su occupazione, competitor e domanda. Nessun allarme mattutino.</p>
-        <div style="margin-top:1.5rem;padding:1.2rem;background:var(--ac-d);border:1px solid var(--ac-b);border-radius:3px">
-          <p style="font-size:.8125rem;color:var(--t2);line-height:1.6"><strong style="color:var(--accent)">Lug–Ago: ADR +12% su base annua</strong> — 3 adeguamenti applicati nella notte scorsa. Zero intervento manuale.</p>
-        </div>
+    <p class="sec-eyebrow">Prezzi IV Package</p>
+    <h2 class="sec-h2">Scalabile con la struttura.<br><em>Non con i messaggi.</em></h2>
+    <p class="sec-body">Il prezzo riflette il valore operativo sostituito — non il volume di messaggi. Confrontato con una reception notturna h24 con personale umano, l'IV Package costa una frazione.</p>
+
+    <div class="pricing-grid">
+      <div class="price-card">
+        <div class="price-tier">Small</div>
+        <div class="price-size">Strutture sotto 20 camere</div>
+        <div class="price-rooms">B&B, agriturismi, piccoli hotel</div>
+        <div class="price-amount">€300<em>–600</em></div>
+        <div class="price-period">al mese · tutto incluso</div>
+        <ul class="price-features">
+          <li>Tutti e 6 i canali attivi</li>
+          <li>Ricezione AI 24/7</li>
+          <li>Onboarding incluso</li>
+          <li>Dashboard di monitoraggio</li>
+        </ul>
+        <a href="#" class="price-cta">Richiedi demo</a>
       </div>
-      <div>
-        <div class="tbl-controls">
-          <div class="tbl-filters">
-            <button class="fbtn active">Tutte le camere</button>
-            <button class="fbtn">Standard</button>
-            <button class="fbtn">Superior</button>
-            <button class="fbtn">Suite</button>
-          </div>
-          <div class="tbl-meta">AI aggiornata <span id="updateTime">or ora</span></div>
-        </div>
-        <div class="tbl-wrap">
-          <table>
-            <thead>
-              <tr>
-                <th>Tipologia</th>
-                <th>Tariffa</th>
-                <th>AI</th>
-                <th>Var.</th>
-                <th>Occ.</th>
-                <th class="r">Stato</th>
-              </tr>
-            </thead>
-            <tbody id="rateTableBody"></tbody>
-          </table>
-        </div>
+
+      <div class="price-card featured">
+        <div class="price-badge">Più richiesto</div>
+        <div class="price-tier">Mid</div>
+        <div class="price-size">20–50 camere</div>
+        <div class="price-rooms">Hotel indipendenti, strutture stagionali</div>
+        <div class="price-amount">€800<em>–1.500</em></div>
+        <div class="price-period">al mese · tutto incluso</div>
+        <ul class="price-features">
+          <li>Tutti e 6 i canali attivi</li>
+          <li>Ricezione AI 24/7 multilingue</li>
+          <li>Integrazione PMS esistente</li>
+          <li>Gestione escalation avanzata</li>
+          <li>Report mensile performance</li>
+        </ul>
+        <a href="#" class="price-cta">Richiedi demo</a>
+      </div>
+
+      <div class="price-card">
+        <div class="price-tier">Enterprise</div>
+        <div class="price-size">50+ camere o ADR elevato</div>
+        <div class="price-rooms">Hotel di lusso, alta stagionalità (ADR €300+)</div>
+        <div class="price-amount">€2.000<em>+</em></div>
+        <div class="price-period">al mese · su misura</div>
+        <ul class="price-features">
+          <li>Tutti e 6 i canali + Google Reviews</li>
+          <li>SLA prioritario</li>
+          <li>Knowledge base personalizzata (RAG)</li>
+          <li>Account manager dedicato</li>
+          <li>Integrazioni custom</li>
+        </ul>
+        <a href="#" class="price-cta">Contattaci</a>
+      </div>
+    </div>
+
+    <div class="pricing-vs">
+      <div class="vs-label"><strong>Confronto diretto:</strong> reception notturna h24 con 2 turni di personale (stipendi, ferie, malattia, formazione) su una struttura media da 35 camere</div>
+      <div class="vs-item">
+        <span class="vs-val red">€3.500<span style="font-size:1.25rem">+</span></span>
+        <span class="vs-lbl">Reception umana<br>al mese</span>
+      </div>
+      <div style="font-size:1.5rem;color:var(--t3);font-weight:300">vs</div>
+      <div class="vs-item">
+        <span class="vs-val green">€800–1.500</span>
+        <span class="vs-lbl">IV Package<br>al mese</span>
       </div>
     </div>
   </div>
 </section>
 
-<!-- TESTIMONIALS -->
-<section class="testi-section">
+<!-- TECH STACK -->
+<section class="tech-section">
   <div class="wrap">
-    <div style="margin-bottom:3rem">
-      <p class="sec-eyebrow">I nostri hotel</p>
-      <h2 class="sec-h2">Non solo una reception.<br><em>Un ospite che torna.</em></h2>
-    </div>
-    <div class="testi-grid">
-      <div class="tc">
-        <div class="tc-metric">+0.6★</div>
-        <div class="tc-label">Punteggio recensioni Google in 90 giorni</div>
-        <p class="tc-quote">"Il pre-check-in con il caricamento dei documenti ha dimezzato le code all'arrivo. Ma la cosa che non mi aspettavo è che le recensioni sono salite — gli ospiti apprezzano rispondere in 10 secondi a qualsiasi ora."</p>
-        <div class="tc-auth">
-          <div class="tc-ava">CL</div>
-          <div>
-            <div class="tc-name">Chiara Lombardi</div>
-            <div class="tc-role">General Manager, Hotel Bramante · Roma</div>
-          </div>
-        </div>
-      </div>
-      <div class="tc">
-        <div class="tc-metric">€ 1.240</div>
-        <div class="tc-label">Upsell medio mensile solo da offerte pre-arrivo</div>
-        <p class="tc-quote">"Pensavo che gli ospiti business non accettassero mai gli upgrade automatici. Mi sbagliavo. L'offerta arriva al momento giusto, nel modo giusto — e il 40% la accetta. Senza che nessuno dei nostri ci perda tempo."</p>
-        <div class="tc-auth">
-          <div class="tc-ava">MR</div>
-          <div>
-            <div class="tc-name">Marco Rizzi</div>
-            <div class="tc-role">Revenue Director, Palazzi Collection · Firenze</div>
-          </div>
-        </div>
-      </div>
+    <p class="sec-eyebrow">Architettura tecnica</p>
+    <h2 class="sec-h2" style="font-size:clamp(1.5rem,2.5vw,2rem)">Infrastruttura enterprise.<br><em>Nessun vendor lock-in.</em></h2>
+    <div class="tech-grid">
+      <div class="tech-item"><div class="tech-name">Claude API (Anthropic)</div><div class="tech-role">AI di comprensione e generazione risposte — Sonnet class</div></div>
+      <div class="tech-item"><div class="tech-name">Twilio</div><div class="tech-role">Voce, SMS, WhatsApp Business API — webhook real-time</div></div>
+      <div class="tech-item"><div class="tech-name">Booking.com Partner API</div><div class="tech-role">Messaggistica OTA e risposte recensioni via Connectivity Partner</div></div>
+      <div class="tech-item"><div class="tech-name">SMTP / IMAP</div><div class="tech-role">Email in entrata e in uscita sul dominio dell'hotel</div></div>
+      <div class="tech-item"><div class="tech-name">MCP Server (Node.js)</div><div class="tech-role">Orchestrazione, context injection, tool dispatch</div></div>
+      <div class="tech-item"><div class="tech-name">PostgreSQL + pgvector</div><div class="tech-role">Storico conversazioni, prenotazioni, knowledge base RAG</div></div>
+      <div class="tech-item"><div class="tech-name">Self-hosted VPS</div><div class="tech-role">Hetzner / DigitalOcean / AWS — nessun costo per messaggio</div></div>
+      <div class="tech-item"><div class="tech-name">Dashboard admin</div><div class="tech-role">Log conversazioni, override risposte, gestione escalation</div></div>
     </div>
   </div>
 </section>
 
 <!-- CTA -->
 <section class="cta-section">
-  <h2 class="cta-h">Dalla prima offerta<br>all'ultimo <em>arrivederci.</em></h2>
-  <p class="cta-sub">Vedi Aivy accompagnare un ospite reale attraverso tutte e cinque le fasi — dalla tua struttura, senza costi di attivazione.</p>
+  <h2 class="cta-h">Il vostro hotel, sempre <em>raggiungibile.</em></h2>
+  <p class="cta-sub">Pilota l'IV Package su una struttura, misuriamo i risultati insieme — tempo di risposta, soddisfazione ospiti, costi operativi. Setup completo in meno di una settimana.</p>
   <div class="cta-row">
     <a href="#" class="btn-lg">Prenota una demo</a>
-    <a href="#" class="btn-ol">Inizia gratis</a>
+    <a href="#" class="btn-ol">Scarica la documentazione</a>
   </div>
-  <p class="cta-note">14 giorni gratuiti · Senza carta di credito · Onboarding incluso</p>
+  <p class="cta-note">Nessun costo di attivazione · Pilot su una proprietà · Risultati misurabili in 30 giorni</p>
 </section>
 
 <!-- FOOTER -->
 <footer>
   <div class="foot-inner">
     <div class="foot-brand">
-      <div class="foot-brand-name">Aivy <span class="logo-badge">PMS</span></div>
-      <p>Il gestionale AI-native per strutture indipendenti e piccole catene italiane.</p>
+      <div style="display:flex;align-items:center;gap:.6rem;margin-bottom:.5rem">
+        <span style="font-family:Georgia,serif;font-weight:700;font-size:1.4rem;color:var(--accent);letter-spacing:-0.02em">IV</span>
+        <span style="font-family:ui-monospace,monospace;font-size:.55rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--t3);line-height:1.4">Priority<br>Management</span>
+      </div>
+      <p>Receptionist AI 24/7 multicanale per strutture ricettive italiane.</p>
     </div>
     <div class="foot-cols">
       <div class="foot-col">
-        <h4>Piattaforma</h4>
-        <a href="#">Percorso Ospite AI</a>
-        <a href="#">Ricezione 24/7</a>
-        <a href="#">Revenue AI</a>
-        <a href="#">Gestione Canali</a>
-        <a href="#">Motore Prenotazioni</a>
+        <h4>Prodotto</h4>
+        <a href="#">IV Package</a>
+        <a href="#">Canali integrati</a>
+        <a href="#">Come funziona</a>
+        <a href="#">Architettura</a>
+        <a href="#">Prezzi</a>
       </div>
       <div class="foot-col">
         <h4>Azienda</h4>
         <a href="#">Chi siamo</a>
-        <a href="#">Clienti</a>
+        <a href="#">Case study</a>
         <a href="#">Blog</a>
-        <a href="#">Lavora con noi</a>
         <a href="#">Contatti</a>
       </div>
       <div class="foot-col">
         <h4>Risorse</h4>
-        <a href="#">Documentazione</a>
-        <a href="#">API</a>
+        <a href="#">Documentazione API</a>
+        <a href="#">Booking.com Partner</a>
         <a href="#">Stato servizi</a>
         <a href="#">Sicurezza</a>
       </div>
     </div>
   </div>
   <div class="foot-bottom">
-    <p>© 2025 Aivy Technologies Inc. Tutti i diritti riservati.</p>
+    <p>© 2025 IV Priority Management. Tutti i diritti riservati.</p>
     <div class="foot-links">
       <a href="#">Privacy</a>
       <a href="#">Termini</a>
@@ -861,120 +704,77 @@ footer{background:var(--surface);border-top:1px solid var(--border);padding:3rem
 const root=document.documentElement;
 const toggleBtn=document.getElementById('themeToggle');
 let theme=root.getAttribute('data-theme')||(window.matchMedia('(prefers-color-scheme:dark)').matches?'dark':'light');
-function applyTheme(t){root.setAttribute('data-theme',t);theme=t;requestAnimationFrame(drawChart)}
+function applyTheme(t){root.setAttribute('data-theme',t);theme=t}
 toggleBtn.addEventListener('click',()=>applyTheme(theme==='dark'?'light':'dark'));
-function css(v){return getComputedStyle(root).getPropertyValue(v).trim()}
 
 /* ── CLOCK ──────────────────────────────────────────────── */
 function tick(){
-  const n=new Date(),s=String(n.getHours()).padStart(2,'0')+':'+String(n.getMinutes()).padStart(2,'0');
-  ['liveClock','chatClock'].forEach(id=>{const e=document.getElementById(id);if(e)e.textContent=s});
+  const n=new Date();
+  const s=String(n.getHours()).padStart(2,'0')+':'+String(n.getMinutes()).padStart(2,'0');
+  const el=document.getElementById('liveClock');if(el)el.textContent=s;
 }
 tick();setInterval(tick,60000);
 
-/* ── JOURNEY TIMELINE ANIMATION ─────────────────────────── */
-function animateJourney(){
-  const stages=document.querySelectorAll('.jt-stage');
-  stages.forEach((el,i)=>{
-    setTimeout(()=>{el.classList.add('visible')},i*220+300);
-  });
-}
-window.addEventListener('load',animateJourney);
-
-/* ── CHAT DEMO ──────────────────────────────────────────── */
-const msgs=[
-  {from:'guest',text:'Buonasera, sono appena arrivato. Non c\'è nessuno alla reception. Prenotazione Martinez, camera 204.',t:'02:47'},
-  {from:'ai',  text:'Benvenuto, Carlos! Ho già il suo documento e la scheda compilata. La camera 204 — Junior Suite al secondo piano — è pronta. Le invio la chiave digitale al numero +39 334 *** ***.',t:'02:47'},
-  {from:'guest',text:'Perfetto. Il parcheggio?',t:'02:48'},
-  {from:'ai',  text:'Parcheggio incluso nella sua prenotazione. Codice cancello: <strong>4821</strong>, ingresso lato Via Roma. Niente altro per stanotte?',t:'02:48'},
-  {from:'guest',text:'No grazie, buonanotte.',t:'02:48'},
-  {from:'ai',  text:'Buon riposo, Carlos. Sono disponibile 24 ore su 24 per qualsiasi necessità. A domani per la colazione alle 08:00.',t:'02:49'},
+/* ── LIVE FEED ──────────────────────────────────────────── */
+const feedMessages=[
+  {ch:'WA', chColor:'var(--green)', chBg:'var(--gr-d)', sender:'Carlos M.', text:'Sono arrivato ma la reception è chiusa', time:'02:47', status:'Risposto', done:true},
+  {ch:'BK', chColor:'var(--blue)',  chBg:'var(--bl-d)', sender:'Sophie L. (Booking)', text:'Posso portare un animale domestico?', time:'06:12', status:'Risposto', done:true},
+  {ch:'TEL',chColor:'var(--blue)',  chBg:'var(--bl-d)', sender:'Chiamata +39 02 3456', text:'Disponibilità 15-18 agosto', time:'09:30', status:'Risposto', done:true},
+  {ch:'@',  chColor:'var(--accent)',chBg:'var(--ac-d)', sender:'info@hotelbraman.it', text:'Conferma prenotazione richiesta', time:'10:45', status:'Risposto', done:true},
+  {ch:'SMS',chColor:'var(--green)', chBg:'var(--gr-d)', sender:'+44 7700 9000', text:'What time is checkout?', time:'11:20', status:'Risposto', done:true},
+  {ch:'★',  chColor:'var(--accent)',chBg:'var(--ac-d)', sender:'Recensione 4★ — Ahmed K.', text:'"Ottima posizione, personale disponibile"', time:'13:05', status:'Risposta AI inviata', done:true},
+  {ch:'WA', chColor:'var(--green)', chBg:'var(--gr-d)', sender:'Yuki T.', text:'エアコンが壊れています', time:'14:38', status:'Escalato allo staff', done:false},
+  {ch:'BK', chColor:'var(--blue)',  chBg:'var(--bl-d)', sender:'Thomas B. (Booking)', text:'Early check-in possibile?', time:'15:22', status:'In risposta…', done:null},
 ];
-let cidx=0;
-const chatBody=document.getElementById('chatBody');
 
-function addMsg(){
-  if(cidx>=msgs.length)return;
-  const m=msgs[cidx];
-  if(m.from==='ai'){
-    const tp=document.createElement('div');
-    tp.className='msg-row ai';tp.id='typing';
-    tp.innerHTML='<div class="bubble" style="display:flex;align-items:center;gap:3px;padding:.6rem .9rem"><span class="td"></span><span class="td"></span><span class="td"></span></div>';
-    chatBody.appendChild(tp);chatBody.scrollTop=9999;
-    setTimeout(()=>{
-      const el=document.getElementById('typing');if(el)el.remove();
-      renderMsg(m);cidx++;
-      if(cidx<msgs.length)setTimeout(addMsg,cidx%2===0?2300:1500);
-    },1100);
-  } else {renderMsg(m);cidx++;setTimeout(addMsg,950);}
-}
+let feedIdx=0;
+const feedBody=document.getElementById('feedBody');
 
-function renderMsg(m){
+function renderFeedMsg(m){
   const row=document.createElement('div');
-  row.className='msg-row '+m.from;
-  row.innerHTML=`<div class="msg-who">${m.from==='ai'?'Aivy AI':'Ospite'}</div><div class="bubble">${m.text}</div><div class="msg-ts">${m.t}</div>`;
-  chatBody.appendChild(row);chatBody.scrollTop=9999;
+  row.className='feed-msg';
+  const statusCls=m.done===null?'pending':m.done?'':'pending';
+  row.innerHTML=`
+    <div class="feed-ch" style="color:${m.chColor};background:${m.chBg}">${m.ch}</div>
+    <div class="feed-content">
+      <div class="feed-sender">${m.sender}</div>
+      <div class="feed-text">${m.text}</div>
+    </div>
+    <div style="display:flex;flex-direction:column;align-items:flex-end;gap:.2rem;flex-shrink:0">
+      <div class="feed-time">${m.time}</div>
+      <div class="feed-status ${statusCls}">${m.status}</div>
+    </div>`;
+  feedBody.insertBefore(row, feedBody.firstChild);
+  // Keep max 6 visible
+  while(feedBody.children.length>6)feedBody.removeChild(feedBody.lastChild);
 }
 
-let gc=0;
+// Seed with first 5 messages
+function seedFeed(){
+  const initial=feedMessages.slice(0,5);
+  initial.forEach(m=>renderFeedMsg(m));
+}
+
+// Cycle through remaining messages
+function cycleFeed(){
+  const m=feedMessages[feedIdx % feedMessages.length];
+  renderFeedMsg(m);
+  feedIdx++;
+}
+
 window.addEventListener('load',()=>{
-  setTimeout(addMsg,700);
-  const iv=setInterval(()=>{
-    const el=document.getElementById('guestCount');
-    if(!el)return;
-    if(gc<4){gc++;el.textContent=gc;}else clearInterval(iv);
-  },260);
-  setTimeout(drawChart,120);
+  seedFeed();
+  feedIdx=5;
+  setInterval(cycleFeed,3200);
 });
 
-/* ── RATE TABLE ─────────────────────────────────────────── */
-const rooms=[
-  {type:'Camera Deluxe King', base:189,ai:224,occ:87,s:'op'},
-  {type:'Superior Twin',      base:149,ai:149,occ:72,s:'st'},
-  {type:'Junior Suite',       base:289,ai:312,occ:61,s:'rv'},
-  {type:'Classica Doppia',    base:119,ai:134,occ:94,s:'op'},
-  {type:'Suite Executive',    base:395,ai:448,occ:55,s:'rv'},
-  {type:'Penthouse',          base:599,ai:549,occ:28,s:'pr'},
-];
-const sL={op:'Ottimizzata',st:'Stabile',rv:'In revisione',pr:'Promo'};
-function vari(b,a){const p=((a-b)/b*100).toFixed(0),n=parseInt(p);return n>0?{t:'+'+p+'%',c:'pos'}:n<0?{t:p+'%',c:'neg'}:{t:'—',c:'meh'}}
-function renderTable(){
-  const tb=document.getElementById('rateTableBody');
-  tb.innerHTML=rooms.map((r,i)=>{
-    const v=vari(r.base,r.ai);
-    const fc=r.occ>85?'var(--green)':r.occ>60?'var(--blue)':'var(--red)';
-    return `<tr id="row-${i}"><td class="rtype">${r.type}</td><td class="rate">€${r.base}</td><td class="airate">€${r.ai}</td><td class="var ${v.c}">${v.t}</td><td><span class="obar"><span class="ofill" style="width:${r.occ}%;background:${fc}"></span></span><span style="font-family:ui-monospace,monospace;font-size:.8125rem">${r.occ}%</span></td><td style="text-align:right"><span class="pill ${r.s}"><span class="pdot"></span>${sL[r.s]}</span></td></tr>`;
-  }).join('');
-}
-renderTable();
-let lu=Date.now();
-function liveUpd(){
-  const i=Math.floor(Math.random()*rooms.length);const r=rooms[i];
-  r.ai=Math.max(Math.round(r.base*.75),Math.round(r.ai+(Math.random()-.47)*14));
-  r.occ=Math.max(18,Math.min(100,r.occ+Math.round((Math.random()-.45)*4)));
-  renderTable();
-  const row=document.getElementById('row-'+i);
-  if(row){row.classList.remove('hl');void row.offsetWidth;row.classList.add('hl');}
-  lu=Date.now();document.getElementById('updateTime').textContent='or ora';
-}
-setInterval(liveUpd,2800);
-setInterval(()=>{
-  const s=Math.round((Date.now()-lu)/1000);
-  const el=document.getElementById('updateTime');
-  if(el)el.textContent=s<10?'or ora':s+'s fa';
-},1000);
-document.querySelectorAll('.fbtn').forEach(b=>b.addEventListener('click',()=>{
-  document.querySelectorAll('.fbtn').forEach(x=>x.classList.remove('active'));b.classList.add('active');
-}));
-
-/* ── CHART ──────────────────────────────────────────────── */
-const months=['Gen','Feb','Mar','Apr','Mag','Giu','Lug','Ago','Set','Ott','Nov','Dic'];
-const occ25=[60,65,73,80,87,94,97,95,89,81,70,78];
-const occ24=[53,57,67,74,82,88,91,90,83,73,64,72];
-const adr25=[188,195,215,232,254,282,298,291,265,242,214,248];
-function drawChart(){
-  const canvas=document.querySelector('#rateTableBody')?.closest('section')?.querySelector('canvas');
-  if(!canvas)return;
-  /* chart removed from rate section in this version — no canvas needed */
-}
+/* ── FLOW STEP ANIMATION ────────────────────────────────── */
+window.addEventListener('load',()=>{
+  const steps=document.querySelectorAll('.flow-step');
+  let active=1;
+  setInterval(()=>{
+    steps.forEach((s,i)=>s.classList.toggle('active',i===active));
+    active=(active+1)%steps.length;
+  },1800);
+});
 </script>
