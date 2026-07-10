@@ -202,23 +202,23 @@ nav{position:sticky;top:0;z-index:100;background:var(--nav-bg);backdrop-filter:b
 .cta-note{font-size:.8125rem;color:rgba(255,255,255,.65);margin-top:1.25rem}
 
 /* ── FOOTER ──────────────────────────────────────────────── */
-footer{background:var(--text);color:rgba(255,255,255,.7);padding:3.5rem 2.5rem}
-.foot-inner{max-width:1240px;margin:0 auto;display:flex;align-items:flex-start;justify-content:space-between;gap:3rem;flex-wrap:wrap}
-.foot-brand{display:flex;flex-direction:column;gap:.6rem}
-.foot-logo{display:flex;align-items:center;gap:.5rem}
-.foot-logo-aivy{font-size:1rem;font-weight:900;color:#fff;letter-spacing:-.01em}
-.foot-logo-sub{font-size:.55rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:rgba(255,255,255,.35)}
-.foot-brand p{font-size:.8375rem;max-width:28ch;line-height:1.6;margin-top:.25rem}
-.foot-product-name{font-size:.75rem;font-weight:700;color:var(--accent);letter-spacing:.04em}
-.foot-cols{display:flex;gap:4rem;flex-wrap:wrap}
-.foot-col h4{font-size:.6rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.3);margin-bottom:.9rem}
-.foot-col a{display:block;color:rgba(255,255,255,.6);font-size:.875rem;margin-bottom:.5rem;transition:color .15s}
+footer{background:#080E07;color:rgba(255,255,255,.65);padding:4rem 2.5rem 2.5rem}
+.foot-inner{max-width:1240px;margin:0 auto;display:grid;grid-template-columns:1fr auto;gap:4rem;align-items:start}
+.foot-brand{display:flex;flex-direction:column;gap:.75rem;max-width:280px}
+.foot-logo{display:flex;align-items:center;gap:.45rem}
+.foot-logo-aivy{font-size:1rem;font-weight:300;color:#fff;letter-spacing:.08em}
+.foot-logo-sub{font-size:.5rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:rgba(255,255,255,.3)}
+.foot-brand p{font-size:.8375rem;line-height:1.65;color:rgba(255,255,255,.5);margin-top:.15rem}
+.foot-product-name{display:inline-block;font-size:.7rem;font-weight:700;color:#3DD639;letter-spacing:.06em;text-transform:uppercase;background:rgba(61,214,57,.1);padding:.2rem .6rem;border-radius:100px;width:fit-content}
+.foot-cols{display:flex;gap:3.5rem;flex-wrap:wrap}
+.foot-col h4{font-size:.6rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.25);margin-bottom:1rem}
+.foot-col a{display:block;color:rgba(255,255,255,.55);font-size:.875rem;margin-bottom:.55rem;transition:color .15s}
 .foot-col a:hover{color:#fff}
-.foot-bottom{max-width:1240px;margin:.5rem auto 0;border-top:1px solid rgba(255,255,255,.08);padding-top:1.5rem;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:.75rem}
-.foot-bottom p{font-size:.8125rem}
+.foot-bottom{max-width:1240px;margin:2.5rem auto 0;border-top:1px solid rgba(255,255,255,.07);padding-top:1.5rem;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:.75rem}
+.foot-bottom p{font-size:.8rem;color:rgba(255,255,255,.35)}
 .foot-links{display:flex;gap:1.5rem}
-.foot-links a{font-size:.8125rem;color:rgba(255,255,255,.45);transition:color .15s}
-.foot-links a:hover{color:#fff}
+.foot-links a{font-size:.8rem;color:rgba(255,255,255,.35);transition:color .15s}
+.foot-links a:hover{color:rgba(255,255,255,.8)}
 
 /* ── RESPONSIVE ──────────────────────────────────────────── */
 @media(max-width:960px){
@@ -233,6 +233,8 @@ footer{background:var(--text);color:rgba(255,255,255,.7);padding:3.5rem 2.5rem}
   .s-item{border-right:none;border-bottom:1px solid rgba(255,255,255,.08)}
   .s-item:last-child{border-bottom:none}
   .nav-links{display:none}
+  .foot-inner{grid-template-columns:1fr;gap:2.5rem}
+  .foot-cols{gap:2rem}
 }
 @media(prefers-reduced-motion:reduce){*{animation-duration:.01ms!important;transition-duration:.01ms!important}}
 </style>
@@ -253,10 +255,10 @@ footer{background:var(--text);color:rgba(255,255,255,.7);padding:3.5rem 2.5rem}
     <span class="nav-divider"></span>
     <span class="nav-product">AutoReception</span>
     <div class="nav-links">
-      <a href="#">Canali</a>
-      <a href="#">Come funziona</a>
-      <a href="#">Percorso ospite</a>
-      <a href="#">Prezzi</a>
+      <a href="#canali">Canali</a>
+      <a href="#come-funziona">Come funziona</a>
+      <a href="#percorso-ospite">Percorso ospite</a>
+      <a href="#demo">Demo AI</a>
     </div>
     <button class="theme-toggle" id="themeToggle" aria-label="Cambia tema">
       <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>
@@ -382,7 +384,7 @@ footer{background:var(--text);color:rgba(255,255,255,.7);padding:3.5rem 2.5rem}
 </div>
 
 <!-- 6 CHANNELS -->
-<section class="ch-section">
+<section class="ch-section" id="canali">
   <div class="wrap">
     <p class="sec-eyebrow">I sei canali di AutoReception</p>
     <h2 class="sec-h2">Ogni modo in cui un ospite<br>può contattarvi. <em>Coperto.</em></h2>
@@ -422,7 +424,7 @@ footer{background:var(--text);color:rgba(255,255,255,.7);padding:3.5rem 2.5rem}
 </section>
 
 <!-- HOW IT WORKS -->
-<section class="flow-section">
+<section class="flow-section" id="come-funziona">
   <div class="wrap">
     <p class="sec-eyebrow">Come funziona</p>
     <h2 class="sec-h2">Dal messaggio dell'ospite<br>alla risposta — <em>in secondi.</em></h2>
@@ -457,7 +459,7 @@ footer{background:var(--text);color:rgba(255,255,255,.7);padding:3.5rem 2.5rem}
 </section>
 
 <!-- GUEST JOURNEY + LIVE FEED -->
-<section class="journey-section">
+<section class="journey-section" id="percorso-ospite">
   <div class="wrap">
     <div class="journey-grid">
       <div>
@@ -515,7 +517,7 @@ footer{background:var(--text);color:rgba(255,255,255,.7);padding:3.5rem 2.5rem}
 </section>
 
 <!-- SIMULATOR -->
-<section class="sim-section">
+<section class="sim-section" id="demo">
   <div class="wrap">
     <p class="sec-eyebrow">Prova AutoReception</p>
     <h2 class="sec-h2">Scrivi un messaggio reale.<br><em>L'AI risponde.</em></h2>
@@ -605,10 +607,10 @@ footer{background:var(--text);color:rgba(255,255,255,.7);padding:3.5rem 2.5rem}
     <div class="foot-cols">
       <div class="foot-col">
         <h4>Prodotto</h4>
-        <a href="#">AutoReception</a>
-        <a href="#">Canali integrati</a>
-        <a href="#">Come funziona</a>
-        <a href="#">Prezzi</a>
+        <a href="#canali">Canali integrati</a>
+        <a href="#come-funziona">Come funziona</a>
+        <a href="#percorso-ospite">Percorso ospite</a>
+        <a href="#demo">Demo AI</a>
       </div>
       <div class="foot-col">
         <h4>Aivy Solutions</h4>
