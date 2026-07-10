@@ -979,6 +979,7 @@ const SIM_LANG_MARKERS={
 };
 
 const SIM_INTENTS={
+  booking:  ['disponibili','disponibilità','disponibile','camere libere','camere disponibili','prenot','prenotazione','prenotare','book','booking','reservation','verfügbar','zimmer frei','disponible','chambres','habitaciones disponibles','空房','有房','訂房','预订'],
   key:      ['chiave','key','schlüssel','clé','llave','locked','serratura','aperta','duplicate'],
   checkout: ['checkout','check-out','check out','partenza','leaving','leave','abreise','départ','salida','退房','lasciare'],
   checkin:  ['check-in','checkin','check in','arrivo','arrive','arriving','ankommen','arriver','llegada','入住'],
@@ -988,14 +989,19 @@ const SIM_INTENTS={
   towel:    ['asciugamano','asciugamani','towel','handtuch','serviette','toalla','accappatoio'],
   blanket:  ['coperta','coperte','blanket','decke','couverture','manta','cuscino','pillow'],
   pool:     ['piscina','pool','schwimmbad','piscine','nuotare','swim'],
-  food:     ['ristorante','restaurant','mangiare','colazione','breakfast','frühstück','petit-déjeuner','desayuno','早餐','cena','dinner','pranzo','menu'],
+  food:     ['ristorante','restaurant','mangiare','colazione','breakfast','frühstück','petit-déjeuner','desayuno','早餐','cena','dinner','pranzo','menu','bar'],
   noise:    ['rumore','noise','lärm','bruit','ruido','disturbo','loud'],
   luggage:  ['bagagli','bagaglio','luggage','gepäck','bagages','equipaje','valigia','suitcase'],
   late:     ['tardi','tardivo','late check','notte','night','mezzanotte','midnight','ritardo'],
+  transport:['taxi','transfer','aeroporto','airport','stazione','treno','autobus','shuttle','navetta','flughafen','gare','aéroport','estación','aeropuerto'],
+  complaint:['problema','reclamo','insoddisfatto','inaccettabile','vergogna','disgusting','terrible','awful','schlecht','horrible','terrible'],
 };
 
 const SIM_RESPONSES={
   it:{
+    booking: 'Buonasera! Per verificare la disponibilità ho bisogno di qualche informazione: per quali date sta cercando e per quante persone? Una volta che mi comunica le date, controllo immediatamente e le invio le opzioni disponibili con i relativi prezzi.',
+    transport:'Certamente! Organizziamo transfer da/per l\'aeroporto e la stazione ferroviaria. Il servizio è disponibile 24/7 a tariffa fissa. Mi indica l\'orario e il luogo di partenza/arrivo? Prenoto il veicolo per lei in pochi minuti.',
+    complaint:'Mi dispiace moltissimo per quanto accaduto — non è il livello di servizio che vogliamo offrire. Voglio risolvere questa situazione immediatamente. Può descrivermi il problema nel dettaglio? Intervengo personalmente e farò tutto il necessario per rimediare.',
     key:     'Nessun problema, può capitare! Le preparo subito una nuova chiave. Può passare alla reception entro 5 minuti — oppure, se preferisce, mando il personale direttamente da lei. Mi conferma il numero di camera e il suo nome?',
     checkout:'Certamente! Il checkout standard è entro le 11:00. Se necessita di qualche ora in più, ho disponibilità per un late checkout fino alle 13:00 senza costi aggiuntivi. Desidera anche il deposito bagagli per continuare a godersi la giornata?',
     checkin: 'Benvenuto! Sono pronto ad assisterla con il check-in. Mi conferma il nome della prenotazione? Le preparo tutto in anticipo — la procedura durerà pochissimi minuti.',
@@ -1012,6 +1018,9 @@ const SIM_RESPONSES={
     general: 'Buongiorno! Sono AutoReception, il sistema AI di questo hotel. Come posso aiutarla oggi? Sono disponibile 24 ore su 24 per qualsiasi richiesta — dalla camera al ristorante, dall\'area benessere alle informazioni locali.',
   },
   en:{
+    booking: 'Hi! To check availability I just need a couple of details: what dates are you looking at, and for how many guests? Once you share the dates I\'ll check right away and send you the available options with pricing.',
+    transport:'Of course! We offer airport and train station transfers at a fixed rate, available 24/7. Could you let me know your arrival time and where you\'re coming from? I\'ll book the vehicle for you straight away.',
+    complaint:'I\'m truly sorry to hear this — it\'s not the experience we want you to have. Please tell me exactly what happened and I\'ll deal with it personally and immediately. Your satisfaction is our top priority and I\'ll make this right.',
     key:     'No worries at all — this happens! I\'ll arrange a duplicate key right away. Could you confirm your name and room number? You can collect it at reception in about 5 minutes, or I can send someone up to your room.',
     checkout:'Of course! Standard checkout is at 11:00 AM. I can arrange a late checkout until 1:00 PM at no extra charge if that helps. Would you also like us to hold your luggage so you can make the most of the rest of the day?',
     checkin: 'Welcome! I\'m ready to help you check in. Could you confirm the name on your booking? I\'ll have everything prepared — the process will take just a few minutes.',
@@ -1028,6 +1037,9 @@ const SIM_RESPONSES={
     general: 'Hello! I\'m AutoReception, this hotel\'s AI assistant. I\'m available 24/7 — how can I help you today? Feel free to ask about anything: room service, local tips, facilities, or any issue you\'d like me to sort out.',
   },
   de:{
+    booking: 'Guten Tag! Um die Verfügbarkeit zu prüfen, benötige ich noch ein paar Angaben: Für welche Daten suchen Sie und für wie viele Personen? Sobald Sie mir die Daten mitteilen, prüfe ich sofort und sende Ihnen die verfügbaren Optionen mit Preisen.',
+    transport:'Natürlich! Wir bieten Transfers zum/vom Flughafen und Bahnhof zu Festpreisen an — 24/7 verfügbar. Können Sie mir Ihre Ankunftszeit und den Abholort mitteilen? Ich buche das Fahrzeug sofort für Sie.',
+    complaint:'Das tut mir sehr leid — das entspricht nicht unserem Serviceniveau. Bitte schildern Sie mir genau, was passiert ist, und ich kümmere mich sofort persönlich darum. Ihre Zufriedenheit hat für uns höchste Priorität.',
     key:     'Kein Problem, das kann jedem passieren! Ich organisiere sofort einen Ersatzschlüssel. Könnten Sie mir Ihren Namen und Ihre Zimmernummer bestätigen? Sie können ihn in 5 Minuten an der Rezeption abholen, oder ich schicke jemanden direkt zu Ihnen.',
     checkout:'Natürlich! Der reguläre Check-out ist um 11:00 Uhr. Ich kann Ihnen kostenlos einen späten Check-out bis 13:00 Uhr anbieten. Soll ich außerdem einen Gepäcklagerraum für den Nachmittag reservieren?',
     checkin: 'Herzlich willkommen! Ich helfe Ihnen gerne beim Check-in. Können Sie mir den Namen auf Ihrer Buchung bestätigen? Ich bereite alles vor — der Vorgang dauert nur wenige Minuten.',
@@ -1044,6 +1056,9 @@ const SIM_RESPONSES={
     general: 'Guten Tag! Ich bin AutoReception, der KI-Assistent dieses Hotels. Ich stehe Ihnen rund um die Uhr zur Verfügung. Wie kann ich Ihnen heute helfen?',
   },
   fr:{
+    booking: 'Bonjour ! Pour vérifier la disponibilité, j\'ai besoin de quelques informations : pour quelles dates cherchez-vous et pour combien de personnes ? Une fois que vous m\'aurez communiqué les dates, je vérifie immédiatement et vous envoie les options disponibles avec les tarifs.',
+    transport:'Bien sûr ! Nous proposons des transferts depuis/vers l\'aéroport et la gare à tarif fixe, disponibles 24h/24. Pouvez-vous m\'indiquer votre heure d\'arrivée et le lieu de prise en charge ? Je réserve le véhicule pour vous immédiatement.',
+    complaint:'Je suis vraiment désolé pour ce qui s\'est passé — ce n\'est pas le niveau de service que nous souhaitons offrir. Pouvez-vous me décrire précisément le problème ? J\'interviens personnellement et immédiatement pour y remédier.',
     key:     'Pas de souci — ça peut arriver ! Je prépare immédiatement un double de clé. Pouvez-vous confirmer votre nom et votre numéro de chambre ? Vous pouvez le récupérer à la réception dans 5 minutes, ou j\'envoie quelqu\'un directement chez vous.',
     checkout:'Bien sûr ! Le check-out standard est à 11h00. Je peux vous proposer un late check-out jusqu\'à 13h00 sans frais supplémentaires. Souhaitez-vous également que nous gardions vos bagages pour profiter du reste de la journée ?',
     checkin: 'Bienvenue ! Je suis prêt à vous aider pour le check-in. Pouvez-vous confirmer le nom sur votre réservation ? Je prépare tout à l\'avance — la procédure prendra quelques minutes seulement.',
@@ -1060,6 +1075,9 @@ const SIM_RESPONSES={
     general: 'Bonjour ! Je suis AutoReception, l\'assistant IA de cet hôtel. Je suis disponible 24h/24. Comment puis-je vous aider aujourd\'hui ?',
   },
   es:{
+    booking: '¡Hola! Para verificar la disponibilidad necesito unos datos: ¿para qué fechas está buscando y para cuántas personas? En cuanto me indique las fechas, compruebo enseguida y le envío las opciones disponibles con los precios.',
+    transport:'¡Por supuesto! Ofrecemos traslados desde/hasta el aeropuerto y la estación de tren a tarifa fija, disponibles 24h. ¿Puede indicarme su hora de llegada y el lugar de recogida? Le reservo el vehículo en pocos minutos.',
+    complaint:'Lo siento muchísimo — esto no es el nivel de servicio que queremos ofrecer. ¿Puede describirme exactamente qué ha ocurrido? Me ocupo personalmente e inmediatamente para resolverlo. Su satisfacción es nuestra prioridad.',
     key:     '¡No se preocupe, le pasa a cualquiera! Preparo enseguida una llave duplicada. ¿Puede confirmarme su nombre y número de habitación? Puede recogerla en recepción en unos 5 minutos, o le mando a alguien directamente.',
     checkout:'¡Por supuesto! El check-out estándar es a las 11:00 h. Puedo ofrecerle un late check-out hasta las 13:00 h sin coste adicional. ¿Quiere también que guardemos su equipaje para disfrutar el resto del día?',
     checkin: '¡Bienvenido/a! Estoy listo para ayudarle con el check-in. ¿Puede confirmarme el nombre de la reserva? Lo preparo todo de antemano — el proceso tardará solo unos minutos.',
@@ -1076,6 +1094,9 @@ const SIM_RESPONSES={
     general: '¡Hola! Soy AutoReception, el asistente IA de este hotel. Estoy disponible 24h/7 días. ¿En qué puedo ayudarle hoy?',
   },
   zh:{
+    booking: '您好！为了查询空房情况，我需要了解几个信息：您计划入住的日期是哪天，以及几位客人？请告诉我日期，我马上为您查询并发送可用房型和价格。',
+    transport:'当然可以！我们提供往返机场和火车站的接送服务，24小时均可预约，价格固定。请问您的到达时间和接送地点是？我马上为您预订车辆。',
+    complaint:'非常抱歉给您带来了不愉快的体验，这不是我们希望提供的服务水准。能告诉我具体发生了什么吗？我会立即亲自处理，尽全力为您解决问题。',
     key:     '没关系，这种情况很常见！我马上为您安排一把备用钥匙。能否告诉我您的姓名和房间号？您可以在5分钟内到前台取钥匙，或者我可以安排工作人员直接送到您的房间。',
     checkout:'当然可以！标准退房时间是上午11:00。如果需要，我可以免费为您安排延迟退房至下午1:00。您是否还需要我们帮您保管行李，以便继续享受今天的时光？',
     checkin: '欢迎入住！我已准备好协助您办理入住手续。请问您的预订是以什么名字登记的？我会提前为您准备好一切，办理过程只需几分钟。',
