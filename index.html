@@ -1132,8 +1132,13 @@ function simDetectIntent(text){
 /* Chat state */
 let chatHistory=[];
 let chatBusy=false;
-let userMsgCount=0;
 const CHAT_LIMIT=5;
+const STORAGE_KEY='ar_demo_count';
+
+function loadCount(){try{return parseInt(localStorage.getItem(STORAGE_KEY)||'0',10);}catch{return 0;}}
+function saveCount(n){try{localStorage.setItem(STORAGE_KEY,n);}catch{}}
+
+let userMsgCount=loadCount();
 
 function getChatThread(){return document.getElementById('chatThread');}
 function getChatInput(){return document.getElementById('chatInput');}
@@ -1202,6 +1207,7 @@ async function sendChat(){
   input.style.height='';
   chatBusy=true;
   userMsgCount++;
+  saveCount(userMsgCount);
   getChatSendBtn().disabled=true;
 
   appendBubble(text,'user');
@@ -1244,6 +1250,7 @@ function sendFromChip(text){
 function clearChat(){
   chatHistory=[];
   userMsgCount=0;
+  saveCount(0);
   chatBusy=false;
   const thread=getChatThread();
   thread.innerHTML='<div class="chat-bubble ai">Ciao! 👋 Sono AutoReception. Come posso aiutarla oggi? Rispondo in qualsiasi lingua.</div>';
@@ -1262,6 +1269,8 @@ getChatInput().addEventListener('input',function(){
 getChatInput().addEventListener('keydown',e=>{
   if(e.key==='Enter'&&!e.shiftKey){e.preventDefault();sendChat();}
 });
+
+if(userMsgCount>=CHAT_LIMIT){showLeadGate();}
 
 /* ── MODALS ──────────────────────────────────────────────── */
 function openModal(id){
