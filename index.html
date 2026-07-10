@@ -189,6 +189,16 @@ nav{position:sticky;top:0;z-index:100;background:var(--nav-bg);backdrop-filter:b
 .chat-send-btn:hover:not(:disabled){opacity:.88;transform:scale(1.06)}
 .chat-send-btn:disabled{opacity:.38;cursor:not-allowed}
 .chat-hint{font-size:.67rem;color:var(--t3);text-align:center;padding:.3rem 0 .6rem}
+.chat-gate{align-self:stretch;background:linear-gradient(135deg,var(--ac-d),rgba(46,201,42,.05));border:1.5px solid var(--ac-b);border-radius:14px;padding:1.15rem 1.25rem;margin-top:.25rem}
+.chat-gate-title{font-size:.975rem;font-weight:800;color:var(--text);margin-bottom:.35rem;letter-spacing:-.01em}
+.chat-gate-body{font-size:.85rem;color:var(--t2);line-height:1.6;margin-bottom:1rem}
+.chat-gate-actions{display:flex;gap:.6rem;flex-wrap:wrap}
+.chat-gate-primary{background:var(--accent);color:#fff;font-size:.85rem;font-weight:700;padding:.55rem 1.1rem;border-radius:8px;border:none;cursor:pointer;font-family:inherit;transition:opacity .15s}
+.chat-gate-primary:hover{opacity:.88}
+.chat-gate-secondary{background:transparent;color:var(--ac-text);font-size:.85rem;font-weight:600;padding:.55rem 1.1rem;border-radius:8px;border:1.5px solid var(--ac-b);cursor:pointer;font-family:inherit;transition:all .15s;text-decoration:none;display:inline-flex;align-items:center}
+.chat-gate-secondary:hover{border-color:var(--accent);color:var(--accent)}
+.chat-input-bar.locked{pointer-events:none;opacity:.35}
+.chat-input.locked::placeholder{color:var(--t3)}
 
 /* ── CTA ─────────────────────────────────────────────────── */
 .cta-section{background:var(--accent);padding:6rem 2.5rem;text-align:center}
@@ -1122,6 +1132,8 @@ function simDetectIntent(text){
 /* Chat state */
 let chatHistory=[];
 let chatBusy=false;
+let userMsgCount=0;
+const CHAT_LIMIT=5;
 
 function getChatThread(){return document.getElementById('chatThread');}
 function getChatInput(){return document.getElementById('chatInput');}
@@ -1160,8 +1172,28 @@ function localFallback(text){
   return pool[intent]||pool.general||SIM_RESPONSES.en.general;
 }
 
+function showLeadGate(){
+  const thread=getChatThread();
+  const gate=document.createElement('div');
+  gate.className='chat-gate';
+  gate.innerHTML=`
+    <div class="chat-gate-title">Hai visto quanto funziona bene? ✨</div>
+    <div class="chat-gate-body">AutoReception ha appena gestito ${CHAT_LIMIT} richieste reali in secondi — 24/7, in qualsiasi lingua. Vuoi vederla integrata nel tuo hotel?</div>
+    <div class="chat-gate-actions">
+      <button class="chat-gate-primary" onclick="openModal('modal-demo')">Prenota una demo gratuita →</button>
+      <a class="chat-gate-secondary" href="https://wa.me/12676321250" target="_blank" rel="noopener">Scrivici su WhatsApp</a>
+    </div>`;
+  thread.appendChild(gate);
+  thread.scrollTop=thread.scrollHeight;
+  const bar=document.querySelector('.chat-input-bar');
+  bar.classList.add('locked');
+  getChatInput().placeholder='Demo completata — prenota per continuare';
+  getChatSendBtn().disabled=true;
+}
+
 async function sendChat(){
   if(chatBusy)return;
+  if(userMsgCount>=CHAT_LIMIT)return;
   const input=getChatInput();
   const text=input.value.trim();
   if(!text)return;
@@ -1169,6 +1201,7 @@ async function sendChat(){
   input.value='';
   input.style.height='';
   chatBusy=true;
+  userMsgCount++;
   getChatSendBtn().disabled=true;
 
   appendBubble(text,'user');
@@ -1194,9 +1227,13 @@ async function sendChat(){
   appendBubble(replyText,'ai');
   chatHistory.push({role:'assistant',content:replyText});
 
-  chatBusy=false;
-  getChatSendBtn().disabled=false;
-  input.focus();
+  if(userMsgCount>=CHAT_LIMIT){
+    setTimeout(showLeadGate, 600);
+  } else {
+    chatBusy=false;
+    getChatSendBtn().disabled=false;
+    input.focus();
+  }
 }
 
 function sendFromChip(text){
@@ -1206,8 +1243,14 @@ function sendFromChip(text){
 
 function clearChat(){
   chatHistory=[];
+  userMsgCount=0;
+  chatBusy=false;
   const thread=getChatThread();
   thread.innerHTML='<div class="chat-bubble ai">Ciao! 👋 Sono AutoReception. Come posso aiutarla oggi? Rispondo in qualsiasi lingua.</div>';
+  const bar=document.querySelector('.chat-input-bar');
+  bar.classList.remove('locked');
+  getChatInput().placeholder='Scrivi un messaggio…';
+  getChatSendBtn().disabled=false;
 }
 
 /* Auto-resize textarea */
