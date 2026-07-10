@@ -42,11 +42,11 @@ button{font-family:inherit;cursor:pointer;border:none;background:none}
 /* ── NAV ────────────────────────────────────────────────── */
 nav{position:sticky;top:0;z-index:100;background:var(--nav-bg);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border-bottom:1px solid var(--border)}
 .nav-inner{max-width:1240px;margin:0 auto;padding:0 2.5rem;height:60px;display:flex;align-items:center;gap:2rem}
-.logo{display:flex;align-items:center;gap:.5rem;color:var(--text)}
+.logo{display:flex;align-items:center;gap:.35rem;color:var(--text)}
 .logo-mark{flex-shrink:0}
-.logo-wordmark{font-size:.9rem;font-weight:800;letter-spacing:-.01em;line-height:1;display:flex;flex-direction:column}
-.logo-aivy{color:var(--text)}
-.logo-sub{font-size:.55rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--t3);margin-top:.05em}
+.logo-wordmark{line-height:1;display:flex;flex-direction:column;gap:.12em}
+.logo-ivy{font-size:1.05rem;font-weight:300;letter-spacing:.08em;color:var(--accent);line-height:1}
+.logo-sub{font-size:.48rem;font-weight:600;letter-spacing:.09em;text-transform:uppercase;color:var(--t3)}
 .nav-divider{width:1px;height:22px;background:var(--border)}
 .nav-product{font-size:.7rem;font-weight:700;letter-spacing:.05em;text-transform:uppercase;color:var(--ac-text)}
 .nav-links{display:flex;gap:2rem;margin-left:auto;flex:1;padding-left:1rem}
@@ -234,12 +234,12 @@ footer{background:var(--text);color:rgba(255,255,255,.7);padding:3.5rem 2.5rem}
 <nav>
   <div class="nav-inner">
     <a href="#" class="logo">
-      <svg class="logo-mark" width="18" height="18" viewBox="0 0 18 18" fill="none">
-        <path d="M9 2C9 2 9 2 9 2C12.5 4 15 6.5 15 9.5C15 13 12.5 16 9 16C5.5 16 3 13 3 9.5C3 6.5 5.5 4 9 2Z" fill="var(--accent)"/>
-        <circle cx="9" cy="9.5" r="2.5" fill="white" opacity=".6"/>
+      <!-- AIVY A-mark: upward arrow/triangle with triangular notch = letter A -->
+      <svg class="logo-mark" width="20" height="24" viewBox="0 0 56 68" fill="none">
+        <path d="M28,2 L2,66 L21,66 L28,50 L35,66 L54,66 Z" fill="var(--accent)"/>
       </svg>
       <div class="logo-wordmark">
-        <span class="logo-aivy">AIVY</span>
+        <span class="logo-ivy">IVY</span>
         <span class="logo-sub">Solutions</span>
       </div>
     </a>
@@ -591,10 +591,12 @@ footer{background:var(--text);color:rgba(255,255,255,.7);padding:3.5rem 2.5rem}
   <div class="foot-inner">
     <div class="foot-brand">
       <div class="foot-logo">
-        <svg width="16" height="16" viewBox="0 0 18 18" fill="none"><path d="M9 2C9 2 9 2 9 2C12.5 4 15 6.5 15 9.5C15 13 12.5 16 9 16C5.5 16 3 13 3 9.5C3 6.5 5.5 4 9 2Z" fill="#2EC92A"/><circle cx="9" cy="9.5" r="2.5" fill="white" opacity=".5"/></svg>
+        <svg width="17" height="20" viewBox="0 0 56 68" fill="none">
+          <path d="M28,2 L2,66 L21,66 L28,50 L35,66 L54,66 Z" fill="white"/>
+        </svg>
         <div>
-          <div class="foot-logo-aivy">AIVY Solutions</div>
-          <div class="foot-logo-sub">AI Automation & Operations</div>
+          <div class="foot-logo-aivy" style="font-weight:300;letter-spacing:.08em;font-size:.95rem">IVY</div>
+          <div class="foot-logo-sub">Solutions</div>
         </div>
       </div>
       <div class="foot-product-name">AutoReception</div>
