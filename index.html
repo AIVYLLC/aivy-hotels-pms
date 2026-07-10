@@ -153,34 +153,42 @@ nav{position:sticky;top:0;z-index:100;background:var(--nav-bg);backdrop-filter:b
 .feed-status::before{content:'';width:4px;height:4px;border-radius:50%;background:currentColor;flex-shrink:0}
 .feed-status.pending{color:var(--t3)}
 
-/* ── PRICING ────────────────────────────────────────────── */
-.pricing-section{background:var(--bg);padding:5.5rem 2.5rem}
-.pricing-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.25rem;margin-top:3rem}
-.price-card{background:var(--surface);border:2px solid var(--border);border-radius:12px;padding:2.25rem;position:relative;transition:box-shadow .2s,border-color .2s}
-.price-card:hover{box-shadow:var(--shadow)}
-.price-card.featured{border-color:var(--accent)}
-.price-badge{position:absolute;top:-1px;left:50%;transform:translateX(-50%);font-size:.625rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;background:var(--accent);color:#fff;padding:.22rem .85rem;border-radius:0 0 6px 6px;white-space:nowrap}
-.price-tier{font-size:.625rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--t3);margin-bottom:.6rem}
-.price-size{font-size:1.25rem;font-weight:900;letter-spacing:-.02em;color:var(--text);margin-bottom:.2rem}
-.price-rooms{font-size:.8125rem;color:var(--t3);margin-bottom:1.5rem}
-.price-amount{font-size:2.75rem;font-weight:900;letter-spacing:-.04em;color:var(--text);line-height:1;margin-bottom:.2rem}
-.price-amount em{font-style:normal;color:var(--accent)}
-.price-period{font-size:.8125rem;color:var(--t3);margin-bottom:1.5rem}
-.price-features{list-style:none;margin-bottom:1.75rem;display:flex;flex-direction:column;gap:.55rem}
-.price-features li{display:flex;align-items:flex-start;gap:.6rem;font-size:.875rem;color:var(--t2)}
-.price-features li::before{content:'✓';font-size:.7rem;font-weight:900;color:var(--accent);width:14px;flex-shrink:0;margin-top:.15rem}
-.price-cta{display:block;text-align:center;background:var(--accent);color:#fff;font-size:.875rem;font-weight:700;padding:.7rem;border-radius:8px;transition:opacity .15s}
-.price-cta:hover{opacity:.88}
-.price-card:not(.featured) .price-cta{background:transparent;color:var(--text);border:2px solid var(--bdr-s)}
-.price-card:not(.featured) .price-cta:hover{border-color:var(--accent);color:var(--ac-text)}
-.pricing-vs{margin-top:2rem;padding:1.5rem 2rem;background:var(--surface);border:1px solid var(--border);border-radius:10px;display:flex;align-items:center;gap:3rem;flex-wrap:wrap}
-.vs-label{font-size:.875rem;color:var(--t2);flex:1;min-width:200px;line-height:1.55}
-.vs-label strong{color:var(--text);font-weight:700}
-.vs-item{text-align:center}
-.vs-val{font-size:1.625rem;font-weight:900;letter-spacing:-.03em;display:block;margin-bottom:.1rem}
-.vs-val.red{color:#C0392B}
-.vs-val.green{color:var(--accent)}
-.vs-lbl{font-size:.75rem;color:var(--t3)}
+/* ── SIMULATOR ──────────────────────────────────────────── */
+.sim-section{background:var(--bg-alt);padding:5.5rem 2.5rem}
+.sim-chips{display:flex;gap:.5rem;flex-wrap:wrap;margin:1.75rem 0 2rem}
+.sim-chip{background:var(--surface);border:1px solid var(--border);border-radius:100px;padding:.4rem .9rem;font-size:.8125rem;font-weight:600;color:var(--t2);cursor:pointer;transition:all .15s;white-space:nowrap;font-family:inherit}
+.sim-chip:hover{border-color:var(--accent);color:var(--accent);background:var(--ac-d)}
+.sim-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem}
+.sim-card{background:var(--surface);border:1px solid var(--border);border-radius:12px;overflow:hidden;display:flex;flex-direction:column;box-shadow:var(--shadow)}
+.sim-card-head{padding:.9rem 1.25rem;border-bottom:1px solid var(--border);background:var(--sf2);display:flex;align-items:center;justify-content:space-between;flex-shrink:0}
+.sim-card-label{font-size:.8125rem;font-weight:700;color:var(--text);display:flex;align-items:center;gap:.4rem}
+.sim-card-hint{font-size:.7rem;color:var(--t3)}
+.sim-textarea{flex:1;width:100%;min-height:160px;padding:1.15rem 1.25rem;background:transparent;border:none;outline:none;font-family:inherit;font-size:.9375rem;color:var(--text);line-height:1.65;resize:none}
+.sim-textarea::placeholder{color:var(--t3)}
+.sim-footer{padding:1rem 1.25rem;border-top:1px solid var(--border);flex-shrink:0}
+.sim-send{width:100%;background:var(--accent);color:#fff;font-size:.9rem;font-weight:700;padding:.7rem;border-radius:8px;cursor:pointer;border:none;transition:opacity .15s;display:flex;align-items:center;justify-content:center;gap:.5rem;letter-spacing:.01em;font-family:inherit}
+.sim-send:hover:not(:disabled){opacity:.88}
+.sim-send:disabled{opacity:.4;cursor:not-allowed}
+.sim-send-hint{font-size:.65rem;color:rgba(255,255,255,.7);font-weight:500;margin-top:.35rem;text-align:center}
+.sim-response-area{flex:1;padding:1.25rem;min-height:160px;display:flex;flex-direction:column;justify-content:center}
+.sim-empty{text-align:center;color:var(--t3);padding:1.5rem 0;display:flex;flex-direction:column;align-items:center;gap:.6rem}
+.sim-empty-icon{font-size:1.75rem;opacity:.35;line-height:1}
+.sim-empty-txt{font-size:.875rem;line-height:1.5}
+.sim-typing{display:flex;align-items:center;gap:.45rem;padding:.25rem 0}
+.sim-dot{width:9px;height:9px;border-radius:50%;background:var(--accent);opacity:.55}
+.sim-dot:nth-child(1){animation:tdot 1.1s ease-in-out infinite}
+.sim-dot:nth-child(2){animation:tdot 1.1s ease-in-out .2s infinite}
+.sim-dot:nth-child(3){animation:tdot 1.1s ease-in-out .4s infinite}
+@keyframes tdot{0%,60%,100%{transform:translateY(0);opacity:.5}30%{transform:translateY(-7px);opacity:1}}
+.sim-response-text{font-size:.9375rem;color:var(--text);line-height:1.75}
+.sim-cursor{display:inline-block;width:2px;height:1em;background:var(--accent);vertical-align:text-bottom;margin-left:1px;animation:cblink .65s step-end infinite}
+@keyframes cblink{0%,100%{opacity:1}50%{opacity:0}}
+.sim-meta{padding:.7rem 1.25rem;border-top:1px solid var(--border);background:var(--sf2);display:flex;gap:.45rem;flex-wrap:wrap;align-items:center;flex-shrink:0}
+.sim-badge{font-size:.65rem;font-weight:700;letter-spacing:.04em;padding:.22rem .6rem;border-radius:100px}
+.sim-badge-time{background:var(--ac-d);color:var(--ac-text)}
+.sim-badge-lang{background:var(--ac-d);color:var(--ac-text)}
+.sim-badge-sent{background:rgba(34,107,63,.12);color:#1A6A30}
+:root[data-theme="dark"] .sim-badge-sent,:root[data-theme="dark"] .sim-badge-lang,:root[data-theme="dark"] .sim-badge-time{color:var(--accent)}
 
 /* ── CTA ─────────────────────────────────────────────────── */
 .cta-section{background:var(--accent);padding:6rem 2.5rem;text-align:center}
@@ -217,7 +225,7 @@ footer{background:var(--text);color:rgba(255,255,255,.7);padding:3.5rem 2.5rem}
   .hero-outer{grid-template-columns:1fr;min-height:auto}
   .hero-left{clip-path:none;padding:4rem 1.75rem 3rem}
   .hero-right{margin-left:0;padding:3rem 1.75rem;min-height:340px}
-  .ch-grid,.pricing-grid{grid-template-columns:1fr}
+  .ch-grid,.sim-grid{grid-template-columns:1fr}
   .flow-steps{grid-template-columns:1fr 1fr;gap:1.5rem}
   .flow-steps::before{display:none}
   .journey-grid{grid-template-columns:1fr;gap:2.5rem}
@@ -506,64 +514,63 @@ footer{background:var(--text);color:rgba(255,255,255,.7);padding:3.5rem 2.5rem}
   </div>
 </section>
 
-<!-- PRICING -->
-<section class="pricing-section">
+<!-- SIMULATOR -->
+<section class="sim-section">
   <div class="wrap">
-    <p class="sec-eyebrow">Prezzi AutoReception</p>
-    <h2 class="sec-h2">Scalabile con la struttura.<br><em>Non con i messaggi.</em></h2>
-    <p class="sec-body">Il costo riflette il valore operativo sostituito — non il volume di messaggi. Setup completo in meno di una settimana.</p>
-    <div class="pricing-grid">
-      <div class="price-card">
-        <div class="price-tier">Small</div>
-        <div class="price-size">Sotto 20 camere</div>
-        <div class="price-rooms">B&B, agriturismi, piccoli hotel</div>
-        <div class="price-amount">€300<em>–600</em></div>
-        <div class="price-period">al mese · tutto incluso</div>
-        <ul class="price-features">
-          <li>Tutti e 6 i canali attivi</li>
-          <li>AutoReception AI 24/7</li>
-          <li>Onboarding incluso</li>
-          <li>Dashboard di monitoraggio</li>
-        </ul>
-        <a href="#" class="price-cta">Richiedi demo</a>
-      </div>
-      <div class="price-card featured">
-        <div class="price-badge">Più richiesto</div>
-        <div class="price-tier">Mid</div>
-        <div class="price-size">20–50 camere</div>
-        <div class="price-rooms">Hotel indipendenti, strutture stagionali</div>
-        <div class="price-amount">€800<em>–1.500</em></div>
-        <div class="price-period">al mese · tutto incluso</div>
-        <ul class="price-features">
-          <li>Tutti e 6 i canali attivi</li>
-          <li>AI multilingue 24/7</li>
-          <li>Integrazione PMS esistente</li>
-          <li>Gestione escalation avanzata</li>
-          <li>Report mensile performance</li>
-        </ul>
-        <a href="#" class="price-cta">Richiedi demo</a>
-      </div>
-      <div class="price-card">
-        <div class="price-tier">Enterprise</div>
-        <div class="price-size">50+ camere o ADR elevato</div>
-        <div class="price-rooms">Hotel di lusso, alta stagionalità</div>
-        <div class="price-amount">€2.000<em>+</em></div>
-        <div class="price-period">al mese · su misura</div>
-        <ul class="price-features">
-          <li>Tutti i canali + Google Reviews</li>
-          <li>SLA prioritario</li>
-          <li>Knowledge base personalizzata</li>
-          <li>Account manager Aivy dedicato</li>
-          <li>Integrazioni custom</li>
-        </ul>
-        <a href="#" class="price-cta">Contattaci</a>
-      </div>
+    <p class="sec-eyebrow">Prova AutoReception</p>
+    <h2 class="sec-h2">Scrivi un messaggio reale.<br><em>L'AI risponde.</em></h2>
+    <p class="sec-body">Qualsiasi lingua, qualsiasi scenario. Digita il messaggio di un ospite e vedi AutoReception rispondere — come farebbe 24 ore su 24.</p>
+
+    <div class="sim-chips">
+      <button class="sim-chip" onclick="fillSim('Mi sono dimenticato la chiave in camera')">🔑 Chiave dimenticata</button>
+      <button class="sim-chip" onclick="fillSim('What time is checkout tomorrow?')">⏰ Checkout time</button>
+      <button class="sim-chip" onclick="fillSim('Ich hätte gerne noch eine Decke bitte')">🛏️ Noch eine Decke</button>
+      <button class="sim-chip" onclick="fillSim('El aire acondicionado no funciona en mi habitación')">❄️ AC no funciona</button>
+      <button class="sim-chip" onclick="fillSim('Bonjour, à quelle heure est le petit-déjeuner ?')">☕ Petit-déjeuner</button>
+      <button class="sim-chip" onclick="fillSim('我想要退房，谢谢')">🇨🇳 退房 · 中文</button>
     </div>
-    <div class="pricing-vs">
-      <div class="vs-label"><strong>Confronto diretto:</strong> reception notturna h24 con 2 turni di personale (stipendi, ferie, malattia, formazione) su una struttura media da 35 camere</div>
-      <div class="vs-item"><span class="vs-val red">€3.500<span style="font-size:1.2rem">+</span></span><span class="vs-lbl">Reception umana al mese</span></div>
-      <div style="font-size:1.5rem;color:var(--t3);font-weight:300;flex-shrink:0">vs</div>
-      <div class="vs-item"><span class="vs-val green">€800–1.500</span><span class="vs-lbl">AutoReception al mese</span></div>
+
+    <div class="sim-grid">
+      <!-- Input card -->
+      <div class="sim-card">
+        <div class="sim-card-head">
+          <span class="sim-card-label">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+            Messaggio ospite
+          </span>
+          <span class="sim-card-hint">Qualsiasi lingua</span>
+        </div>
+        <textarea id="simInput" class="sim-textarea" placeholder="Scrivi il messaggio dell'ospite…&#10;&#10;Es. &quot;Buonasera, il riscaldamento non funziona&quot;"></textarea>
+        <div class="sim-footer">
+          <button id="simBtn" class="sim-send" onclick="runSim()">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+            Invia a AutoReception
+          </button>
+          <div class="sim-send-hint">o premi Ctrl+Invio</div>
+        </div>
+      </div>
+
+      <!-- Response card -->
+      <div class="sim-card">
+        <div class="sim-card-head">
+          <span class="sim-card-label">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2.5"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+            <span style="color:var(--accent)">AutoReception</span>
+          </span>
+          <span id="simStatus" class="sim-card-hint">In attesa di un messaggio</span>
+        </div>
+        <div id="simResponseArea" class="sim-response-area">
+          <div class="sim-empty" id="simEmpty">
+            <span class="sim-empty-icon">💬</span>
+            <span class="sim-empty-txt">La risposta AI apparirà qui.<br>Prova uno dei messaggi sopra.</span>
+          </div>
+        </div>
+        <div id="simMeta" class="sim-meta" style="display:none">
+          <span id="simBadgeTime" class="sim-badge sim-badge-time">⚡ —</span>
+          <span id="simBadgeLang" class="sim-badge sim-badge-lang">🌍 —</span>
+          <span class="sim-badge sim-badge-sent">✓ Risposta inviata</span>
+        </div>
+      </div>
     </div>
   </div>
 </section>
@@ -686,5 +693,211 @@ window.addEventListener('load',()=>{
     steps.forEach((s,i)=>s.classList.toggle('active',i===active));
     active=(active+1)%steps.length;
   },1800);
+});
+
+/* ── AI RESPONSE SIMULATOR ──────────────────────────────── */
+const SIM_LANG_MARKERS={
+  it:['sono','mi','ho','di','che','il','la','per','non','ma','un','con','si','da','del','della','nel','ha','le','anche','come','tutto','buongiorno','buonasera','grazie','vorrei','stanza','camera','riscaldamento','chiave'],
+  en:['the','is','are','am','have','has','my','your','this','that','can','could','would','please','need','want','room','hotel','check','hello','hi','thank','thanks','what','when','how','time'],
+  de:['ich','bitte','haben','ist','das','die','der','ein','nicht','und','zu','mit','wie','kann','wir','sie','bin','möchte','hätte','noch','gerne','danke','guten','morgen','abend','zimmer'],
+  fr:['je','le','les','du','de','un','une','avec','est','pas','pour','mon','ma','vous','nous','bonjour','merci','chambre','quelle','heure','petit','déjeuner'],
+  es:['el','los','las','es','son','no','que','con','por','para','tengo','quiero','hay','está','hola','gracias','habitación','acondicionado','funciona','mi'],
+};
+
+const SIM_INTENTS={
+  key:      ['chiave','key','schlüssel','clé','llave','locked','serratura','aperta','duplicate'],
+  checkout: ['checkout','check-out','check out','partenza','leaving','leave','abreise','départ','salida','退房','lasciare'],
+  checkin:  ['check-in','checkin','check in','arrivo','arrive','arriving','ankommen','arriver','llegada','入住'],
+  ac:       ['aria condizionata','air conditioning','klimaanlage','climatisation','aire acondicionado','riscaldamento','heating','caldo','freddo','temperatura','temperature'],
+  wifi:     ['wifi','wi-fi','internet','password','connessione','connection','rete'],
+  parking:  ['parcheggio','parking','parkplatz','stationnement','aparcamiento','auto','macchina','car'],
+  towel:    ['asciugamano','asciugamani','towel','handtuch','serviette','toalla','accappatoio'],
+  blanket:  ['coperta','coperte','blanket','decke','couverture','manta','cuscino','pillow'],
+  pool:     ['piscina','pool','schwimmbad','piscine','nuotare','swim'],
+  food:     ['ristorante','restaurant','mangiare','colazione','breakfast','frühstück','petit-déjeuner','desayuno','早餐','cena','dinner','pranzo','menu'],
+  noise:    ['rumore','noise','lärm','bruit','ruido','disturbo','loud'],
+  luggage:  ['bagagli','bagaglio','luggage','gepäck','bagages','equipaje','valigia','suitcase'],
+  late:     ['tardi','tardivo','late check','notte','night','mezzanotte','midnight','ritardo'],
+};
+
+const SIM_RESPONSES={
+  it:{
+    key:     'Nessun problema, può capitare! Le preparo subito una nuova chiave. Può passare alla reception entro 5 minuti — oppure, se preferisce, mando il personale direttamente da lei. Mi conferma il numero di camera e il suo nome?',
+    checkout:'Certamente! Il checkout standard è entro le 11:00. Se necessita di qualche ora in più, ho disponibilità per un late checkout fino alle 13:00 senza costi aggiuntivi. Desidera anche il deposito bagagli per continuare a godersi la giornata?',
+    checkin: 'Benvenuto! Sono pronto ad assisterla con il check-in. Mi conferma il nome della prenotazione? Le preparo tutto in anticipo — la procedura durerà pochissimi minuti.',
+    ac:      'Mi dispiace molto per il disagio! Ho già avvisato il team di manutenzione — un tecnico sarà da lei entro 15 minuti. Nel frattempo posso inviarle un ventilatore portatile? La sua comodità è la nostra priorità.',
+    wifi:    'Certo! La rete WiFi è "HotelGuest" e la password è hospitality2024 — funziona in tutta la struttura inclusi i piani superiori. Se riscontra problemi di connessione dalla sua camera, mi scriva e mando qualcuno ad assisterla.',
+    parking: 'Ottima notizia — abbiamo parcheggio coperto disponibile a €15 a notte, con accesso 24/7. Posso prenotarle un posto fisso per tutta la durata del soggiorno. Vuole che lo aggiunga direttamente?',
+    towel:   'Certo! Le mando subito asciugamani freschi — arriveranno in camera entro circa 10 minuti. Quanti ne desidera?',
+    blanket: 'Assolutamente! Le faccio portare subito una coperta extra. Sarà in camera entro 10 minuti. Ha bisogno di qualcos\'altro per la notte?',
+    pool:    'La piscina è aperta dalle 8:00 alle 20:00. Troverà asciugamani disponibili direttamente in piscina. Desidera prenotare un lettino o ha bisogno di altre informazioni?',
+    food:    'La colazione è servita al ristorante al piano terra dalle 7:00 alle 10:30 (fino alle 11:00 nel weekend). Offriamo buffet con opzioni vegetariane, vegane e senza glutine. Vuole che le riservi un tavolo per domani mattina?',
+    noise:   'Mi scuso sinceramente per il disturbo — non è accettabile. Mi dice da dove proviene il rumore così intervengo immediatamente. Farò tutto il possibile per garantirle una notte tranquilla.',
+    luggage: 'Certamente! Possiamo custodire i bagagli nel nostro deposito sicuro gratuitamente fino alle 20:00. Preferisce passare alla reception o mando qualcuno a ritirarli in camera?',
+    late:    'Nessun problema, siamo operativi 24 ore su 24! Mi comunica l\'orario di arrivo previsto? Le preparo tutto in anticipo — il check-in sarà rapido qualunque ora arrivi.',
+    general: 'Buongiorno! Sono AutoReception, il sistema AI di questo hotel. Come posso aiutarla oggi? Sono disponibile 24 ore su 24 per qualsiasi richiesta — dalla camera al ristorante, dall\'area benessere alle informazioni locali.',
+  },
+  en:{
+    key:     'No worries at all — this happens! I\'ll arrange a duplicate key right away. Could you confirm your name and room number? You can collect it at reception in about 5 minutes, or I can send someone up to your room.',
+    checkout:'Of course! Standard checkout is at 11:00 AM. I can arrange a late checkout until 1:00 PM at no extra charge if that helps. Would you also like us to hold your luggage so you can make the most of the rest of the day?',
+    checkin: 'Welcome! I\'m ready to help you check in. Could you confirm the name on your booking? I\'ll have everything prepared — the process will take just a few minutes.',
+    ac:      'I\'m so sorry about this! I\'ve already notified our maintenance team — a technician will be with you within 15 minutes. In the meantime, would you like me to send up a portable fan? Your comfort is our priority.',
+    wifi:    'Of course! The WiFi network is "HotelGuest" and the password is hospitality2024. It covers the entire property. If you have trouble connecting from your room, just let me know.',
+    parking: 'Great news — we have covered parking available at €15 per night, with 24/7 access. I can reserve a dedicated spot for your entire stay. Would you like me to add it to your booking?',
+    towel:   'Of course! I\'ll send fresh towels to your room right away — they should be with you in about 10 minutes. How many would you like?',
+    blanket: 'Absolutely! I\'ll have an extra blanket sent up right away — it\'ll be there within 10 minutes. Is there anything else you need for a comfortable night?',
+    pool:    'The pool is open daily from 8:00 AM to 8:00 PM. Towels are available poolside. Would you like to reserve a sun lounger or is there anything else I can help with?',
+    food:    'Breakfast is served in the restaurant on the ground floor from 7:00 to 10:30 AM (until 11:00 on weekends). We offer a full buffet with vegetarian, vegan, and gluten-free options. Shall I reserve a table for tomorrow morning?',
+    noise:   'I sincerely apologize for the disturbance. Could you tell me where the noise is coming from? I\'ll address this immediately and do everything I can to ensure you have a peaceful night.',
+    luggage: 'Of course! We can store your luggage safely and free of charge until 8:00 PM. Would you prefer to drop it at reception, or shall I arrange for someone to collect it from your room?',
+    late:    'Absolutely no problem — we\'re here 24/7! Could you let me know your estimated arrival time? I\'ll have everything ready, and check-in will be quick whenever you arrive.',
+    general: 'Hello! I\'m AutoReception, this hotel\'s AI assistant. I\'m available 24/7 — how can I help you today? Feel free to ask about anything: room service, local tips, facilities, or any issue you\'d like me to sort out.',
+  },
+  de:{
+    key:     'Kein Problem, das kann jedem passieren! Ich organisiere sofort einen Ersatzschlüssel. Könnten Sie mir Ihren Namen und Ihre Zimmernummer bestätigen? Sie können ihn in 5 Minuten an der Rezeption abholen, oder ich schicke jemanden direkt zu Ihnen.',
+    checkout:'Natürlich! Der reguläre Check-out ist um 11:00 Uhr. Ich kann Ihnen kostenlos einen späten Check-out bis 13:00 Uhr anbieten. Soll ich außerdem einen Gepäcklagerraum für den Nachmittag reservieren?',
+    checkin: 'Herzlich willkommen! Ich helfe Ihnen gerne beim Check-in. Können Sie mir den Namen auf Ihrer Buchung bestätigen? Ich bereite alles vor — der Vorgang dauert nur wenige Minuten.',
+    ac:      'Das tut mir sehr leid! Ich habe sofort die Technik benachrichtigt — ein Techniker wird innerhalb von 15 Minuten bei Ihnen sein. Kann ich Ihnen in der Zwischenzeit einen Ventilator schicken? Ihr Wohlbefinden hat höchste Priorität.',
+    wifi:    'Natürlich! Das WLAN-Netzwerk heißt "HotelGuest" und das Passwort lautet hospitality2024. Es deckt das gesamte Hotel ab. Falls Sie Verbindungsprobleme haben, informieren Sie mich bitte.',
+    parking: 'Gute Neuigkeiten — wir haben überdachte Parkplätze für €15 pro Nacht, mit 24/7-Zugang. Ich kann Ihnen einen festen Platz für Ihren gesamten Aufenthalt reservieren. Soll ich das direkt hinzufügen?',
+    towel:   'Natürlich! Ich lasse Ihnen sofort frische Handtücher aufs Zimmer bringen — in ca. 10 Minuten sind sie da. Wie viele benötigen Sie?',
+    blanket: 'Selbstverständlich! Ich lasse Ihnen sofort eine extra Decke bringen — in etwa 10 Minuten ist sie bei Ihnen. Benötigen Sie sonst noch etwas für eine angenehme Nacht?',
+    pool:    'Das Schwimmbad ist täglich von 8:00 bis 20:00 Uhr geöffnet. Handtücher stehen am Pool bereit. Möchten Sie einen Liegestuhl reservieren?',
+    food:    'Das Frühstück wird im Restaurant im Erdgeschoss von 7:00 bis 10:30 Uhr serviert (am Wochenende bis 11:00 Uhr). Wir bieten ein Buffet mit vegetarischen, veganen und glutenfreien Optionen an. Soll ich einen Tisch für morgen früh reservieren?',
+    noise:   'Ich entschuldige mich aufrichtig für die Störung! Könnten Sie mir sagen, woher der Lärm kommt? Ich kümmere mich sofort darum und tue alles, um Ihnen eine ruhige Nacht zu garantieren.',
+    luggage: 'Natürlich! Wir können Ihr Gepäck kostenlos bis 20:00 Uhr sicher aufbewahren. Kommen Sie an die Rezeption oder soll ich jemanden zu Ihnen schicken?',
+    late:    'Kein Problem — wir sind rund um die Uhr für Sie da! Können Sie mir Ihre voraussichtliche Ankunftszeit mitteilen? Ich bereite alles vor — der Check-in wird schnell gehen, egal wann Sie ankommen.',
+    general: 'Guten Tag! Ich bin AutoReception, der KI-Assistent dieses Hotels. Ich stehe Ihnen rund um die Uhr zur Verfügung. Wie kann ich Ihnen heute helfen?',
+  },
+  fr:{
+    key:     'Pas de souci — ça peut arriver ! Je prépare immédiatement un double de clé. Pouvez-vous confirmer votre nom et votre numéro de chambre ? Vous pouvez le récupérer à la réception dans 5 minutes, ou j\'envoie quelqu\'un directement chez vous.',
+    checkout:'Bien sûr ! Le check-out standard est à 11h00. Je peux vous proposer un late check-out jusqu\'à 13h00 sans frais supplémentaires. Souhaitez-vous également que nous gardions vos bagages pour profiter du reste de la journée ?',
+    checkin: 'Bienvenue ! Je suis prêt à vous aider pour le check-in. Pouvez-vous confirmer le nom sur votre réservation ? Je prépare tout à l\'avance — la procédure prendra quelques minutes seulement.',
+    ac:      'Je suis vraiment désolé pour ce désagrément ! J\'ai déjà prévenu l\'équipe de maintenance — un technicien sera chez vous dans 15 minutes. En attendant, souhaitez-vous que je vous envoie un ventilateur portable ?',
+    wifi:    'Bien sûr ! Le réseau WiFi est "HotelGuest" et le mot de passe est hospitality2024. Il couvre l\'ensemble de l\'hôtel. Si vous avez des problèmes de connexion, faites-le moi savoir.',
+    parking: 'Bonne nouvelle — nous avons un parking couvert disponible à 15€/nuit, avec accès 24h/24. Je peux vous réserver une place pour tout votre séjour. Voulez-vous que je l\'ajoute directement ?',
+    towel:   'Bien sûr ! Je fais envoyer immédiatement des serviettes fraîches dans votre chambre — elles seront là dans environ 10 minutes. Combien en souhaitez-vous ?',
+    blanket: 'Absolument ! Je fais apporter une couverture supplémentaire tout de suite — elle sera là dans 10 minutes. Avez-vous besoin d\'autre chose pour passer une bonne nuit ?',
+    pool:    'La piscine est ouverte de 8h00 à 20h00. Des serviettes sont disponibles au bord de la piscine. Souhaitez-vous réserver un transat ?',
+    food:    'Le petit-déjeuner est servi au restaurant du rez-de-chaussée de 7h00 à 10h30 (jusqu\'à 11h00 le week-end). Nous proposons un buffet avec des options végétariennes, véganes et sans gluten. Voulez-vous que je réserve une table pour demain matin ?',
+    noise:   'Je m\'excuse sincèrement pour ce dérangement ! Pouvez-vous me dire d\'où vient le bruit ? J\'interviens immédiatement pour résoudre la situation.',
+    luggage: 'Bien sûr ! Nous pouvons garder vos bagages gratuitement jusqu\'à 20h00. Préférez-vous passer à la réception ou dois-je envoyer quelqu\'un chez vous ?',
+    late:    'Absolument aucun problème — nous sommes disponibles 24h/24 ! Pouvez-vous m\'indiquer votre heure d\'arrivée prévue ? Je prépare tout à l\'avance.',
+    general: 'Bonjour ! Je suis AutoReception, l\'assistant IA de cet hôtel. Je suis disponible 24h/24. Comment puis-je vous aider aujourd\'hui ?',
+  },
+  es:{
+    key:     '¡No se preocupe, le pasa a cualquiera! Preparo enseguida una llave duplicada. ¿Puede confirmarme su nombre y número de habitación? Puede recogerla en recepción en unos 5 minutos, o le mando a alguien directamente.',
+    checkout:'¡Por supuesto! El check-out estándar es a las 11:00 h. Puedo ofrecerle un late check-out hasta las 13:00 h sin coste adicional. ¿Quiere también que guardemos su equipaje para disfrutar el resto del día?',
+    checkin: '¡Bienvenido/a! Estoy listo para ayudarle con el check-in. ¿Puede confirmarme el nombre de la reserva? Lo preparo todo de antemano — el proceso tardará solo unos minutos.',
+    ac:      '¡Lo siento mucho! Ya he notificado al equipo de mantenimiento — un técnico estará en su habitación en unos 15 minutos. Mientras tanto, ¿le llevo un ventilador portátil? Su comodidad es lo más importante.',
+    wifi:    '¡Claro! La red WiFi es "HotelGuest" y la contraseña es hospitality2024. Funciona en todo el hotel. Si tiene problemas de conexión desde su habitación, avíseme.',
+    parking: '¡Buenas noticias! Tenemos parking cubierto disponible a €15 por noche, con acceso 24h. Puedo reservarle una plaza fija para toda su estancia. ¿Quiere que lo añada directamente?',
+    towel:   '¡Por supuesto! Le envío toallas limpias enseguida — estarán en su habitación en unos 10 minutos. ¿Cuántas necesita?',
+    blanket: '¡Claro que sí! Le mando una manta extra ahora mismo — llegará en unos 10 minutos. ¿Necesita algo más para pasar una buena noche?',
+    pool:    'La piscina está abierta de 8:00 a 20:00 h. Las toallas están disponibles al borde de la piscina. ¿Desea reservar una tumbona?',
+    food:    'El desayuno se sirve en el restaurante de la planta baja de 7:00 a 10:30 h (hasta las 11:00 los fines de semana). Ofrecemos un bufé con opciones vegetarianas, veganas y sin gluten. ¿Quiere que reserve una mesa para mañana por la mañana?',
+    noise:   'Me disculpo sinceramente por las molestias. ¿Puede indicarme de dónde proviene el ruido? Intervengo de inmediato para resolverlo.',
+    luggage: '¡Por supuesto! Podemos guardar su equipaje gratuitamente hasta las 20:00 h. ¿Prefiere pasarse por recepción o le mando a alguien a recogerlo?',
+    late:    'Ningún problema — ¡estamos disponibles las 24 horas! ¿Puede indicarme su hora de llegada prevista? Lo tendré todo listo.',
+    general: '¡Hola! Soy AutoReception, el asistente IA de este hotel. Estoy disponible 24h/7 días. ¿En qué puedo ayudarle hoy?',
+  },
+  zh:{
+    key:     '没关系，这种情况很常见！我马上为您安排一把备用钥匙。能否告诉我您的姓名和房间号？您可以在5分钟内到前台取钥匙，或者我可以安排工作人员直接送到您的房间。',
+    checkout:'当然可以！标准退房时间是上午11:00。如果需要，我可以免费为您安排延迟退房至下午1:00。您是否还需要我们帮您保管行李，以便继续享受今天的时光？',
+    checkin: '欢迎入住！我已准备好协助您办理入住手续。请问您的预订是以什么名字登记的？我会提前为您准备好一切，办理过程只需几分钟。',
+    ac:      '非常抱歉给您带来不便！我已经通知了维修团队，技术人员将在15分钟内到达您的房间。在此期间，是否需要我为您送去一个便携式风扇？您的舒适是我们的首要任务。',
+    wifi:    '当然可以！WiFi名称是"HotelGuest"，密码是hospitality2024，覆盖整个酒店。如果您在房间内遇到连接问题，请告诉我，我会安排人员前来协助。',
+    parking: '好消息！我们有室内停车场，每晚€15，24小时开放。我可以为您整个住宿期间预留一个专属停车位。需要我现在添加吗？',
+    towel:   '当然！我马上为您送去新鲜毛巾——大约10分钟内送达。请问需要几条？',
+    blanket: '当然可以！我马上安排为您送去额外的毛毯——10分钟内送到。还有其他需要吗？',
+    pool:    '游泳池开放时间为每天8:00至20:00。泳池边备有毛巾。需要预订躺椅吗？',
+    food:    '早餐在一楼餐厅供应，时间为7:00至10:30（周末至11:00）。我们提供自助餐，包含素食、纯素和无麸质选项。需要为您预定明天早上的餐位吗？',
+    noise:   '对于打扰您，我深感抱歉！能告诉我噪音来自哪里吗？我会立即处理，确保您能安静休息。',
+    luggage: '当然可以！我们可以免费为您保管行李至20:00。您是想亲自送到前台，还是需要我安排人员到您房间取行李？',
+    late:    '完全没问题——我们24小时全天候服务！能告诉我您预计到达的时间吗？我会提前为您准备好一切。',
+    general: '您好！我是AutoReception，这家酒店的AI助手。我全天候24小时为您服务。请问今天有什么可以帮助您的吗？',
+  },
+};
+
+const SIM_LANG_NAMES={it:'Italiano 🇮🇹',en:'English 🇬🇧',de:'Deutsch 🇩🇪',fr:'Français 🇫🇷',es:'Español 🇪🇸',zh:'中文 🇨🇳'};
+
+function simDetectLang(text){
+  if(/[一-鿿]/.test(text))return'zh';
+  const t=text.toLowerCase();
+  const scores={};
+  for(const[lang,words]of Object.entries(SIM_LANG_MARKERS)){
+    scores[lang]=words.filter(w=>t.includes(w)).length;
+  }
+  const best=Object.entries(scores).sort((a,b)=>b[1]-a[1]);
+  return best[0][1]>0?best[0][0]:'en';
+}
+
+function simDetectIntent(text){
+  const t=text.toLowerCase();
+  for(const[intent,words]of Object.entries(SIM_INTENTS)){
+    if(words.some(w=>t.includes(w)))return intent;
+  }
+  return'general';
+}
+
+function fillSim(text){
+  document.getElementById('simInput').value=text;
+  document.getElementById('simInput').focus();
+}
+
+function runSim(){
+  const input=document.getElementById('simInput').value.trim();
+  if(!input)return;
+  const btn=document.getElementById('simBtn');
+  const status=document.getElementById('simStatus');
+  const area=document.getElementById('simResponseArea');
+  const meta=document.getElementById('simMeta');
+
+  btn.disabled=true;
+  meta.style.display='none';
+  status.textContent='Elaborazione…';
+
+  const lang=simDetectLang(input);
+  const intent=simDetectIntent(input);
+  const pool=SIM_RESPONSES[lang]||SIM_RESPONSES.en;
+  const responseText=pool[intent]||pool.general||SIM_RESPONSES.en.general;
+
+  area.innerHTML='<div class="sim-typing"><div class="sim-dot"></div><div class="sim-dot"></div><div class="sim-dot"></div></div>';
+
+  const t0=Date.now();
+
+  setTimeout(()=>{
+    status.textContent='Risposta in corso…';
+    const div=document.createElement('div');
+    div.className='sim-response-text';
+    area.innerHTML='';
+    area.appendChild(div);
+
+    const cursor=document.createElement('span');
+    cursor.className='sim-cursor';
+
+    let i=0;
+    const speed=Math.max(8,Math.min(20,Math.round(4000/responseText.length)));
+
+    const ticker=setInterval(()=>{
+      i++;
+      div.textContent=responseText.slice(0,i);
+      div.appendChild(cursor);
+      if(i>=responseText.length){
+        clearInterval(ticker);
+        cursor.remove();
+        const elapsed=((Date.now()-t0)/1000).toFixed(1);
+        document.getElementById('simBadgeTime').textContent='⚡ '+elapsed+'s';
+        document.getElementById('simBadgeLang').textContent=SIM_LANG_NAMES[lang]||lang;
+        meta.style.display='flex';
+        status.textContent='Risposta inviata';
+        btn.disabled=false;
+      }
+    },speed);
+  },1400);
+}
+
+document.getElementById('simInput').addEventListener('keydown',e=>{
+  if((e.ctrlKey||e.metaKey)&&e.key==='Enter')runSim();
 });
 </script>
