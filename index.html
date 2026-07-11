@@ -350,81 +350,188 @@ footer{background:#080E07;color:rgba(255,255,255,.65);padding:4rem 2.5rem 2.5rem
   <!-- Channel Hub on green background -->
   <div class="hero-right">
     <div class="hub-wrap">
-      <svg viewBox="0 0 340 340" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="6 canali convergono in un unico hub AI">
+      <svg viewBox="0 0 480 480" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Marco - Concierge AI hub">
         <defs>
-          <path id="p0" d="M170,78 L170,132"/>
-          <path id="p1" d="M256,125 L207,153"/>
-          <path id="p2" d="M256,215 L207,187"/>
-          <path id="p3" d="M170,262 L170,208"/>
-          <path id="p4" d="M84,215 L133,187"/>
-          <path id="p5" d="M84,125 L133,153"/>
-          <path id="r0" d="M170,132 L170,78"/>
-          <path id="r1" d="M207,153 L256,125"/>
-          <path id="r2" d="M207,187 L256,215"/>
-          <path id="r3" d="M170,208 L170,262"/>
-          <path id="r4" d="M133,187 L84,215"/>
-          <path id="r5" d="M133,153 L84,125"/>
+          <!-- Glow filters -->
+          <filter id="glow-hub" x="-70%" y="-70%" width="240%" height="240%">
+            <feGaussianBlur stdDeviation="10" result="b1"/>
+            <feGaussianBlur stdDeviation="4" result="b2"/>
+            <feMerge><feMergeNode in="b1"/><feMergeNode in="b2"/><feMergeNode in="SourceGraphic"/></feMerge>
+          </filter>
+          <filter id="glow-node" x="-60%" y="-60%" width="220%" height="220%">
+            <feGaussianBlur stdDeviation="6" result="b"/>
+            <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+          </filter>
+          <filter id="glow-line" x="-200%" y="-200%" width="500%" height="500%">
+            <feGaussianBlur stdDeviation="3.5" result="b"/>
+            <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+          </filter>
+          <!-- Radial glow bg -->
+          <radialGradient id="bg-glow" cx="50%" cy="50%" r="50%">
+            <stop offset="0%" stop-color="#3DD639" stop-opacity="0.22"/>
+            <stop offset="55%" stop-color="#3DD639" stop-opacity="0.07"/>
+            <stop offset="100%" stop-color="#3DD639" stop-opacity="0"/>
+          </radialGradient>
+          <!-- Hub fill -->
+          <radialGradient id="hub-fill" cx="40%" cy="35%" r="65%">
+            <stop offset="0%" stop-color="#ffffff"/>
+            <stop offset="100%" stop-color="#cff0cc"/>
+          </radialGradient>
+          <!-- Radar sweep fill -->
+          <radialGradient id="radar-g" cx="0%" cy="100%" r="141%">
+            <stop offset="0%" stop-color="#3DD639" stop-opacity="0.28"/>
+            <stop offset="100%" stop-color="#3DD639" stop-opacity="0"/>
+          </radialGradient>
+          <!-- Motion paths: node edge → hub edge -->
+          <!-- WA  (240,121)→(240,178) -->
+          <path id="p0" d="M240,121 L240,178"/>
+          <!-- TEL (343,181)→(294,209) -->
+          <path id="p1" d="M343,181 L294,209"/>
+          <!-- Email (343,299)→(294,271) -->
+          <path id="p2" d="M343,299 L294,271"/>
+          <!-- BK  (240,359)→(240,302) -->
+          <path id="p3" d="M240,359 L240,302"/>
+          <!-- SMS (137,299)→(186,271) -->
+          <path id="p4" d="M137,299 L186,271"/>
+          <!-- Reviews (137,181)→(186,209) -->
+          <path id="p5" d="M137,181 L186,209"/>
+          <!-- Return paths -->
+          <path id="r0" d="M240,178 L240,121"/>
+          <path id="r1" d="M294,209 L343,181"/>
+          <path id="r2" d="M294,271 L343,299"/>
+          <path id="r3" d="M240,302 L240,359"/>
+          <path id="r4" d="M186,271 L137,299"/>
+          <path id="r5" d="M186,209 L137,181"/>
         </defs>
 
-        <!-- Connection lines -->
-        <line x1="170" y1="78" x2="170" y2="132" stroke="rgba(255,255,255,.22)" stroke-width="1.5"/>
-        <line x1="256" y1="125" x2="207" y2="153" stroke="rgba(255,255,255,.22)" stroke-width="1.5"/>
-        <line x1="256" y1="215" x2="207" y2="187" stroke="rgba(255,255,255,.22)" stroke-width="1.5"/>
-        <line x1="170" y1="262" x2="170" y2="208" stroke="rgba(255,255,255,.22)" stroke-width="1.5"/>
-        <line x1="84" y1="215" x2="133" y2="187" stroke="rgba(255,255,255,.22)" stroke-width="1.5"/>
-        <line x1="84" y1="125" x2="133" y2="153" stroke="rgba(255,255,255,.22)" stroke-width="1.5"/>
+        <!-- Background radial glow -->
+        <circle cx="240" cy="240" r="230" fill="url(#bg-glow)"/>
 
-        <!-- CENTER HUB -->
-        <circle cx="170" cy="170" r="44" fill="white" opacity=".95"/>
-        <circle cx="170" cy="170" r="36" fill="rgba(46,201,42,.12)"/>
-        <text x="170" y="165" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,system-ui,sans-serif" font-size="16" font-weight="900" fill="#0C1A0A" letter-spacing="-0.5">MARCO</text>
-        <text x="170" y="180" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,system-ui,sans-serif" font-size="7.5" font-weight="700" fill="#2EC92A" letter-spacing="1.5">CONCIERGE AI</text>
+        <!-- Outer slow-rotate dashed ring -->
+        <circle cx="240" cy="240" r="212" fill="none" stroke="rgba(61,214,57,0.07)" stroke-width="1" stroke-dasharray="3 9">
+          <animateTransform attributeName="transform" type="rotate" from="0 240 240" to="-360 240 240" dur="45s" repeatCount="indefinite"/>
+        </circle>
 
-        <!-- CHANNEL NODES -->
-        <!-- WhatsApp: top (170,48) -->
-        <circle cx="170" cy="48" r="28" fill="rgba(255,255,255,.15)" stroke="rgba(255,255,255,.35)" stroke-width="1.5"/>
-        <text x="170" y="44" text-anchor="middle" font-family="ui-monospace,monospace" font-size="6.5" font-weight="800" fill="white" letter-spacing="0.5">WA</text>
-        <text x="170" y="55" text-anchor="middle" font-family="-apple-system,system-ui,sans-serif" font-size="5.5" font-weight="600" fill="rgba(255,255,255,.7)">WhatsApp</text>
+        <!-- Orbital track ring -->
+        <circle cx="240" cy="240" r="155" fill="none" stroke="rgba(61,214,57,0.07)" stroke-width="0.75"/>
+        <circle cx="240" cy="240" r="155" fill="none" stroke="rgba(61,214,57,0.18)" stroke-width="1" stroke-dasharray="10 14">
+          <animateTransform attributeName="transform" type="rotate" from="0 240 240" to="360 240 240" dur="28s" repeatCount="indefinite"/>
+        </circle>
 
-        <!-- Voice: top-right (270,113) -->
-        <circle cx="270" cy="113" r="28" fill="rgba(255,255,255,.15)" stroke="rgba(255,255,255,.35)" stroke-width="1.5"/>
-        <text x="270" y="109" text-anchor="middle" font-family="ui-monospace,monospace" font-size="6.5" font-weight="800" fill="white" letter-spacing="0.5">TEL</text>
-        <text x="270" y="120" text-anchor="middle" font-family="-apple-system,system-ui,sans-serif" font-size="5.5" font-weight="600" fill="rgba(255,255,255,.7)">Voce</text>
+        <!-- Radar sweep (30° wedge rotating) -->
+        <path d="M240,240 L240,85 A155,155 0 0,1 317,106 Z" fill="url(#radar-g)" opacity="0.85">
+          <animateTransform attributeName="transform" type="rotate" from="0 240 240" to="360 240 240" dur="7s" repeatCount="indefinite"/>
+        </path>
 
-        <!-- Email: bottom-right (270,227) -->
-        <circle cx="270" cy="227" r="28" fill="rgba(255,255,255,.15)" stroke="rgba(255,255,255,.35)" stroke-width="1.5"/>
-        <text x="270" y="223" text-anchor="middle" font-family="ui-monospace,monospace" font-size="9" font-weight="800" fill="white">@</text>
-        <text x="270" y="234" text-anchor="middle" font-family="-apple-system,system-ui,sans-serif" font-size="5.5" font-weight="600" fill="rgba(255,255,255,.7)">Email</text>
+        <!-- Sonar pulses (3 staggered rings expanding from hub) -->
+        <circle cx="240" cy="240" fill="none" stroke="#3DD639" stroke-width="1.5" r="62">
+          <animate attributeName="r" values="64;180" dur="2.6s" repeatCount="indefinite" begin="0s" calcMode="spline" keySplines="0.4 0 0.6 1"/>
+          <animate attributeName="opacity" values="0.55;0" dur="2.6s" repeatCount="indefinite" begin="0s"/>
+        </circle>
+        <circle cx="240" cy="240" fill="none" stroke="#3DD639" stroke-width="1.5" r="62">
+          <animate attributeName="r" values="64;180" dur="2.6s" repeatCount="indefinite" begin="0.87s" calcMode="spline" keySplines="0.4 0 0.6 1"/>
+          <animate attributeName="opacity" values="0.55;0" dur="2.6s" repeatCount="indefinite" begin="0.87s"/>
+        </circle>
+        <circle cx="240" cy="240" fill="none" stroke="#3DD639" stroke-width="1.5" r="62">
+          <animate attributeName="r" values="64;180" dur="2.6s" repeatCount="indefinite" begin="1.73s" calcMode="spline" keySplines="0.4 0 0.6 1"/>
+          <animate attributeName="opacity" values="0.55;0" dur="2.6s" repeatCount="indefinite" begin="1.73s"/>
+        </circle>
 
-        <!-- Booking.com: bottom (170,292) -->
-        <circle cx="170" cy="292" r="28" fill="rgba(255,255,255,.15)" stroke="rgba(255,255,255,.35)" stroke-width="1.5"/>
-        <text x="170" y="288" text-anchor="middle" font-family="ui-monospace,monospace" font-size="6.5" font-weight="800" fill="white" letter-spacing="0.5">BK</text>
-        <text x="170" y="299" text-anchor="middle" font-family="-apple-system,system-ui,sans-serif" font-size="5.5" font-weight="600" fill="rgba(255,255,255,.7)">Booking.com</text>
+        <!-- COLORED GLOW CONNECTION LINES (glow copy + crisp copy) -->
+        <!-- WA green -->
+        <line x1="240" y1="121" x2="240" y2="178" stroke="#25D366" stroke-width="4" opacity="0.25" filter="url(#glow-line)"/>
+        <line x1="240" y1="121" x2="240" y2="178" stroke="#25D366" stroke-width="1.2" opacity="0.8"/>
+        <!-- TEL orange -->
+        <line x1="343" y1="181" x2="294" y2="209" stroke="#FF7043" stroke-width="4" opacity="0.25" filter="url(#glow-line)"/>
+        <line x1="343" y1="181" x2="294" y2="209" stroke="#FF7043" stroke-width="1.2" opacity="0.8"/>
+        <!-- Email blue -->
+        <line x1="343" y1="299" x2="294" y2="271" stroke="#42A5F5" stroke-width="4" opacity="0.25" filter="url(#glow-line)"/>
+        <line x1="343" y1="299" x2="294" y2="271" stroke="#42A5F5" stroke-width="1.2" opacity="0.8"/>
+        <!-- BK dark blue -->
+        <line x1="240" y1="359" x2="240" y2="302" stroke="#1E88E5" stroke-width="4" opacity="0.25" filter="url(#glow-line)"/>
+        <line x1="240" y1="359" x2="240" y2="302" stroke="#1E88E5" stroke-width="1.2" opacity="0.8"/>
+        <!-- SMS purple -->
+        <line x1="137" y1="299" x2="186" y2="271" stroke="#CE93D8" stroke-width="4" opacity="0.25" filter="url(#glow-line)"/>
+        <line x1="137" y1="299" x2="186" y2="271" stroke="#CE93D8" stroke-width="1.2" opacity="0.8"/>
+        <!-- Reviews amber -->
+        <line x1="137" y1="181" x2="186" y2="209" stroke="#FFA726" stroke-width="4" opacity="0.25" filter="url(#glow-line)"/>
+        <line x1="137" y1="181" x2="186" y2="209" stroke="#FFA726" stroke-width="1.2" opacity="0.8"/>
 
-        <!-- SMS: bottom-left (70,227) -->
-        <circle cx="70" cy="227" r="28" fill="rgba(255,255,255,.15)" stroke="rgba(255,255,255,.35)" stroke-width="1.5"/>
-        <text x="70" y="223" text-anchor="middle" font-family="ui-monospace,monospace" font-size="6.5" font-weight="800" fill="white" letter-spacing="0.5">SMS</text>
-        <text x="70" y="234" text-anchor="middle" font-family="-apple-system,system-ui,sans-serif" font-size="5.5" font-weight="600" fill="rgba(255,255,255,.7)">SMS</text>
+        <!-- HUB: outer atmosphere rings -->
+        <circle cx="240" cy="240" r="90" fill="rgba(61,214,57,0.07)">
+          <animate attributeName="r" values="87;97;87" dur="4s" repeatCount="indefinite"/>
+          <animate attributeName="opacity" values="1;0.4;1" dur="4s" repeatCount="indefinite"/>
+        </circle>
+        <circle cx="240" cy="240" r="77" fill="none" stroke="rgba(61,214,57,0.28)" stroke-width="1">
+          <animate attributeName="r" values="74;82;74" dur="4s" repeatCount="indefinite"/>
+        </circle>
+        <circle cx="240" cy="240" r="68" fill="none" stroke="rgba(61,214,57,0.55)" stroke-width="1.5"/>
 
-        <!-- Reviews: top-left (70,113) -->
-        <circle cx="70" cy="113" r="28" fill="rgba(255,255,255,.15)" stroke="rgba(255,255,255,.35)" stroke-width="1.5"/>
-        <text x="70" y="109" text-anchor="middle" font-family="ui-monospace,monospace" font-size="9" font-weight="800" fill="white">★</text>
-        <text x="70" y="120" text-anchor="middle" font-family="-apple-system,system-ui,sans-serif" font-size="5.5" font-weight="600" fill="rgba(255,255,255,.7)">Recensioni</text>
+        <!-- Hub white circle with glow -->
+        <circle cx="240" cy="240" r="60" fill="url(#hub-fill)" filter="url(#glow-hub)"/>
+        <circle cx="240" cy="240" r="60" fill="none" stroke="rgba(61,214,57,0.7)" stroke-width="1"/>
 
-        <!-- Inbound dots -->
-        <circle r="4.5" fill="white" opacity="0"><animateMotion dur="1.6s" begin="0s" repeatCount="indefinite"><mpath href="#p0"/></animateMotion><animate attributeName="opacity" values="0;.9;.9;0" keyTimes="0;0.05;0.9;1" dur="1.6s" repeatCount="indefinite" begin="0s"/></circle>
-        <circle r="4.5" fill="white" opacity="0"><animateMotion dur="1.6s" begin="0.52s" repeatCount="indefinite"><mpath href="#p1"/></animateMotion><animate attributeName="opacity" values="0;.9;.9;0" keyTimes="0;0.05;0.9;1" dur="1.6s" repeatCount="indefinite" begin="0.52s"/></circle>
-        <circle r="4.5" fill="white" opacity="0"><animateMotion dur="1.6s" begin="1.04s" repeatCount="indefinite"><mpath href="#p2"/></animateMotion><animate attributeName="opacity" values="0;.9;.9;0" keyTimes="0;0.05;0.9;1" dur="1.6s" repeatCount="indefinite" begin="1.04s"/></circle>
-        <circle r="4.5" fill="white" opacity="0"><animateMotion dur="1.6s" begin="1.56s" repeatCount="indefinite"><mpath href="#p3"/></animateMotion><animate attributeName="opacity" values="0;.9;.9;0" keyTimes="0;0.05;0.9;1" dur="1.6s" repeatCount="indefinite" begin="1.56s"/></circle>
-        <circle r="4.5" fill="white" opacity="0"><animateMotion dur="1.6s" begin="2.08s" repeatCount="indefinite"><mpath href="#p4"/></animateMotion><animate attributeName="opacity" values="0;.9;.9;0" keyTimes="0;0.05;0.9;1" dur="1.6s" repeatCount="indefinite" begin="2.08s"/></circle>
-        <circle r="4.5" fill="white" opacity="0"><animateMotion dur="1.6s" begin="2.6s" repeatCount="indefinite"><mpath href="#p5"/></animateMotion><animate attributeName="opacity" values="0;.9;.9;0" keyTimes="0;0.05;0.9;1" dur="1.6s" repeatCount="indefinite" begin="2.6s"/></circle>
-        <!-- Outbound dots (response) -->
-        <circle r="3" fill="rgba(255,255,255,.7)" opacity="0"><animateMotion dur="1.6s" begin="0.8s" repeatCount="indefinite"><mpath href="#r0"/></animateMotion><animate attributeName="opacity" values="0;.6;.6;0" keyTimes="0;0.05;0.9;1" dur="1.6s" repeatCount="indefinite" begin="0.8s"/></circle>
-        <circle r="3" fill="rgba(255,255,255,.7)" opacity="0"><animateMotion dur="1.6s" begin="1.32s" repeatCount="indefinite"><mpath href="#r1"/></animateMotion><animate attributeName="opacity" values="0;.6;.6;0" keyTimes="0;0.05;0.9;1" dur="1.6s" repeatCount="indefinite" begin="1.32s"/></circle>
-        <circle r="3" fill="rgba(255,255,255,.7)" opacity="0"><animateMotion dur="1.6s" begin="1.84s" repeatCount="indefinite"><mpath href="#r2"/></animateMotion><animate attributeName="opacity" values="0;.6;.6;0" keyTimes="0;0.05;0.9;1" dur="1.6s" repeatCount="indefinite" begin="1.84s"/></circle>
-        <circle r="3" fill="rgba(255,255,255,.7)" opacity="0"><animateMotion dur="1.6s" begin="2.36s" repeatCount="indefinite"><mpath href="#r3"/></animateMotion><animate attributeName="opacity" values="0;.6;.6;0" keyTimes="0;0.05;0.9;1" dur="1.6s" repeatCount="indefinite" begin="2.36s"/></circle>
-        <circle r="3" fill="rgba(255,255,255,.7)" opacity="0"><animateMotion dur="1.6s" begin="2.88s" repeatCount="indefinite"><mpath href="#r4"/></animateMotion><animate attributeName="opacity" values="0;.6;.6;0" keyTimes="0;0.05;0.9;1" dur="1.6s" repeatCount="indefinite" begin="2.88s"/></circle>
-        <circle r="3" fill="rgba(255,255,255,.7)" opacity="0"><animateMotion dur="1.6s" begin="3.4s" repeatCount="indefinite"><mpath href="#r5"/></animateMotion><animate attributeName="opacity" values="0;.6;.6;0" keyTimes="0;0.05;0.9;1" dur="1.6s" repeatCount="indefinite" begin="3.4s"/></circle>
+        <!-- MARCO text -->
+        <text x="240" y="235" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,system-ui,sans-serif" font-size="20" font-weight="900" fill="#0C1A0A" letter-spacing="-0.5">MARCO</text>
+        <text x="240" y="252" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,system-ui,sans-serif" font-size="7.5" font-weight="700" fill="#2EC92A" letter-spacing="1.8">CONCIERGE AI</text>
+
+        <!-- CHANNEL NODES (color-coded, glowing borders) -->
+        <!-- WA: (240,85) green -->
+        <circle cx="240" cy="85" r="36" fill="rgba(37,211,102,0.18)" stroke="#25D366" stroke-width="1.8" filter="url(#glow-node)"/>
+        <text x="240" y="81" text-anchor="middle" font-family="ui-monospace,monospace" font-size="8.5" font-weight="800" fill="#25D366" letter-spacing="0.5">WA</text>
+        <text x="240" y="94" text-anchor="middle" font-family="-apple-system,system-ui,sans-serif" font-size="6.5" font-weight="600" fill="rgba(255,255,255,.75)">WhatsApp</text>
+
+        <!-- TEL: (374,163) orange -->
+        <circle cx="374" cy="163" r="36" fill="rgba(255,112,67,0.18)" stroke="#FF7043" stroke-width="1.8" filter="url(#glow-node)"/>
+        <text x="374" y="159" text-anchor="middle" font-family="ui-monospace,monospace" font-size="8.5" font-weight="800" fill="#FF7043" letter-spacing="0.5">TEL</text>
+        <text x="374" y="172" text-anchor="middle" font-family="-apple-system,system-ui,sans-serif" font-size="6.5" font-weight="600" fill="rgba(255,255,255,.75)">Voce</text>
+
+        <!-- Email: (374,317) blue -->
+        <circle cx="374" cy="317" r="36" fill="rgba(66,165,245,0.18)" stroke="#42A5F5" stroke-width="1.8" filter="url(#glow-node)"/>
+        <text x="374" y="313" text-anchor="middle" font-family="ui-monospace,monospace" font-size="13" font-weight="800" fill="#42A5F5">@</text>
+        <text x="374" y="328" text-anchor="middle" font-family="-apple-system,system-ui,sans-serif" font-size="6.5" font-weight="600" fill="rgba(255,255,255,.75)">Email</text>
+
+        <!-- BK: (240,395) dark blue -->
+        <circle cx="240" cy="395" r="36" fill="rgba(30,136,229,0.18)" stroke="#1E88E5" stroke-width="1.8" filter="url(#glow-node)"/>
+        <text x="240" y="391" text-anchor="middle" font-family="ui-monospace,monospace" font-size="8.5" font-weight="800" fill="#1E88E5" letter-spacing="0.5">BK</text>
+        <text x="240" y="404" text-anchor="middle" font-family="-apple-system,system-ui,sans-serif" font-size="6.5" font-weight="600" fill="rgba(255,255,255,.75)">Booking.com</text>
+
+        <!-- SMS: (106,317) purple -->
+        <circle cx="106" cy="317" r="36" fill="rgba(206,147,216,0.18)" stroke="#CE93D8" stroke-width="1.8" filter="url(#glow-node)"/>
+        <text x="106" y="313" text-anchor="middle" font-family="ui-monospace,monospace" font-size="8.5" font-weight="800" fill="#CE93D8" letter-spacing="0.5">SMS</text>
+        <text x="106" y="326" text-anchor="middle" font-family="-apple-system,system-ui,sans-serif" font-size="6.5" font-weight="600" fill="rgba(255,255,255,.75)">SMS</text>
+
+        <!-- Reviews: (106,163) amber -->
+        <circle cx="106" cy="163" r="36" fill="rgba(255,167,38,0.18)" stroke="#FFA726" stroke-width="1.8" filter="url(#glow-node)"/>
+        <text x="106" y="158" text-anchor="middle" font-family="ui-monospace,monospace" font-size="14" font-weight="800" fill="#FFA726">★</text>
+        <text x="106" y="173" text-anchor="middle" font-family="-apple-system,system-ui,sans-serif" font-size="6.5" font-weight="600" fill="rgba(255,255,255,.75)">Recensioni</text>
+
+        <!-- INBOUND DOTS (colored, 2 staggered per channel) -->
+        <circle r="4.5" fill="#25D366" opacity="0"><animateMotion dur="1.35s" begin="0s" repeatCount="indefinite"><mpath href="#p0"/></animateMotion><animate attributeName="opacity" values="0;1;1;0" keyTimes="0;0.08;0.88;1" dur="1.35s" repeatCount="indefinite" begin="0s"/></circle>
+        <circle r="3" fill="#25D366" opacity="0"><animateMotion dur="1.35s" begin="0.45s" repeatCount="indefinite"><mpath href="#p0"/></animateMotion><animate attributeName="opacity" values="0;0.6;0.6;0" keyTimes="0;0.08;0.88;1" dur="1.35s" repeatCount="indefinite" begin="0.45s"/></circle>
+
+        <circle r="4.5" fill="#FF7043" opacity="0"><animateMotion dur="1.35s" begin="0.22s" repeatCount="indefinite"><mpath href="#p1"/></animateMotion><animate attributeName="opacity" values="0;1;1;0" keyTimes="0;0.08;0.88;1" dur="1.35s" repeatCount="indefinite" begin="0.22s"/></circle>
+        <circle r="3" fill="#FF7043" opacity="0"><animateMotion dur="1.35s" begin="0.67s" repeatCount="indefinite"><mpath href="#p1"/></animateMotion><animate attributeName="opacity" values="0;0.6;0.6;0" keyTimes="0;0.08;0.88;1" dur="1.35s" repeatCount="indefinite" begin="0.67s"/></circle>
+
+        <circle r="4.5" fill="#42A5F5" opacity="0"><animateMotion dur="1.35s" begin="0.44s" repeatCount="indefinite"><mpath href="#p2"/></animateMotion><animate attributeName="opacity" values="0;1;1;0" keyTimes="0;0.08;0.88;1" dur="1.35s" repeatCount="indefinite" begin="0.44s"/></circle>
+        <circle r="3" fill="#42A5F5" opacity="0"><animateMotion dur="1.35s" begin="0.89s" repeatCount="indefinite"><mpath href="#p2"/></animateMotion><animate attributeName="opacity" values="0;0.6;0.6;0" keyTimes="0;0.08;0.88;1" dur="1.35s" repeatCount="indefinite" begin="0.89s"/></circle>
+
+        <circle r="4.5" fill="#1E88E5" opacity="0"><animateMotion dur="1.35s" begin="0.66s" repeatCount="indefinite"><mpath href="#p3"/></animateMotion><animate attributeName="opacity" values="0;1;1;0" keyTimes="0;0.08;0.88;1" dur="1.35s" repeatCount="indefinite" begin="0.66s"/></circle>
+        <circle r="3" fill="#1E88E5" opacity="0"><animateMotion dur="1.35s" begin="1.11s" repeatCount="indefinite"><mpath href="#p3"/></animateMotion><animate attributeName="opacity" values="0;0.6;0.6;0" keyTimes="0;0.08;0.88;1" dur="1.35s" repeatCount="indefinite" begin="1.11s"/></circle>
+
+        <circle r="4.5" fill="#CE93D8" opacity="0"><animateMotion dur="1.35s" begin="0.88s" repeatCount="indefinite"><mpath href="#p4"/></animateMotion><animate attributeName="opacity" values="0;1;1;0" keyTimes="0;0.08;0.88;1" dur="1.35s" repeatCount="indefinite" begin="0.88s"/></circle>
+        <circle r="3" fill="#CE93D8" opacity="0"><animateMotion dur="1.35s" begin="1.33s" repeatCount="indefinite"><mpath href="#p4"/></animateMotion><animate attributeName="opacity" values="0;0.6;0.6;0" keyTimes="0;0.08;0.88;1" dur="1.35s" repeatCount="indefinite" begin="1.33s"/></circle>
+
+        <circle r="4.5" fill="#FFA726" opacity="0"><animateMotion dur="1.35s" begin="1.1s" repeatCount="indefinite"><mpath href="#p5"/></animateMotion><animate attributeName="opacity" values="0;1;1;0" keyTimes="0;0.08;0.88;1" dur="1.35s" repeatCount="indefinite" begin="1.1s"/></circle>
+        <circle r="3" fill="#FFA726" opacity="0"><animateMotion dur="1.35s" begin="1.55s" repeatCount="indefinite"><mpath href="#p5"/></animateMotion><animate attributeName="opacity" values="0;0.6;0.6;0" keyTimes="0;0.08;0.88;1" dur="1.35s" repeatCount="indefinite" begin="1.55s"/></circle>
+
+        <!-- OUTBOUND RESPONSE DOTS (white) -->
+        <circle r="2.5" fill="rgba(255,255,255,.9)" opacity="0"><animateMotion dur="1.1s" begin="0.68s" repeatCount="indefinite"><mpath href="#r0"/></animateMotion><animate attributeName="opacity" values="0;0.8;0.8;0" keyTimes="0;0.08;0.88;1" dur="1.1s" repeatCount="indefinite" begin="0.68s"/></circle>
+        <circle r="2.5" fill="rgba(255,255,255,.9)" opacity="0"><animateMotion dur="1.1s" begin="0.9s" repeatCount="indefinite"><mpath href="#r1"/></animateMotion><animate attributeName="opacity" values="0;0.8;0.8;0" keyTimes="0;0.08;0.88;1" dur="1.1s" repeatCount="indefinite" begin="0.9s"/></circle>
+        <circle r="2.5" fill="rgba(255,255,255,.9)" opacity="0"><animateMotion dur="1.1s" begin="1.12s" repeatCount="indefinite"><mpath href="#r2"/></animateMotion><animate attributeName="opacity" values="0;0.8;0.8;0" keyTimes="0;0.08;0.88;1" dur="1.1s" repeatCount="indefinite" begin="1.12s"/></circle>
+        <circle r="2.5" fill="rgba(255,255,255,.9)" opacity="0"><animateMotion dur="1.1s" begin="1.34s" repeatCount="indefinite"><mpath href="#r3"/></animateMotion><animate attributeName="opacity" values="0;0.8;0.8;0" keyTimes="0;0.08;0.88;1" dur="1.1s" repeatCount="indefinite" begin="1.34s"/></circle>
+        <circle r="2.5" fill="rgba(255,255,255,.9)" opacity="0"><animateMotion dur="1.1s" begin="1.56s" repeatCount="indefinite"><mpath href="#r4"/></animateMotion><animate attributeName="opacity" values="0;0.8;0.8;0" keyTimes="0;0.08;0.88;1" dur="1.1s" repeatCount="indefinite" begin="1.56s"/></circle>
+        <circle r="2.5" fill="rgba(255,255,255,.9)" opacity="0"><animateMotion dur="1.1s" begin="1.78s" repeatCount="indefinite"><mpath href="#r5"/></animateMotion><animate attributeName="opacity" values="0;0.8;0.8;0" keyTimes="0;0.08;0.88;1" dur="1.1s" repeatCount="indefinite" begin="1.78s"/></circle>
       </svg>
     </div>
   </div>
