@@ -803,7 +803,8 @@ footer{background:#080E07;color:rgba(255,255,255,.65);padding:4rem 2.5rem 2.5rem
       <h2>Candidati al Pilot Program</h2>
       <p class="m-sub">Selezioniamo <strong>5 strutture al mese</strong>. Rispondiamo entro 24 ore a chi è il fit giusto. Ci vogliono 2 minuti.</p>
 
-      <div id="demoForm">
+      <form id="demoForm" name="marco-demo" method="POST" data-netlify="true" onsubmit="submitDemo(event)">
+        <input type="hidden" name="form-name" value="marco-demo">
         <!-- Q1 -->
         <div class="form-q">
           <span class="form-q-label">Tipo di struttura</span>
@@ -864,26 +865,26 @@ footer{background:#080E07;color:rgba(255,255,255,.65);padding:4rem 2.5rem 2.5rem
         <div class="form-row">
           <div class="form-field">
             <label for="f-nome">Nome e cognome *</label>
-            <input type="text" id="f-nome" class="form-input" placeholder="Mario Rossi" required>
+            <input type="text" id="f-nome" name="nome" class="form-input" placeholder="Mario Rossi" required>
           </div>
           <div class="form-field">
             <label for="f-struttura">Nome struttura</label>
-            <input type="text" id="f-struttura" class="form-input" placeholder="Hotel Bellavista">
+            <input type="text" id="f-struttura" name="struttura" class="form-input" placeholder="Hotel Bellavista">
           </div>
         </div>
         <div class="form-row" style="margin-bottom:1.5rem">
           <div class="form-field">
             <label for="f-wa">WhatsApp / Telefono *</label>
-            <input type="tel" id="f-wa" class="form-input" placeholder="+39 333 1234567" required>
+            <input type="tel" id="f-wa" name="whatsapp" class="form-input" placeholder="+39 333 1234567" required>
           </div>
           <div class="form-field">
             <label for="f-email">Email *</label>
-            <input type="email" id="f-email" class="form-input" placeholder="mario@hotel.it" required>
+            <input type="email" id="f-email" name="email" class="form-input" placeholder="mario@hotel.it" required>
           </div>
         </div>
 
-        <button class="form-submit" onclick="submitDemo()">Invia candidatura →</button>
-      </div>
+        <button type="submit" class="form-submit">Invia candidatura →</button>
+      </form>
 
       <div id="demoSuccess" class="form-success" style="display:none">
         <div class="form-success-icon">✅</div>
@@ -1419,8 +1420,9 @@ document.querySelectorAll('.radio-opt input').forEach(input=>{
   });
 });
 
-/* Demo form submit → WhatsApp */
-function submitDemo(){
+/* Demo form submit → Netlify Forms + WhatsApp */
+async function submitDemo(e){
+  e.preventDefault();
   const nome=document.getElementById('f-nome').value.trim();
   const wa=document.getElementById('f-wa').value.trim();
   const email=document.getElementById('f-email').value.trim();
@@ -1430,6 +1432,12 @@ function submitDemo(){
 
   const get=name=>{const r=document.querySelector(`input[name="${name}"]:checked`);return r?r.value:'Non specificato'};
   const struttura=document.getElementById('f-struttura').value.trim()||'Non specificata';
+
+  /* Submit to Netlify Forms (non-blocking — WA opens regardless) */
+  try{
+    const form=document.getElementById('demoForm');
+    await fetch('/',{method:'POST',headers:{'Content-Type':'application/x-www-form-urlencoded'},body:new URLSearchParams(new FormData(form)).toString()});
+  }catch(_){}
 
   const msg=[
     '🏨 *NUOVA CANDIDATURA MARCO*',
