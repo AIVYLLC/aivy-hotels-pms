@@ -132,8 +132,9 @@ nav{position:sticky;top:0;z-index:100;background:var(--nav-bg);backdrop-filter:b
 .jitem:last-child{border-bottom:none}
 .j-num{font-size:.65rem;font-weight:800;letter-spacing:.06em;color:var(--accent);width:20px;flex-shrink:0;padding-top:.15rem}
 .j-title{font-size:.9375rem;font-weight:700;color:var(--text);margin-bottom:.2rem}
-.j-ch{font-size:.75rem;color:var(--t3);}
-.j-ch strong{color:var(--ac-text);font-weight:600}
+.j-ch{font-size:.8rem;color:var(--t2);line-height:1.55;margin-top:.15rem}
+.j-tags{display:flex;gap:.35rem;flex-wrap:wrap;margin-top:.55rem}
+.j-tag{font-size:.62rem;font-weight:700;letter-spacing:.04em;padding:.18rem .55rem;border-radius:100px;background:var(--ac-d);color:var(--ac-text)}
 
 /* Feed card */
 .feed-card{background:var(--surface);border:1px solid var(--border);border-radius:8px;overflow:hidden;box-shadow:var(--shadow)}
@@ -521,43 +522,48 @@ footer{background:#080E07;color:rgba(255,255,255,.65);padding:4rem 2.5rem 2.5rem
   <div class="wrap">
     <div class="journey-grid">
       <div>
-        <p class="sec-eyebrow">Il percorso dell'ospite</p>
-        <h2 class="sec-h2">Ogni fase del soggiorno.<br><em>Su ogni canale.</em></h2>
-        <p class="sec-body">AutoReception non è solo ricezione — accompagna l'ospite dalla prenotazione alla recensione finale.</p>
+        <p class="sec-eyebrow">Cosa gestisce AutoReception</p>
+        <h2 class="sec-h2">Ogni richiesta.<br><em>Ogni ospite. Sempre.</em></h2>
+        <p class="sec-body">Dalla prima domanda di disponibilità all'ultima recensione — AutoReception gestisce l'intero ciclo, su ogni canale, in qualsiasi lingua.</p>
         <div class="jlist">
           <div class="jitem">
             <span class="j-num">01</span>
             <div>
-              <div class="j-title">Offerta pre-arrivo</div>
-              <div class="j-ch">via <strong>Email · WhatsApp</strong> — upgrade, colazione, parcheggio</div>
+              <div class="j-title">Disponibilità e prenotazioni</div>
+              <div class="j-ch">Risponde in secondi a richieste di disponibilità con prezzi reali e opzioni concrete. Gestisce prenotazioni dirette e invia conferme automatiche via WhatsApp, email e OTA.</div>
+              <div class="j-tags"><span class="j-tag">disponibilità</span><span class="j-tag">prenotazione diretta</span><span class="j-tag">OTA</span><span class="j-tag">conferma automatica</span></div>
             </div>
           </div>
           <div class="jitem">
             <span class="j-num">02</span>
             <div>
-              <div class="j-title">Documenti e registrazione</div>
-              <div class="j-ch">via <strong>SMS · Email</strong> — link sicuro, ISTAT automatico</div>
+              <div class="j-title">Documenti & check-in digitale</div>
+              <div class="j-ch">Invia link sicuro per raccolta documenti d'identità e firma digitale. Compila la schedina ISTAT in automatico. Gestisce il check-in autonomo anche a mezzanotte.</div>
+              <div class="j-tags"><span class="j-tag">richiesta ID sicura</span><span class="j-tag">ISTAT automatico</span><span class="j-tag">check-in 24/7</span><span class="j-tag">chiave digitale</span></div>
             </div>
           </div>
           <div class="jitem">
             <span class="j-num">03</span>
             <div>
-              <div class="j-title">Check-in assistito 24/7</div>
-              <div class="j-ch">via <strong>WhatsApp · Voce · SMS</strong> — chiave digitale, benvenuto</div>
+              <div class="j-title">Supporto ospite e relazione</div>
+              <div class="j-ch">Room service, manutenzione, informazioni locali, richieste speciali — risponde istantaneamente in qualsiasi lingua su tutti i canali. Scala al personale solo quando è davvero necessario.</div>
+              <div class="j-tags"><span class="j-tag">assistenza 24/7</span><span class="j-tag">multilingue</span><span class="j-tag">tutti i canali</span><span class="j-tag">escalation intelligente</span></div>
             </div>
           </div>
           <div class="jitem">
             <span class="j-num">04</span>
             <div>
-              <div class="j-title">Richieste durante il soggiorno</div>
-              <div class="j-ch">via <strong>tutti i canali</strong> — room service, info, manutenzione</div>
+              <div class="j-title">Upsell e offerte personalizzate</div>
+              <div class="j-ch">Prima dell'arrivo e durante il soggiorno propone upgrade di camera, colazione in camera, parcheggio, spa e servizi extra — nel momento giusto, nel tono giusto, senza pressione.</div>
+              <div class="j-tags"><span class="j-tag">upgrade</span><span class="j-tag">cross-sell</span><span class="j-tag">ricavi addizionali</span><span class="j-tag">personalizzato</span></div>
             </div>
           </div>
           <div class="jitem">
             <span class="j-num">05</span>
             <div>
-              <div class="j-title">Post checkout e recensioni</div>
-              <div class="j-ch">via <strong>Email · Booking.com · Google</strong> — review request, offerta ritorno</div>
+              <div class="j-title">Post-soggiorno e fidelizzazione</div>
+              <div class="j-ch">Chiede la recensione nel momento ideale. Gestisce le risposte su Google e Booking.com. Invia offerte di ritorno personalizzate per trasformare ogni ospite in un cliente abituale.</div>
+              <div class="j-tags"><span class="j-tag">review request</span><span class="j-tag">Google</span><span class="j-tag">Booking.com</span><span class="j-tag">offerta ritorno</span></div>
             </div>
           </div>
         </div>
